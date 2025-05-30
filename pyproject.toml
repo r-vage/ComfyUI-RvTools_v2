@@ -1,0 +1,14 @@
+[project]
+name = "comfyui-rvtools_v2"
+description = "this node contains a lot of small little helpers like switches, passers and selectors that i use a lot to build my workflows."
+version = "2.3.8"
+license = { file = "LICENSE" }
+dependencies = ["torch", "numpy", "Pillow", "pynvml", "piexif"]
+
+[project.urls]
+Repository = "https://github.com/r-vage/ComfyUI-RvTools_v2"
+
+[tool.comfy]
+PublisherId = "r-vage"
+DisplayName = "ComfyUI-RvTools_v2"
+Icon = ""
