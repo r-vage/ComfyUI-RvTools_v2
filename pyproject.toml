@@ -1,7 +1,7 @@
 [project]
 name = "comfyui-rvtools_v2"
 description = "this node contains a lot of small little helpers like switches, passers and selectors that i use a lot to build my workflows."
-version = "2.3.9"
+version = "2.4.0"
 license = { file = "LICENSE" }
 dependencies = ["torch", "numpy", "Pillow", "pynvml", "piexif"]
 
