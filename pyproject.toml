@@ -8,6 +8,6 @@ license = { file = "LICENSE" }
 Repository = "https://github.com/r-vage/ComfyUI-RvTools_v2"
 
 [tool.comfy]
-PublisherId = "r-vage"
+PublisherId = "rvage"
 DisplayName = "ComfyUI-RvTools_v2"
 Icon = ""
