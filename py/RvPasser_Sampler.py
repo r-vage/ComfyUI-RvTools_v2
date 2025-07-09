@@ -12,12 +12,13 @@ class RvPasser_Sampler:
     def INPUT_TYPES(cls):
         return {"required": {"sampler_name": (SAMPLERS_COMFY, {"forceInput": True}),}}
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.PASSER.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
 
     RETURN_TYPES = (SAMPLERS_COMFY,)
     RETURN_NAMES = ("sampler_name",)
 
     FUNCTION = "passthrough"
+    DEPRECATED = True
 
     def passthrough(self, sampler_name):
         return (sampler_name,)

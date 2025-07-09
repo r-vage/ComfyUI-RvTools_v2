@@ -10,11 +10,12 @@ class RvPasser_Scheduler_Restart:
     def INPUT_TYPES(cls):
         return {"required": {"scheduler": (SCHEDULERS_RESTART, {"forceInput": True}),}}
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.PASSER.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
     RETURN_TYPES = (SCHEDULERS_RESTART,)
     RETURN_NAMES = ("scheduler",)
 
     FUNCTION = "passthrough"
+    DEPRECATED = True
 
     def passthrough(self, scheduler):
         return (scheduler,)    
