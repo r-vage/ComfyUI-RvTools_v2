@@ -12,11 +12,12 @@ class RvSelector_Scheduler_Efficient:
     def INPUT_TYPES(cls):
         return {"required": {"scheduler_efficient": (SCHEDULERS_EFFICIENT,),}}
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.SELECTOR.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
     RETURN_TYPES = (SCHEDULERS_EFFICIENT,)
     RETURN_NAMES = ("scheduler",)
 
     FUNCTION = "execute"
+    DEPRECATED = True
 
     def execute(self, scheduler_efficient):
         return (scheduler_efficient,)    

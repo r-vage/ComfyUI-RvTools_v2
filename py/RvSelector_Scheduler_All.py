@@ -22,7 +22,7 @@ class RvSelector_Scheduler_All:
                 }
             }
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.SELECTOR.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
     RETURN_TYPES = (
         SCHEDULERS_COMFY,
         SCHEDULERS_EFFICIENT,
@@ -32,6 +32,7 @@ class RvSelector_Scheduler_All:
     RETURN_NAMES = ("comfy", "efficient", "impact", "restart",)
 
     FUNCTION = "execute"
+    DEPRECATED = True
 
     def execute(self, Comfy, Efficient, Impact, Restart):
         return (Comfy, Efficient, Impact, Restart,)

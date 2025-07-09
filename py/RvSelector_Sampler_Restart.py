@@ -12,11 +12,12 @@ class RvSelector_Sampler_Restart:
     def INPUT_TYPES(cls):
         return {"required": {"sampler_name": (SAMPLERS_RESTART,),}}
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.SELECTOR.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
     RETURN_TYPES = (SAMPLERS_RESTART,)
     RETURN_NAMES = ("sampler_name",)
 
     FUNCTION = "execute"
+    DEPRECATED = True
 
     def execute(self, sampler_name):
         return (sampler_name,)

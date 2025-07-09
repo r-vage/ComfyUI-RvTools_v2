@@ -22,11 +22,12 @@ class RvSwitch_Sampler_Restart:
             }
         }
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.SWITCHES.value + CATEGORY.SELECTOR.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
     RETURN_TYPES = (SAMPLERS_RESTART,) 
     RETURN_NAMES = ("sampler_name",)
     
     FUNCTION = "execute"
+    DEPRECATED = True
 
     def execute(self, Input, input1=None, input2=None,):
 

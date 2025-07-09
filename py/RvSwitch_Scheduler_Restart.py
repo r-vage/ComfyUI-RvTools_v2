@@ -19,11 +19,12 @@ class RvSwitch_Scheduler_Restart:
             }
         }
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.SWITCHES.value + CATEGORY.SELECTOR.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
     RETURN_TYPES = (SCHEDULERS_RESTART,) 
     RETURN_NAMES = ("scheduler",)
     
     FUNCTION = "execute"
+    DEPRECATED = True
 
     def execute(self, Input, input1=None, input2=None,):
 

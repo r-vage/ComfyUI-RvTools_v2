@@ -19,11 +19,12 @@ class RvSwitch_Sampler:
             }
         }
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.SWITCHES.value + CATEGORY.SELECTOR.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
     RETURN_TYPES = (comfy.samplers.KSampler.SAMPLERS,) 
     RETURN_NAMES = ("sampler_name",)
     
     FUNCTION = "execute"
+    DEPRECATED = True
 
     def execute(self, Input, input1=None, input2=None,):
 

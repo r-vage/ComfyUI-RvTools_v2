@@ -13,11 +13,12 @@ class RvSelector_Scheduler_Impact:
     def INPUT_TYPES(cls):
         return {"required": {"scheduler_impact": (SCHEDULERS_IMPACT,),}}
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.SELECTOR.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
     RETURN_TYPES = (SCHEDULERS_IMPACT,)
     RETURN_NAMES = ("scheduler",)
 
     FUNCTION = "execute"
+    DEPRECATED = True
 
     def execute(self, scheduler_impact):
         return (scheduler_impact,)    

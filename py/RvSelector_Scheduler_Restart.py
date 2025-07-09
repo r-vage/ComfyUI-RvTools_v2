@@ -11,11 +11,12 @@ class RvSelector_Scheduler_Restart:
     def INPUT_TYPES(cls):
         return {"required": {"scheduler_restart": (SCHEDULERS_RESTART,),}}
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.SELECTOR.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
     RETURN_TYPES = (SCHEDULERS_RESTART,)
     RETURN_NAMES = ("scheduler",)
 
     FUNCTION = "execute"
+    DEPRECATED = True
 
     def execute(self, scheduler_restart):
         return (scheduler_restart,)

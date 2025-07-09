@@ -19,13 +19,14 @@ class RvSelector_Scheduler_ComfyUI_Impact:
                 }
             }
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.SELECTOR.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
     RETURN_TYPES = (
         SCHEDULERS_COMFY,
         SCHEDULERS_IMPACT,)
     RETURN_NAMES = ("comfy", "impact",)
 
     FUNCTION = "execute"
+    DEPRECATED = True
 
     def execute(self, scheduler_comfy, scheduler_impact):
         return (scheduler_comfy, scheduler_impact,)

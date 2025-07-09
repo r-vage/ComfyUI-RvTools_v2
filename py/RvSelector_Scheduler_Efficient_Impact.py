@@ -18,13 +18,14 @@ class RvSelector_Scheduler_Efficient_Impact:
                 }
             }
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.SELECTOR.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
     RETURN_TYPES = (
         SCHEDULERS_EFFICIENT,
         SCHEDULERS_IMPACT,)
     RETURN_NAMES = ("efficient", "impact",)
 
     FUNCTION = "execute"
+    DEPRECATED = True
 
     def execute(self, scheduler_efficient, scheduler_impact):
         return (scheduler_efficient, scheduler_impact,)

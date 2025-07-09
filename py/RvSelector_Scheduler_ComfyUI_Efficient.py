@@ -17,13 +17,14 @@ class RvSelector_Scheduler_ComfyUI_Efficient:
                 }
             }
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.SELECTOR.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
     RETURN_TYPES = (
         comfy.samplers.KSampler.SCHEDULERS,
         SCHEDULERS_EFFICIENT,)
     RETURN_NAMES = ("comfy", "efficient",)
 
     FUNCTION = "execute"
+    DEPRECATED = True
 
     def execute(self, scheduler_comfy, scheduler_efficient):
         return (scheduler_comfy, scheduler_efficient,)
