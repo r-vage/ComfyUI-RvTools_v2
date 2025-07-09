@@ -11,11 +11,12 @@ class RvPipe_Out_SamplerSettings_DualScheduler:
         return {"required": {"pipe": ("pipe",),}}
 
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.PIPE.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
     RETURN_TYPES = ("pipe", any, any, any, "INT", "FLOAT", "FLOAT", "UPSCALE_MODEL", "FLOAT")
     RETURN_NAMES = ("pipe", "sampler", "scheduler", "scheduler_2", "steps", "cfg", "flux_guidance", "upscale_model", "scale_by")
 
     FUNCTION = "execute"
+    DEPRECATED = True
 
     def execute(self, pipe=None, ):
         sampler, scheduler, scheduler_2, steps, cfg, flux_guidance, upscale_model, scale_by  = pipe
