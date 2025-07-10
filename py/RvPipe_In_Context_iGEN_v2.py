@@ -52,7 +52,7 @@ _all_context_input_output_data = {
   "path": ("path", "STRING", "path"),
  }
 
-force_input_types = [any, any]
+force_input_types = ["INT", "STRING", "FLOAT"]
 force_input_names = ["sampler", "scheduler"]
 
 def _create_context_data(input_list=None):
