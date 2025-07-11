@@ -7,7 +7,7 @@ from .anytype import AnyType
 any = AnyType("*")
 
 SAMPLERS_COMFY = comfy.samplers.KSampler.SAMPLERS
-SCHEDULERS_ANY = comfy.samplers.KSampler.SCHEDULERS + ['AYS SD1', 'AYS SDXL', 'AYS SVD', 'GITS[coeff=1.2]','simple_test']
+SCHEDULERS_ANY = comfy.samplers.KSampler.SCHEDULERS + ['AYS SDXL', 'AYS SD1', 'AYS SVD', 'GITS[coeff=1.2]', 'OSS FLUX', 'OSS Wan', 'simple_test']
 
 #code is taken from rgthree context utils
 _all_context_input_output_data = {
