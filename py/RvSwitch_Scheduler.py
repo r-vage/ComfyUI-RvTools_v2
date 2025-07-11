@@ -1,7 +1,9 @@
 import comfy
 
-from .anytype import *
 from ..core import CATEGORY
+from .anytype import AnyType
+
+any = AnyType("*")
 
 SCHEDULERS_COMFY = comfy.samplers.KSampler.SCHEDULERS
 
@@ -21,13 +23,12 @@ class RvSwitch_Scheduler:
             }
         }
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.SWITCHES.value
     RETURN_TYPES = (SCHEDULERS_COMFY,) 
     RETURN_NAMES = ("scheduler",)
     
     FUNCTION = "execute"
-    DEPRECATED = True
-
+    
     def execute(self, Input, input1=None, input2=None,):
 
         if Input == 1:

@@ -25,7 +25,6 @@ class RvSwitch_Latent_MultiSwitch:
     FUNCTION = "execute"
 
     def execute(self, input1=None, input2=None, input3=None, input4=None, input5=None):
-        
 
         if input1 != None:
             return (input1,)

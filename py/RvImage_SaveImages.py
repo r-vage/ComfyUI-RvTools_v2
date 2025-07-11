@@ -191,7 +191,7 @@ def save_json(image_info, filename):
             cstr(f"No image info found, skipping saving of JSON").warning.print()
         with open(f'{filename}.json', 'w') as workflow_file:
             json.dump(workflow, workflow_file)
-            cstr(f"Saved workflow to: {filename}").msg.print()
+            cstr(f"Workflow saved to: {filename + ".json"}").msg.print()
     except Exception as e:
         cstr(f'Failed to save workflow as json due to: {e}, proceeding with the remainder of saving execution').error.print()
 
@@ -242,6 +242,16 @@ class RvImage_SaveImages:
                 civitai_name += " Beta"
             elif scheduler == "linear_quadratic":
                 civitai_name += " Linear Quadratic"
+            elif scheduler == "kl_optimal":
+                civitai_name += " kl optimal"    
+            elif scheduler == "AYS SDXL":
+                civitai_name += " AYS SDXL"
+            elif scheduler == "AYS SD1":
+                civitai_name += " AYS SD1"
+            elif scheduler == "AYS SVD":
+                civitai_name += " AYS SVD"
+            elif scheduler == "simple_test":
+                civitai_name += " Simple Test"
 
             return civitai_name
         else:
@@ -264,9 +274,9 @@ class RvImage_SaveImages:
                 "dpi": ("INT", {"default": 300, "min": 1, "max": 2400, "step": 1}),
                 "quality": ("INT", {"default": 100, "min": 1, "max": 100, "step": 1}),
                 "optimize_image": ("BOOLEAN", {"default": False}),
-                "lossless_webp": ("BOOLEAN", {"default": False}),
-                "embed_workflow": ("BOOLEAN", {"default": False}),
-                "save_generation_data": ("BOOLEAN", {"default": True}),
+                "lossless_webp": ("BOOLEAN", {"default": True}),
+                "embed_workflow": ("BOOLEAN", {"default": True}),
+                "save_generation_data": ("BOOLEAN", {"default": False}),
                 "remove_prompts": ("BOOLEAN", {"default": False}),
                 "save_workflow_as_json": ("BOOLEAN", {"default": False}),
                 "show_previews": ("BOOLEAN", {"default": False}),
@@ -299,10 +309,10 @@ class RvImage_SaveImages:
                         extension='png', 
                         dpi=300, 
                         quality=100, 
-                        optimize_image=True, 
-                        lossless_webp=False, 
-                        embed_workflow=False, 
-                        save_generation_data=True,
+                        optimize_image=False, 
+                        lossless_webp=True, 
+                        embed_workflow=True, 
+                        save_generation_data=False,
                         remove_prompts=False,
                         save_workflow_as_json=False, 
                         show_previews=False, 
@@ -317,27 +327,14 @@ class RvImage_SaveImages:
 
             ckpt_path = ''
             diffusion_path = ''
-            """
-            cstr(f"steps: {steps}").msg.print()
-            cstr(f"cfg: {cfg}").msg.print()
-            cstr(f"sampler_name: {sampler_name}").msg.print()
-            cstr(f"scheduler: {scheduler}").msg.print()
-            cstr(f"positive: {positive}").msg.print()
-            cstr(f"negative: {negative}").msg.print()
-            cstr(f"modelname: {modelname}").msg.print()
-            cstr(f"width: {width}").msg.print()
-            cstr(f"height: {height}").msg.print()
-            cstr(f"seed_value: {seed_value}").msg.print()
-            cstr(f"sloras: {sloras}").msg.print()
-            cstr(f"vae_name: {vae_name}").msg.print()
-            """
 
             if positive in (None, '', 'undefined', 'none'): positive = ""
             if negative in (None, '', 'undefined', 'none'): negative = ""
 
             model_string = {}
             basemodelname = ''
-            
+            modelhash = ""
+
             if not modelname in (None, '', 'undefined', 'none') : 
                 models = modelname.split(', ')
 
@@ -356,24 +353,17 @@ class RvImage_SaveImages:
                             modelhash = get_sha256(unet_path)[:10]
                         elif upscaler_path:
                             modelhash = get_sha256(upscaler_path)[:10]
-                        else:
-                            modelhash = ""
                     
                         if modelhash != "":
                             basemodelname = civitai_model_key_name(return_filename_without_extension(model))
                             model_string[basemodelname] = modelhash
 
-                #cstr(f"model_string: {model_string}").msg.print()
 
             if not vae_name in (None, '', 'undefined', 'none') : 
                 vae_full_path = folder_paths.get_full_path("vae", vae_name)
-                #cstr(f"vae_string: {vae_full_path}").msg.print()
                 vae_hash = get_sha256(vae_full_path)[:10]
                 vae_file = return_filename_without_extension(vae_name)
                 model_string[vae_file] = vae_hash
-
-                #cstr(f"model_string: {model_string}").msg.print()
-
 
             xPositive = positive
 
@@ -383,7 +373,12 @@ class RvImage_SaveImages:
             metadata_extractor = PromptMetadataExtractor([xPositive, negative])
             embeddings = metadata_extractor.get_embeddings()
             loras = metadata_extractor.get_loras()
-            civitai_sampler_name = self.get_civitai_sampler_name(sampler_name.replace('_gpu', ''), scheduler)
+
+            if not sampler_name in (None, '', 'undefined', 'none') : 
+               civitai_sampler_name = self.get_civitai_sampler_name(sampler_name.replace('_gpu', ''), scheduler)
+            else:
+                civitai_sampler_name = "Euler Simple"
+
             extension_hashes = json.dumps(model_string | embeddings | loras | { "model": modelhash })
 
 
@@ -441,7 +436,7 @@ class RvImage_SaveImages:
         file_extension = '.' + extension
         if file_extension not in ALLOWED_EXT:
             cstr(f"The extension `{extension}` is not valid. The valid formats are: {', '.join(sorted(ALLOWED_EXT))}").error.print()
-            file_extension = "png"
+            file_extension = ".png"
 
         results = list()
         output_files = list()
@@ -481,8 +476,10 @@ class RvImage_SaveImages:
             # Delegate the filename stuffs
             if filename_number_start == True:
                 file = f"{counter:0{number_padding}}{delimiter}{filename_prefix}{file_extension}"
+                jsonfile = f"{counter:0{number_padding}}{delimiter}{filename_prefix}"
             else:
                 file = f"{filename_prefix}{delimiter}{counter:0{number_padding}}{file_extension}"
+                jsonfile = f"{filename_prefix}{delimiter}{counter:0{number_padding}}"
             if os.path.exists(os.path.join(output_path, file)):
                 counter += 1
 
@@ -509,7 +506,12 @@ class RvImage_SaveImages:
 
                 cstr(f"Image file saved to: {output_file}").msg.print()
                 output_files.append(output_file)
-
+                
+                if save_workflow_as_json:
+                    output_json = os.path.abspath(os.path.join(output_path, jsonfile))
+                    save_json(extra_pnginfo, output_json)
+                    output_files.append(jsonfile + ".json")
+                    
                 if show_previews:
                     subfolder = self.get_subfolder_path(output_file, original_output)
                     results.append({
@@ -524,11 +526,6 @@ class RvImage_SaveImages:
             except Exception as e:
                 cstr('Unable to save file due to the to the following error:').error.print()
                 print(e)
-
-            if save_workflow_as_json:
-                file = f"{filename_prefix}{delimiter}{counter:0{number_padding}}"
-                save_json(extra_pnginfo, os.path.join(output_path, file))
-                output_files.append(os.path.join(output_path, file + ".json"))
 
             counter += 1
 

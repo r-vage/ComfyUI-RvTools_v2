@@ -1,7 +1,9 @@
 import comfy
 
-from .anytype import *
 from ..core import CATEGORY
+from .anytype import AnyType
+
+any = AnyType("*")
 
 SCHEDULERS_EFFICIENT = comfy.samplers.KSampler.SCHEDULERS + ['AYS SD1', 'AYS SDXL', 'AYS SVD']
 

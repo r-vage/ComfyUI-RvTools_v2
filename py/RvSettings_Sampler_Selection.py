@@ -1,13 +1,11 @@
 import comfy
-import comfy.sd
-import folder_paths
 
 from ..core import CATEGORY
 
 SAMPLERS_COMFY = comfy.samplers.KSampler.SAMPLERS
 SCHEDULERS_ANY = comfy.samplers.KSampler.SCHEDULERS + ['AYS SDXL', 'AYS SD1', 'AYS SVD', 'GITS[coeff=1.2]', 'OSS FLUX', 'OSS Wan', 'simple_test']
 
-class RvSettings_Sampler_Settings_Small:
+class RvSettings_Sampler_Selection:
     def __init__(self):
         pass
 
@@ -17,8 +15,6 @@ class RvSettings_Sampler_Settings_Small:
             "required": {
                 "Sampler": (SAMPLERS_COMFY,),
                 "Scheduler": (SCHEDULERS_ANY,),
-                "Steps": ("INT", {"default": 20, "min": 1, "step": 1}),
-                "CFG": ("FLOAT", {"default": 3.50, "min": 0.00, "step": 0.01}),
             },
         }
 
@@ -27,20 +23,20 @@ class RvSettings_Sampler_Settings_Small:
 
     FUNCTION = "execute"
 
-    def execute(self, Sampler, Scheduler, Steps, CFG):
+    def execute(self, Sampler, Scheduler):
         rlist = []
         rlist.append(Sampler)
         rlist.append(Scheduler)
-        rlist.append(int(Steps))
-        rlist.append(float(CFG))
+        rlist.append(int(0))            #keep for compatibility with pipe sampler settings small
+        rlist.append(float(0))          #keep for compatibility
 
         return (rlist,)
 
-NODE_NAME = 'Sampler Settings Small [RvTools]'
-NODE_DESC = 'Sampler Settings Small'
+NODE_NAME = 'Sampler Selection [RvTools]'
+NODE_DESC = 'Sampler Selection'
 
 NODE_CLASS_MAPPINGS = {
-   NODE_NAME: RvSettings_Sampler_Settings_Small
+   NODE_NAME: RvSettings_Sampler_Selection
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {

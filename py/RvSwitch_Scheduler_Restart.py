@@ -1,5 +1,7 @@
-from .anytype import *
 from ..core import CATEGORY
+from .anytype import AnyType
+
+any = AnyType("*")
 
 SCHEDULERS_RESTART = ('normal', 'karras', 'exponential', 'sgm_uniform', 'simple', 'ddim_uniform', 'beta', 'simple_test')
 

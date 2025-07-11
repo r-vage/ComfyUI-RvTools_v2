@@ -5,7 +5,7 @@ import folder_paths
 from ..core import CATEGORY
 
 SAMPLERS_COMFY = comfy.samplers.KSampler.SAMPLERS
-SCHEDULERS_ANY = comfy.samplers.KSampler.SCHEDULERS + ['AYS SDXL', 'AYS SD1', 'AYS SVD', 'GITS[coeff=1.2]','simple_test']
+SCHEDULERS_ANY = comfy.samplers.KSampler.SCHEDULERS + ['AYS SDXL', 'AYS SD1', 'AYS SVD', 'GITS[coeff=1.2]', 'OSS FLUX', 'OSS Wan', 'simple_test']
 
 class RvSettings_Sampler_Settings_Flux_S:
     def __init__(self):

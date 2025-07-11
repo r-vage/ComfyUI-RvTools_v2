@@ -1,7 +1,9 @@
 import comfy
 
-from .anytype import *
 from ..core import CATEGORY
+from .anytype import AnyType
+
+any = AnyType("*")
 
 class RvSwitch_Sampler:
     def __init__(self):

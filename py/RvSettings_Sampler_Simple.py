@@ -9,7 +9,7 @@ from ..core import CATEGORY
 UPSCALE_MODELS = folder_paths.get_filename_list("upscale_models") + ["None"]
 
 SAMPLERS_COMFY = comfy.samplers.KSampler.SAMPLERS
-SCHEDULERS_ANY = comfy.samplers.KSampler.SCHEDULERS + ['AYS SDXL', 'AYS SD1', 'AYS SVD', 'GITS[coeff=1.2]','simple_test']
+SCHEDULERS_ANY = comfy.samplers.KSampler.SCHEDULERS + ['AYS SDXL', 'AYS SD1', 'AYS SVD', 'GITS[coeff=1.2]', 'OSS FLUX', 'OSS Wan', 'simple_test']
 
 class RvSettings_Sampler_Simple:
     def __init__(self):

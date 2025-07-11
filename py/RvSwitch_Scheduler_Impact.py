@@ -1,9 +1,11 @@
 import comfy
 
-from .anytype import *
 from ..core import CATEGORY
+from .anytype import AnyType
 
-SCHEDULERS_IMPACT = comfy.samplers.KSampler.SCHEDULERS + ['AYS SDXL', 'AYS SD1', 'AYS SVD', 'GITS[coeff=1.2]']
+any = AnyType("*")
+
+SCHEDULERS_IMPACT = comfy.samplers.KSampler.SCHEDULERS + ['AYS SDXL', 'AYS SD1', 'AYS SVD', 'GITS[coeff=1.2]', 'OSS FLUX', 'OSS Wan', 'simple_test']
 
 class RvSwitch_Scheduler_Impact:
     def __init__(self):

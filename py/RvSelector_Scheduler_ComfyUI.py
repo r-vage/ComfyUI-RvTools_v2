@@ -11,12 +11,11 @@ class RvSelector_Scheduler_ComfyUI:
     def INPUT_TYPES(cls):
         return {"required": {"scheduler_comfy": (comfy.samplers.KSampler.SCHEDULERS,),}}
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.SELECTOR.value
     RETURN_TYPES = (comfy.samplers.KSampler.SCHEDULERS,)
     RETURN_NAMES = ("scheduler",)
 
     FUNCTION = "execute"
-    DEPRECATED = True
 
     def execute(self, scheduler_comfy):
         return (scheduler_comfy,)

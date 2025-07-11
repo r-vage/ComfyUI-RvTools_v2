@@ -2,11 +2,7 @@ import comfy
 import comfy.sd
 import folder_paths
 
-from spandrel import ModelLoader, ImageModelDescriptor
-
 from ..core import CATEGORY
-
-
 
 class RvSettings_Sampler_Settings_Flux_SGS:
     def __init__(self):

@@ -1,8 +1,10 @@
 import comfy
 import comfy.sd
 
-from .anytype import *
 from ..core import CATEGORY
+from .anytype import AnyType
+
+any = AnyType("*")
 
 SAMPLERS_COMFY = comfy.samplers.KSampler.SAMPLERS
 SCHEDULERS_ANY = comfy.samplers.KSampler.SCHEDULERS + ['AYS SD1', 'AYS SDXL', 'AYS SVD', 'GITS[coeff=1.2]','simple_test']

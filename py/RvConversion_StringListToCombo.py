@@ -1,5 +1,7 @@
 from ..core import CATEGORY
-from .anytype import *
+from .anytype import AnyType
+
+any = AnyType("*")
 
 class RvConversion_StringListToCombo:
     def __init__(self):

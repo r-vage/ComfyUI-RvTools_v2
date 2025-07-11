@@ -1,6 +1,8 @@
 
-from .anytype import *
 from ..core import CATEGORY
+from .anytype import AnyType
+
+any = AnyType("*")
 
 SAMPLERS_RESTART = ['euler', 'euler_cfg_pp', 'euler_ancestral', 'euler_ancestral_cfg_pp', 'heun', 'heunpp2', 'dpm_2', 'dpm_2_ancestral', \
                     'lms', 'dpmpp_2s_ancestral', 'dpmpp_2m', 'dpmpp_2m_alt', 'ddpm', 'lcm', 'ipndm', 'ipndm_v', 'deis', 'ddim']

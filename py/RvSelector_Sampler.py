@@ -11,13 +11,12 @@ class RvSelector_Sampler:
     def INPUT_TYPES(cls):
         return {"required": {"sampler_name": (comfy.samplers.KSampler.SAMPLERS,),}}
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.SELECTOR.value
 
     RETURN_TYPES = (comfy.samplers.KSampler.SAMPLERS,)
     RETURN_NAMES = ("sampler_name",)
 
     FUNCTION = "execute"
-    DEPRECATED = True
 
     def execute(self, sampler_name):
         return (sampler_name,)

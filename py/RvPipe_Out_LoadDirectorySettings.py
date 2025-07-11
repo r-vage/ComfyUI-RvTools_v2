@@ -1,5 +1,3 @@
-from .anytype import *
-
 from ..core import CATEGORY
 
 class RvPipe_Out_LoadDirectorySettings:

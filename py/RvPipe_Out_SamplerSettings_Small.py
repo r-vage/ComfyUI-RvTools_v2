@@ -1,6 +1,7 @@
-from .anytype import *
-
 from ..core import CATEGORY
+from .anytype import AnyType
+
+any = AnyType("*")
 
 class RvPipe_Out_SamplerSettings_Small:
     def __init__(self):

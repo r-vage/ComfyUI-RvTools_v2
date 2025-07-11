@@ -1,5 +1,4 @@
 from ..core import CATEGORY
-from .anytype import *
 
 # TSC LoRA Stack to String converter
 class RvConversion_Stack2String:

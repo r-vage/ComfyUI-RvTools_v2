@@ -1,6 +1,7 @@
 from ..core import CATEGORY
-from .anytype import *
+from .anytype import AnyType
 
+any = AnyType("*")
 
 class RvSwitch_Any_MultiSwitch:
     def __init__(self):

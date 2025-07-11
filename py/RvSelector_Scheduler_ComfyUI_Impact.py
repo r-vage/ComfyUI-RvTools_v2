@@ -4,7 +4,7 @@ import comfy
 from ..core import CATEGORY
 
 SCHEDULERS_COMFY = comfy.samplers.KSampler.SCHEDULERS
-SCHEDULERS_IMPACT = comfy.samplers.KSampler.SCHEDULERS + ['AYS SDXL', 'AYS SD1', 'AYS SVD', 'GITS[coeff=1.2]']
+SCHEDULERS_IMPACT = comfy.samplers.KSampler.SCHEDULERS + ['AYS SDXL', 'AYS SD1', 'AYS SVD', 'GITS[coeff=1.2]', 'OSS FLUX', 'OSS Wan', 'simple_test']
 
 class RvSelector_Scheduler_ComfyUI_Impact:
     def __init__(self):

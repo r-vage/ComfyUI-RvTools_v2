@@ -3,7 +3,9 @@ import folder_paths
 
 from datetime import datetime
 from ..core import CATEGORY
-from .anytype import *
+from .anytype import AnyType
+
+any = AnyType("*")
 
 MAX_RESOLUTION = 32768
 
