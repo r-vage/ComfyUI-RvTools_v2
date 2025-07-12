@@ -191,7 +191,7 @@ def save_json(image_info, filename):
             cstr(f"No image info found, skipping saving of JSON").warning.print()
         with open(f'{filename}.json', 'w') as workflow_file:
             json.dump(workflow, workflow_file)
-            cstr(f"Workflow saved to: {filename + ".json"}").msg.print()
+            cstr(f"Workflow saved to: {filename + '.json'}").msg.print()
     except Exception as e:
         cstr(f'Failed to save workflow as json due to: {e}, proceeding with the remainder of saving execution').error.print()
 
