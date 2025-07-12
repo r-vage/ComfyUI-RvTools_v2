@@ -279,6 +279,7 @@ class RvImage_SaveImages:
                 "save_generation_data": ("BOOLEAN", {"default": False}),
                 "remove_prompts": ("BOOLEAN", {"default": False}),
                 "save_workflow_as_json": ("BOOLEAN", {"default": False}),
+                "pipe_v2": ("BOOLEAN", {"default": False}),
                 "show_previews": ("BOOLEAN", {"default": False}),
             },
             "optional": {
@@ -316,6 +317,7 @@ class RvImage_SaveImages:
                         remove_prompts=False,
                         save_workflow_as_json=False, 
                         show_previews=False, 
+                        pipe_v2=False, 
                         pipe_opt=None,
                         prompt=None, 
                         extra_pnginfo=None
@@ -323,8 +325,13 @@ class RvImage_SaveImages:
 
         
         if pipe_opt != None:
-            steps, cfg, sampler_name, scheduler, positive, negative, modelname, width, height, seed_value, sloras, vae_name = pipe_opt
 
+            if pipe_v2:
+                #GData II
+                sampler_name, scheduler, steps, cfg, seed_value, width, height, positive, negative, modelname, vae_name, sloras = pipe_opt
+            else:
+                steps, cfg, sampler_name, scheduler, positive, negative, modelname, width, height, seed_value, sloras, vae_name = pipe_opt
+  
             ckpt_path = ''
             diffusion_path = ''
 
@@ -506,12 +513,7 @@ class RvImage_SaveImages:
 
                 cstr(f"Image file saved to: {output_file}").msg.print()
                 output_files.append(output_file)
-                
-                if save_workflow_as_json:
-                    output_json = os.path.abspath(os.path.join(output_path, jsonfile))
-                    save_json(extra_pnginfo, output_json)
-                    output_files.append(jsonfile + ".json")
-                    
+                   
                 if show_previews:
                     subfolder = self.get_subfolder_path(output_file, original_output)
                     results.append({
@@ -526,6 +528,11 @@ class RvImage_SaveImages:
             except Exception as e:
                 cstr('Unable to save file due to the to the following error:').error.print()
                 print(e)
+
+            if save_workflow_as_json:
+                output_json = os.path.abspath(os.path.join(output_path, jsonfile))
+                save_json(extra_pnginfo, output_json)
+                #output_files.append(jsonfile + ".json")
 
             counter += 1
 
