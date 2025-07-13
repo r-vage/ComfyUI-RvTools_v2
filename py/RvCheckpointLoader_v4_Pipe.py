@@ -106,8 +106,8 @@ class RvCheckpointLoader_v4_Pipe:
 
             if clip_name2 not in (None, '', 'undefined', 'None'):
                 clip_path2 = folder_paths.get_full_path_or_raise("clip", clip_name2)
-            else:
-               raise ValueError("Missing Input: Select a Clip Model for 'clip_name2'")
+            #else:
+            #   raise ValueError("Missing Input: Select a Clip Model for 'clip_name2'")
 
             if clip_name3 not in (None, '', 'undefined', 'None'):
                clip_path3 = folder_paths.get_full_path_or_raise("clip", clip_name3)
