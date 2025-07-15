@@ -50,7 +50,12 @@ class RvCheckpointLoader_Small_v2_Pipe:
         rlist.append(loaded_ckpt[:3][0])
         rlist.append(loaded_clip)
         rlist.append(loaded_vae)
-        rlist.append(int(1))              #batch_size (for compatibility)
+        
+        rlist.append(None)              #latent
+        rlist.append(int(8))            #width
+        rlist.append(int(8))            #height 
+        rlist.append(int(1))            #batchsize
+
         rlist.append(str(ckpt_name))      #str(ckpt_path)) #model_name
 
         if vae_name == "Baked VAE":
