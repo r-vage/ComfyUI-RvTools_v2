@@ -44,7 +44,7 @@ class RvCheckpointLoader_v2_Pipe:
                 "vae_name": (["Baked VAE"] + folder_paths.get_filename_list("vae"),),
                 "Baked_Clip": ("BOOLEAN", {"default": True},),
                 "Use_Clip_Layer": ("BOOLEAN", {"default": True},),
-                "stop_at_clip_layer": ("INT", {"default": -1, "min": -24, "max": -1, "step": 1},),
+                "stop_at_clip_layer": ("INT", {"default": -2, "min": -24, "max": -1, "step": 1},),
                 "resolution": (s.resolution,),
                 "width": ("INT", {"default": 512, "min": 16, "max": MAX_RESOLUTION, "step": 8},),
                 "height": ("INT", {"default": 512, "min": 16, "max": MAX_RESOLUTION, "step": 8},),
@@ -133,12 +133,19 @@ class RvCheckpointLoader_v2_Pipe:
         rlist.append(loaded_ckpt[:3][0])
         rlist.append(loaded_clip)
         rlist.append(loaded_vae)
+
         rlist.append({"samples": latent}) #latents
         rlist.append(int(width))
         rlist.append(int(height))
         rlist.append(int(batch_size))
+
         rlist.append(str(ckpt_name))      #model_name
-        rlist.append(str(vae_name))       #vae_name (no path)
+
+        if vae_name == "Baked VAE":
+           rlist.append('')             #empty string no file selected
+        else:
+            rlist.append(str(vae_name)) #vae_name (no path)
+
 
         return (rlist,)
 

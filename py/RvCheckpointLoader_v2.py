@@ -44,7 +44,7 @@ class RvCheckpointLoader_v2:
                 "vae_name": (["Baked VAE"] + folder_paths.get_filename_list("vae"),),
                 "Baked_Clip": ("BOOLEAN", {"default": True},),
                 "Use_Clip_Layer": ("BOOLEAN", {"default": True},),
-                "stop_at_clip_layer": ("INT", {"default": -1, "min": -24, "max": -1, "step": 1},),
+                "stop_at_clip_layer": ("INT", {"default": -2, "min": -24, "max": -1, "step": 1},),
                 "resolution": (s.resolution,),
                 "width": ("INT", {"default": 512, "min": 16, "max": MAX_RESOLUTION, "step": 8},),
                 "height": ("INT", {"default": 512, "min": 16, "max": MAX_RESOLUTION, "step": 8},),

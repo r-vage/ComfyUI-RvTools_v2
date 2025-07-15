@@ -7,7 +7,7 @@ from ..core import CATEGORY
 
 MAX_RESOLUTION = 32768
 
-class RvCheckpointLoader_Small_Pipe:
+class RvCheckpointLoader_v1_Pipe:
     def __init__(self):
         pass
 
@@ -20,17 +20,15 @@ class RvCheckpointLoader_Small_Pipe:
                 "Baked_Clip": ("BOOLEAN", {"default": True},),
                 "Use_Clip_Layer": ("BOOLEAN", {"default": True},),
                 "stop_at_clip_layer": ("INT", {"default": -2, "min": -24, "max": -1, "step": 1},),
-                "batch_size": ("INT", {"default": 1, "min": 1, "max": 4096}),
             },
         }
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.CHECKPOINT.value
 
     RETURN_TYPES = ("pipe",)
     FUNCTION = "execute"
-    DEPRECATED = True
 
-    def execute(self, ckpt_name, vae_name, Baked_Clip, Use_Clip_Layer, stop_at_clip_layer, batch_size):
+    def execute(self, ckpt_name, vae_name, Baked_Clip, Use_Clip_Layer, stop_at_clip_layer):
         ckpt_path = folder_paths.get_full_path("checkpoints", ckpt_name)
         output_vae = (vae_name == "Baked VAE")
 
@@ -50,14 +48,19 @@ class RvCheckpointLoader_Small_Pipe:
         else:
             loaded_clip = None
 
-        #model, clip, vae, batch_size, modelname, vae_name = pipe
+        #model, clip, vae, latent, width, height, batch_size, modelname, vae_name = pipe
 
         rlist = []
         rlist.append(loaded_ckpt[:3][0])
         rlist.append(loaded_clip)
         rlist.append(loaded_vae)
-        rlist.append(int(batch_size))     #batch_size
-        rlist.append(str(ckpt_name))      #str(ckpt_path)) #model_name
+
+        rlist.append(None)              #latent
+        rlist.append(int(8))            #width
+        rlist.append(int(8))            #height 
+        rlist.append(int(1))            #batchsize
+
+        rlist.append(str(ckpt_name))   #model_name without path
 
         if vae_name == "Baked VAE":
            rlist.append('')             #empty string no file selected
@@ -67,11 +70,11 @@ class RvCheckpointLoader_Small_Pipe:
 
         return (rlist,)
 
-NODE_NAME = 'Checkpoint Loader Small (Pipe) [RvTools]'
-NODE_DESC = 'Checkpoint Loader Small (Pipe)'
+NODE_NAME = 'Checkpoint Loader v1 (Pipe) [RvTools]'
+NODE_DESC = 'Checkpoint Loader v1 (Pipe)'
 
 NODE_CLASS_MAPPINGS = {
-   NODE_NAME: RvCheckpointLoader_Small_Pipe
+   NODE_NAME: RvCheckpointLoader_v1_Pipe
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {

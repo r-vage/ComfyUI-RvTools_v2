@@ -2,8 +2,7 @@ import importlib.util
 import os
 import __main__
 
-from .core import version, logger, cstr
-logger.info(f'RvTools v2 Version: {version}')
+from .core import version, cstr
 
 NODE_CLASS_MAPPINGS = {}
 NODE_DISPLAY_NAME_MAPPINGS = {}
@@ -13,6 +12,7 @@ cstr.color.add_code("msg", f"{cstr.color.LIGHTGREEN}RvTools v2: {cstr.color.END}
 cstr.color.add_code("warning", f"{cstr.color.LIGHTGREEN}RvTools v2 {cstr.color.LIGHTYELLOW}Warning: {cstr.color.END}")
 cstr.color.add_code("error", f"{cstr.color.RED}RvTools v2 {cstr.color.END}Error: {cstr.color.END}")
 
+cstr(f'Version: {version}').msg.print()
 
 def get_ext_dir(subpath=None, mkdir=False):
     dir = os.path.dirname(__file__)

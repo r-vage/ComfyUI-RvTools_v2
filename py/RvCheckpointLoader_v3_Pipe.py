@@ -24,7 +24,7 @@ class RvCheckpointLoader_v3_Pipe:
                 "vae_name": (["Baked VAE"] + folder_paths.get_filename_list("vae"),),
                 "baked_clip": ("BOOLEAN", {"default": True},),
                 "enable_clip_layer": ("BOOLEAN", {"default": True},),
-                "stop_at_clip_layer": ("INT", {"default": -1, "min": -24, "max": -1, "step": 1},),
+                "stop_at_clip_layer": ("INT", {"default": -2, "min": -24, "max": -1, "step": 1},),
                 "load_unet_checkpoint": ("BOOLEAN", {"default": False},),
             },
         }
@@ -121,7 +121,7 @@ class RvCheckpointLoader_v3_Pipe:
         
         if loaded_clip == None: raise ValueError("Missing Input: CLIP")
         
-        #model, clip, vae, modelname, vae_name = pipe
+        ##model, clip, vae, latent, width, height, batch_size, modelname, vae_name = pipe
 
         rlist = []
         
@@ -130,7 +130,12 @@ class RvCheckpointLoader_v3_Pipe:
 
         rlist.append(loaded_clip)
         rlist.append(loaded_vae)
-        rlist.append(int(1))               #batch_size (unused, just here to use the existing small pipe in/out node)
+
+        rlist.append(None)                 #latent
+        rlist.append(int(8))               #width
+        rlist.append(int(8))               #height 
+        rlist.append(int(1))               #batchsize
+
         rlist.append(checkpoint)           #model_name without path
 
         if vae_name == "Baked VAE":

@@ -21,10 +21,11 @@ class RvCheckpointLoader_Small_v2_Pipe:
             },
         }
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.CHECKPOINT.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
 
     RETURN_TYPES = ("pipe",)
     FUNCTION = "execute"
+    DEPRECATED = True
 
     def execute(self, ckpt_name, vae_name, stop_at_clip_layer):
         ckpt_path = folder_paths.get_full_path("checkpoints", ckpt_name)
@@ -51,7 +52,12 @@ class RvCheckpointLoader_Small_v2_Pipe:
         rlist.append(loaded_vae)
         rlist.append(int(1))              #batch_size (for compatibility)
         rlist.append(str(ckpt_name))      #str(ckpt_path)) #model_name
-        rlist.append(str(vae_name))       #vae_name (no path)
+
+        if vae_name == "Baked VAE":
+           rlist.append('')             #empty string no file selected
+        else:
+            rlist.append(str(vae_name)) #vae_name (no path)
+
 
         return (rlist,)
 

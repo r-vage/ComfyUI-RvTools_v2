@@ -25,8 +25,9 @@ class RvPipe_In_Generation_Data:
             }
         }
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.PIPE.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
     RETURN_TYPES = ("pipe",)
+    DEPRECATED = True
 
     FUNCTION = "execute"
 

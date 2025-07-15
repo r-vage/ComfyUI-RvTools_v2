@@ -22,10 +22,11 @@ class RvPipe_In_CheckpointLoader_v2:
             }
         }
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.CHECKPOINT.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
     RETURN_TYPES = ("pipe",)
 
     FUNCTION = "execute"
+    DEPRECATED = True
 
     def execute(self, pipe=None, model=None, clip=None, vae=None, latent=None, width=None, height=None, batch_size=None, modelname=None, vae_name=None):
         model_original = None

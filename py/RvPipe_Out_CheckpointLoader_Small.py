@@ -8,14 +8,15 @@ class RvPipe_Out_CheckpointLoader_Small:
     def INPUT_TYPES(cls):
         return {"required": {"pipe": ("pipe",),}}
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.CHECKPOINT.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
     RETURN_TYPES = ("pipe", "MODEL", "CLIP", "VAE", "INT",        "STRING",     "STRING",)
     RETURN_NAMES = ("pipe", "model", "clip", "vae", "batch_size", "model_name", "vae_name",)
 
     FUNCTION = "execute"
+    DEPRECATED = True
 
     def execute(self, pipe=None, ):
-        model, clip, vae, batch_size, modelname, vae_name = pipe
+        model, clip, vae, latent, width, height, batch_size, modelname, vae_name = pipe
         
         return pipe, model, clip, vae, batch_size, modelname, vae_name
 

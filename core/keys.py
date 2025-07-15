@@ -1,6 +1,5 @@
 ﻿from enum import Enum
 
-
 class TEXTS(Enum):
     CUSTOM_NODE_NAME = "RvTools_v2"
     LOGGER_PREFIX = "rvtools"
