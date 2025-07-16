@@ -37,7 +37,8 @@ class RvSwitch_String_MultiSwitch:
         elif input5 != None:
             return (input5,)
         else:
-            raise ValueError("Missing Input: Multi String Switch has no active Input")
+            return ("",)
+            #raise ValueError("Missing Input: Multi String Switch has no active Input")
 
 NODE_NAME = 'String Multi-Switch [RvTools]'
 NODE_DESC = 'String Multi-Switch'

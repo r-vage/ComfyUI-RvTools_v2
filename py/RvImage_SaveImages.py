@@ -24,30 +24,31 @@ Given the file path, finds a matching sha256 file, or creates one
 based on the headers in the source file
 """
 def get_sha256(file_path: str):
-    file_no_ext = os.path.splitext(file_path)[0]
-    hash_file = file_no_ext + ".sha256"
+    if not file_path in (None, '', 'undefined', 'none') : 
+        file_no_ext = os.path.splitext(file_path)[0]
+        hash_file = file_no_ext + ".sha256"
 
-    if os.path.exists(hash_file):
+        if os.path.exists(hash_file):
+            try:
+                with open(hash_file, "r") as f:
+                    return f.read().strip()
+            except OSError as e:
+                cstr(f"RvTools: Error reading existing hash file: {e}").error.print()
+
+        sha256_hash = hashlib.sha256()
+        cstr(f"Hashing File (SHA256): {file_path}").msg.print()
+
+        with open(file_path, "rb") as f:
+            for byte_block in iter(lambda: f.read(4096), b""):
+                sha256_hash.update(byte_block)
+
         try:
-            with open(hash_file, "r") as f:
-                return f.read().strip()
+            with open(hash_file, "w") as f:
+                f.write(sha256_hash.hexdigest())
         except OSError as e:
-            cstr(f"RvTools: Error reading existing hash file: {e}").error.print()
+            cstr(f"RvTools: Error writing hash to {hash_file}: {e}").error.print()
 
-    sha256_hash = hashlib.sha256()
-    cstr(f"Hashing File (SHA256): {file_path}").msg.print()
-
-    with open(file_path, "rb") as f:
-        for byte_block in iter(lambda: f.read(4096), b""):
-            sha256_hash.update(byte_block)
-
-    try:
-        with open(hash_file, "w") as f:
-            f.write(sha256_hash.hexdigest())
-    except OSError as e:
-        cstr(f"RvTools: Error writing hash to {hash_file}: {e}").error.print()
-
-    return sha256_hash.hexdigest()
+        return sha256_hash.hexdigest()
 
 """
 Represent the given embedding name as key as detected by civitAI
@@ -341,6 +342,7 @@ class RvImage_SaveImages:
             model_string = {}
             basemodelname = ''
             modelhash = ""
+            vae_hash = ""
 
             if not modelname in (None, '', 'undefined', 'none') : 
                 models = modelname.split(', ')
@@ -352,13 +354,13 @@ class RvImage_SaveImages:
                         unet_path = folder_paths.get_full_path("unet", model)
                         upscaler_path = folder_paths.get_full_path("upscale_models", model)
         
-                        if ckpt_path:
+                        if not ckpt_path in (None, '', 'undefined', 'none'): 
                             modelhash = get_sha256(ckpt_path)[:10]
-                        elif diffusion_path:
+                        elif not diffusion_path in (None, '', 'undefined', 'none'): 
                             modelhash = get_sha256(diffusion_path)[:10]
-                        elif unet_path:
+                        elif not unet_path in (None, '', 'undefined', 'none'): 
                             modelhash = get_sha256(unet_path)[:10]
-                        elif upscaler_path:
+                        elif not upscaler_path in (None, '', 'undefined', 'none'): 
                             modelhash = get_sha256(upscaler_path)[:10]
                     
                         if modelhash != "":
@@ -367,10 +369,18 @@ class RvImage_SaveImages:
 
 
             if not vae_name in (None, '', 'undefined', 'none') : 
-                vae_full_path = folder_paths.get_full_path("vae", vae_name)
-                vae_hash = get_sha256(vae_full_path)[:10]
-                vae_file = return_filename_without_extension(vae_name)
-                model_string[vae_file] = vae_hash
+                models = vae_name.split(', ')
+
+                for model in models:
+                    if model != "":
+                        vae_full_path = folder_paths.get_full_path("vae", model)
+       
+                        if not vae_full_path in (None, '', 'undefined', 'none'): 
+                            vae_hash = get_sha256(vae_full_path)[:10]
+                    
+                        if vae_hash != "":
+                            vae_file = return_filename_without_extension(model)
+                            model_string[vae_file] = vae_hash
 
             xPositive = positive
 
