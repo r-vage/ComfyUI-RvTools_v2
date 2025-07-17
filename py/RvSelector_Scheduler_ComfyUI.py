@@ -11,7 +11,7 @@ class RvSelector_Scheduler_ComfyUI:
     def INPUT_TYPES(cls):
         return {"required": {"scheduler_comfy": (comfy.samplers.KSampler.SCHEDULERS,),}}
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.SELECTOR.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.SETTINGS.value
     RETURN_TYPES = (comfy.samplers.KSampler.SCHEDULERS,)
     RETURN_NAMES = ("scheduler",)
 

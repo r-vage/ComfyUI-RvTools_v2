@@ -14,10 +14,12 @@ class RvPipe_Out_Generation_Data:
 
     FUNCTION = "execute"
     DEPRECATED = True
+    PipeVersion = 'V1'
 
     def execute(self, pipe=None, ):
-        steps, cfg, sampler_name, scheduler, positive, negative, modelname, width, height, seed_value, loras, vae_name = pipe
-        return pipe, steps, cfg, sampler_name, scheduler, positive, negative, modelname, width, height, seed_value, loras, vae_name
+        
+        PipeVersion, steps, cfg, sampler_name, scheduler, positive, negative, modelname, width, height, seed_value, loras, vae_name = pipe
+        return pipe, PipeVersion, steps, cfg, sampler_name, scheduler, positive, negative, modelname, width, height, seed_value, loras, vae_name
 
 NODE_NAME = 'Pipe Out Generation Data [RvTools]'
 NODE_DESC = 'Pipe Out Generation Data'

@@ -49,6 +49,7 @@ class RvPipe_In_Generation_Data_v2:
 
         RBusAnyMod = []
 
+        RBusAnyMod.append("V2")
         RBusAnyMod.append(sampler_name if sampler_name is not None else sampler_name_original)
         RBusAnyMod.append(scheduler if scheduler is not None else scheduler_original)
         RBusAnyMod.append(steps if steps is not None else steps_original)

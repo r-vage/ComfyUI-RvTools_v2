@@ -52,6 +52,7 @@ class RvPipe_In_Generation_Data:
 
         RBusAnyMod = []
 
+        RBusAnyMod.append("V1")
         RBusAnyMod.append(steps if steps is not None else steps_original)
         RBusAnyMod.append(cfg if cfg is not None else cfg_original)
         RBusAnyMod.append(sampler_name if sampler_name is not None else sampler_name_original)

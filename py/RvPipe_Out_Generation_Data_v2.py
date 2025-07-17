@@ -13,10 +13,11 @@ class RvPipe_Out_Generation_Data_v2:
     RETURN_NAMES = ("pipe", "sampler_name", "scheduler", "steps", "cfg",   "seed_value", "width", "height",  "positive", "negative", "modelname",  "vae_name", "loras",)
 
     FUNCTION = "execute"
+    PipeVersion = 'V2'
 
     def execute(self, pipe=None, ):
-        sampler_name, scheduler, steps, cfg, seed_value, width, height, positive, negative, modelname, vae_name, loras = pipe
-        return pipe, sampler_name, scheduler, steps, cfg, seed_value, width, height, positive, negative, modelname, vae_name, loras
+        PipeVersion, sampler_name, scheduler, steps, cfg, seed_value, width, height, positive, negative, modelname, vae_name, loras = pipe
+        return pipe, PipeVersion, sampler_name, scheduler, steps, cfg, seed_value, width, height, positive, negative, modelname, vae_name, loras
 
 NODE_NAME = 'Pipe Out Generation Data II [RvTools]'
 NODE_DESC = 'Pipe Out Generation Data II'

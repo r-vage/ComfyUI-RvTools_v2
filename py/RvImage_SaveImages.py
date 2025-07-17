@@ -280,7 +280,7 @@ class RvImage_SaveImages:
                 "save_generation_data": ("BOOLEAN", {"default": False}),
                 "remove_prompts": ("BOOLEAN", {"default": False}),
                 "save_workflow_as_json": ("BOOLEAN", {"default": False}),
-                "pipe_v2": ("BOOLEAN", {"default": False}),
+                "add_loras_to_prompt": ("BOOLEAN", {"default": False}),
                 "show_previews": ("BOOLEAN", {"default": False}),
             },
             "optional": {
@@ -317,8 +317,8 @@ class RvImage_SaveImages:
                         save_generation_data=False,
                         remove_prompts=False,
                         save_workflow_as_json=False, 
+                        add_loras_to_prompt=False,
                         show_previews=False, 
-                        pipe_v2=False, 
                         pipe_opt=None,
                         prompt=None, 
                         extra_pnginfo=None
@@ -326,12 +326,12 @@ class RvImage_SaveImages:
 
         
         if pipe_opt != None:
-
-            if pipe_v2:
+            PipeVersion = pipe_opt[0]
+            if PipeVersion == "V2":
                 #GData II
-                sampler_name, scheduler, steps, cfg, seed_value, width, height, positive, negative, modelname, vae_name, sloras = pipe_opt
-            else:
-                steps, cfg, sampler_name, scheduler, positive, negative, modelname, width, height, seed_value, sloras, vae_name = pipe_opt
+                PipeVersion, sampler_name, scheduler, steps, cfg, seed_value, width, height, positive, negative, modelname, vae_name, lora_names = pipe_opt
+            elif PipeVersion == "V1":
+                PipeVersion, steps, cfg, sampler_name, scheduler, positive, negative, modelname, width, height, seed_value, lora_names, vae_name = pipe_opt
   
             ckpt_path = ''
             diffusion_path = ''
@@ -348,7 +348,7 @@ class RvImage_SaveImages:
                 models = modelname.split(', ')
 
                 for model in models:
-                    if model != "":
+                    if not model in (None, '', 'undefined', 'none') : 
                         ckpt_path = folder_paths.get_full_path("checkpoints", model)
                         diffusion_path = folder_paths.get_full_path("diffusion_models", model)
                         unet_path = folder_paths.get_full_path("unet", model)
@@ -363,7 +363,7 @@ class RvImage_SaveImages:
                         elif not upscaler_path in (None, '', 'undefined', 'none'): 
                             modelhash = get_sha256(upscaler_path)[:10]
                     
-                        if modelhash != "":
+                        if not modelhash in (None, '', 'undefined', 'none') : 
                             basemodelname = civitai_model_key_name(return_filename_without_extension(model))
                             model_string[basemodelname] = modelhash
 
@@ -372,22 +372,24 @@ class RvImage_SaveImages:
                 models = vae_name.split(', ')
 
                 for model in models:
-                    if model != "":
+                    if not model in (None, '', 'undefined', 'none') : 
                         vae_full_path = folder_paths.get_full_path("vae", model)
        
                         if not vae_full_path in (None, '', 'undefined', 'none'): 
                             vae_hash = get_sha256(vae_full_path)[:10]
                     
-                        if vae_hash != "":
+                        if not vae_hash in (None, '', 'undefined', 'none') : 
                             vae_file = return_filename_without_extension(model)
                             model_string[vae_file] = vae_hash
 
-            xPositive = positive
+            if not lora_names in (None, '', 'undefined', 'none') : 
+                metadata_extractor = PromptMetadataExtractor([positive + str(lora_names), negative])
+                
+                if add_loras_to_prompt:
+                    positive += str(lora_names) #add the loras to the prompt
+            else:
+                metadata_extractor = PromptMetadataExtractor([positive, negative])
 
-            if not sloras in (None, '', 'undefined', 'none') : 
-                xPositive += str(sloras) #add the loras temp. to the prompt for PromptMetadataExtractor
-
-            metadata_extractor = PromptMetadataExtractor([xPositive, negative])
             embeddings = metadata_extractor.get_embeddings()
             loras = metadata_extractor.get_loras()
 

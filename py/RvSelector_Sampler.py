@@ -11,7 +11,7 @@ class RvSelector_Sampler:
     def INPUT_TYPES(cls):
         return {"required": {"sampler_name": (comfy.samplers.KSampler.SAMPLERS,),}}
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.SELECTOR.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.SETTINGS.value
 
     RETURN_TYPES = (comfy.samplers.KSampler.SAMPLERS,)
     RETURN_NAMES = ("sampler_name",)
