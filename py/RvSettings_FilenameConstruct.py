@@ -42,6 +42,12 @@ class RvSettings_FilenameConstruct:
             
             counter += 1
 
+        counter = filename_suffix
+        for _ in range (1, 6) :
+            Filename = path + "\\" + filename_prefix + "_join_" + Padding.zfill(number_padding) + str(counter) + file_extension
+            rList.append(Filename)
+            
+            counter += 1
 
         return (rList,)
 

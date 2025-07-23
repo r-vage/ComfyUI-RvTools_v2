@@ -4,6 +4,7 @@ import numpy as np
 import torch
 from PIL import Image
 import folder_paths
+from ..core import CATEGORY
 
 class WanVideoVaceSeamlessJoin:
     """
@@ -59,7 +60,7 @@ class WanVideoVaceSeamlessJoin:
     RETURN_TYPES = ("IMAGE", "IMAGE")
     RETURN_NAMES = ("image", "mask")
     FUNCTION = "process_videos"
-    CATEGORY = "video/wanvideo"
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.VIDEO.value
     
     @classmethod
     def IS_CHANGED(cls, **kwargs):
@@ -284,11 +285,11 @@ class WanVideoVaceSeamlessJoin:
 
 # ComfyUI Node Registration
 NODE_CLASS_MAPPINGS = {
-    "WanVideoVaceSeamlessJoin": WanVideoVaceSeamlessJoin
+    "WanVideo Vace Seamless Join": WanVideoVaceSeamlessJoin
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "WanVideoVaceSeamlessJoin": "WanVideo Vace Seamless Join"
+    "WanVideo Vace Seamless Join": "WanVideo Vace Seamless Join"
 }
 
 # Note: For file upload functionality, users can now:

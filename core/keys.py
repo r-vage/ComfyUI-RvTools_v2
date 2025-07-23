@@ -24,6 +24,7 @@ class CATEGORY(Enum):
     SWITCHES = "/🔌 Switches"
     MULTISWITCHES = "/🎛️ Switches (Multi)"
     TEXT = "/📝 Text"
+    VIDEO = "/📝 Video"
 
 
 # remember, all keys should be in lowercase!

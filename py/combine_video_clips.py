@@ -3,6 +3,7 @@ import cv2
 import numpy as np
 import torch
 from PIL import Image
+from ..core import CATEGORY
 
 class CombineVideoClips:
     """
@@ -90,7 +91,7 @@ class CombineVideoClips:
     RETURN_TYPES = ("IMAGE",)
     RETURN_NAMES = ("image",)
     FUNCTION = "combine_videos"
-    CATEGORY = "video/combine"
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.VIDEO.value
     
     @classmethod
     def IS_CHANGED(cls, **kwargs):
@@ -333,11 +334,11 @@ class CombineVideoClips:
 
 # ComfyUI Node Registration
 NODE_CLASS_MAPPINGS = {
-    "CombineVideoClips": CombineVideoClips
+    "Combine Video Clips": CombineVideoClips
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "CombineVideoClips": "Combine Video Clips"
+    "Combine Video Clips": "Combine Video Clips"
 }
 
 # Note: Users can now input video paths by:
