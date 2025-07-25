@@ -8,7 +8,7 @@ class RvPipe_Out_FilenameConstruct:
     def INPUT_TYPES(cls):
         return {"required": {"pipe": ("pipe",),}}
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.PIPE.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.VIDEO.value
     RETURN_TYPES = ("pipe", "INT",              "INT",               "INT",            "STRING",     "STRING",     "STRING",     "STRING",     "STRING",     "STRING",          "STRING",          "STRING",          "STRING",          "STRING",)
     RETURN_NAMES = ("pipe", "mask_frames_last", "mask_frames_first", "frame_load_cap", "filename_1", "filename_2", "filename_3", "filename_4", "filename_5", "filename_join_1", "filename_join_2", "filename_join_3", "filename_join_4", "filename_join_5",)
 

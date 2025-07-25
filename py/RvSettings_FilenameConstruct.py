@@ -21,7 +21,7 @@ class RvSettings_FilenameConstruct:
             },
         }
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.SETTINGS.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.VIDEO.value
     RETURN_TYPES = ("pipe",)
 
     FUNCTION = "execute"

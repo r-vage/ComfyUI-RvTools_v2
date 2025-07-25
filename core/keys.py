@@ -10,21 +10,21 @@ class TEXTS(Enum):
 
 
 class CATEGORY(Enum):
-    MAIN = "👣 RvTools II"
-    DEPRECATED = "/🗑️ DEPRECATED"
-    CHECKPOINT = "/👄 Loader"
-    CONVERSION = "/🧬 Conversion"
-    FOLDER = "/📂 Folder"
-    IMAGE = "/🖼️ Image"
-    PASSER = "/👻 Passer"
-    PIPE = "/🖇️ Pipe"
-    PRIMITIVE = "/🦧 Primitives"
-    SELECTOR = "/✔️ Selector"
-    SETTINGS = "/⚙️ Settings"
-    SWITCHES = "/🔌 Switches"
-    MULTISWITCHES = "/🎛️ Switches (Multi)"
-    TEXT = "/📝 Text"
-    VIDEO = "/📝 Video"
+    MAIN = "🫦 RvTools II"
+    DEPRECATED = "/ DEPRECATED"
+    CHECKPOINT = "/ Loader"
+    CONVERSION = "/ Conversion"
+    FOLDER = "/ Folder"
+    IMAGE = "/ Image"
+    PASSER = "/ Passer"
+    PIPE = "/ Pipe"
+    PRIMITIVE = "/ Primitives"
+    SELECTOR = "/ Selector"
+    SETTINGS = "/ Settings"
+    SWITCHES = "/ Switches"
+    MULTISWITCHES = "/ Switches (Multi)"
+    TEXT = "/ Text"
+    VIDEO = "/ Video"
 
 
 # remember, all keys should be in lowercase!
