@@ -163,7 +163,6 @@ class RvVideo_CombineVideoClips:
 
                         if os.path.exists(video_join):
                             joined_images_list.extend(self.load_video_frames(video_join))          
-                            cstr(f"total frames loaded: {len(joined_images_list)}").msg.print()
             
             except Exception as e:
                 cstr(f"Error loading video frames: {str(e)}").error.print()
@@ -208,7 +207,6 @@ class RvVideo_CombineVideoClips:
                 if os.path.exists(video):
                     try:
                         output_images_list.extend(self.load_video_frames(video))          
-                        cstr(f"total frames loaded: {len(output_images_list)}").msg.print()
 
                     except Exception as e:
                         cstr(f"Error loading video frames: {str(e)}").error.print()
