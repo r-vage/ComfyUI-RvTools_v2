@@ -398,7 +398,7 @@ class RvImage_SaveImages:
             else:
                 civitai_sampler_name = "Euler Simple"
 
-            extension_hashes = json.dumps(model_string | embeddings | loras | { "model": modelhash })
+            extension_hashes = json.dumps(model_string | embeddings | loras) # | { "model": modelhash })
 
 
             if not remove_prompts:

@@ -34,28 +34,22 @@ def format_variables(string, input_variables):
 
 class RvFolders_ProjectFolder_Video:
     resolution =     ["Custom",
-                      "512x512 (1:1)",              
-                      "512x682 (3:4)",
-                      "512x768 (2:3)",
-                      "512x910 (9:16)",
-                      "512x952 (1:1.85)",
-                      "512x1024 (1:2)",
-                      "512x1224 (1:2.39)",
-                      "640x1536 (9:21)",
-                      "682x512 (4:3)",
-                      "768x512 (3:2)",
-                      "768x1344 (9:16)",
-                      "832x1216 (2:3)",
-                      "896x1152 (3:4)",
-                      "910x512 (16:9)",
-                      "952x512 (1.85:1)",
-                      "1024x512 (2:1)",
-                      "1024x1024 (1:1)",
-                      "1152x896 (4:3)",
-                      "1216x832 (3:2)",
-                      "1224x512 (2.39:1)",
-                      "1344x768 (16:9)",
-                      "1536x640 (21:9)" 
+                      "240x426 (240p)",              
+                      "360x640 (360p)",
+                      "480x854 (SD)",
+                      "720x1280 (HD)",
+                      "1080x1920 (FullHD)",
+                      "1440x2560 (2K)",
+                      "2160x3840 (4K)",
+                      "4320x7680 (8K)",
+                      "426x240 (240p)",              
+                      "640x360 (360p)",
+                      "854x480 (SD)",
+                      "1280x720x (HD)",
+                      "1920x1080 (FullHD)",
+                      "2560x1440 (2K)",
+                      "3840x2160 (4K)",
+                      "7680x4320 (8K)",                      
                       ]
 
     def __init__(self):
@@ -107,53 +101,39 @@ class RvFolders_ProjectFolder_Video:
            folder_name_parsed = format_variables(batch_folder_name, batch_no)
            new_path = os.path.join(new_path, folder_name_parsed)
 
-        #if(resolution == "Custom"):
-            #width, height = 512, 512
-        if(resolution == "512x512 (1:1)"):
-            width, height = 512, 512
-        if(resolution == "512x682 (3:4)"):
-            width, height = 512, 682
-        if(resolution == "512x768 (2:3)"):
-            width, height = 512, 768
-        if(resolution == "512x910 (9:16)"):
-            width, height = 512, 910
-        if(resolution == "512x952 (1:1.85)"):
-            width, height = 512, 952
-        if(resolution == "512x1024 (1:2)"):
-            width, height = 512, 1024
-        if(resolution == "512x1224 (1:2.39)"):
-            width, height = 512, 1224
-        if(resolution == "682x512 (4:3)"):
-            width, height = 682, 512
-        if(resolution == "768x512 (3:2)"):
-            width, height = 768, 512
-        if(resolution == "910x512 (16:9)"):
-            width, height = 910, 512
-        if(resolution == "952x512 (1.85:1)"):
-            width, height = 952, 512
-        if(resolution == "1024x512 (2:1)"):
-            width, height = 1024, 512
-        if(resolution == "1224x512 (2.39:1)"):
-            width, height = 1224, 512
-        #sdxl
-        if(resolution == "640x1536 (9:21)"):
-            width, height = 640, 1536
-        if(resolution == "768x1344 (9:16)"):
-            width, height = 768, 1344
-        if(resolution == "832x1216 (2:3)"):
-            width, height = 832, 1216
-        if(resolution == "896x1152 (3:4)"):
-            width, height = 896, 1152
-        if(resolution == "1024x1024 (1:1)"):
-            width, height = 1024, 1024
-        if(resolution == "1152x896 (4:3)"):
-            width, height = 1152, 896
-        if(resolution == "1216x832 (3:2)"):
-            width, height = 1216, 832
-        if(resolution == "1344x768 (16:9)"):
-            width, height = 1344, 768
-        if(resolution == "1536x640 (21:9)"):
-            width, height = 1536, 640
+        if(resolution == "240x426 (240p)"):
+            width, height = 240, 426
+        if(resolution == "360x640 (360p)"):
+            width, height = 360, 640
+        if(resolution == "480x854 (SD)"):
+            width, height = 480, 854
+        if(resolution == "720x1280 (HD)"):
+            width, height = 720, 1280
+        if(resolution == "1080x1920 (FullHD)"):
+            width, height = 1080, 1920
+        if(resolution == "1440x2560 (2K)"):
+            width, height = 1440, 2560
+        if(resolution == "2160x3840 (4K)"):
+            width, height = 2160, 3840
+        if(resolution == "4320x7680 (8K)"):
+            width, height = 4320, 7680
+
+        if(resolution == "426x240 (240p)"):
+            width, height = 426, 240
+        if(resolution == "640x360 (360p)"):
+            width, height = 640, 360
+        if(resolution == "854x480 (SD)"):
+            width, height = 854, 480
+        if(resolution == "1280x720x (HD)"):
+            width, height = 1280, 720
+        if(resolution == "1920x1080 (FullHD)"):
+            width, height = 1920, 1080
+        if(resolution == "2560x1440 (2K)"):
+            width, height = 2560, 1440
+        if(resolution == "3840x2160 (4K)"):
+            width, height = 3840, 2160
+        if(resolution == "7680x4320 (8K)"):
+            width, height = 7680, 4320
 
 
         if relative_path:
