@@ -47,7 +47,7 @@ class RvSettings_FilenameGenerator_v1:
             fDict = {}
             flist = list()
 
-            for _ in range (filename_suffix_start, 3) :
+            for _ in range (filename_suffix_start, filename_suffix_start+2) :
                 number = str(counter)
         
                 Filename = path + "\\" + filename_prefix + "_" + number.zfill(5) + file_extension

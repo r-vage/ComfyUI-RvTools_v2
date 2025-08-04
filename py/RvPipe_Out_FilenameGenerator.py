@@ -12,11 +12,12 @@ class RvPipe_Out_FilenameGenerator:
     def INPUT_TYPES(cls):
         return {"required": {"pipe": ("pipe",),}}
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.VIDEO.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
     RETURN_TYPES = ("pipe", "INT",              "INT",               "INT",               "BOOLEAN",       "STRING", "STRING",)
     RETURN_NAMES = ("pipe", "frame_load_cap",   "mask_last_frames",  "mask_first_frames", "simple_combine", "files",  "files_join",)
 
     FUNCTION = "execute"
+    DEPRECATED = True
 
     def execute(self, pipe=None, ):
         
