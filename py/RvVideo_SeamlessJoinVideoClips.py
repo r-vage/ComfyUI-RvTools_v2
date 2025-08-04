@@ -15,8 +15,8 @@ class RvVideo_SeamlessJoinVideoClips:
     """
     
     def __init__(self):
-        self.first_video_path = ""
-        self.second_video_path = ""
+        self.video_first = ""
+        self.video_second = ""
         
     @classmethod
     def INPUT_TYPES(cls):
