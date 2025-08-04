@@ -47,14 +47,15 @@ class RvVideo_CombineVideoClips:
             }
         }
     
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.VIDEO.value
+
     RETURN_TYPES = ("IMAGE", "FLOAT")
     RETURN_NAMES = ("image", "fps")
     FUNCTION = "combine_videos"
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.VIDEO.value
     
-    @classmethod
-    def IS_CHANGED(cls, **kwargs):
-        return float("NaN")  # Always execute to ensure fresh processing
+#    @classmethod
+#    def IS_CHANGED(cls, **kwargs):
+#        return float("NaN")  # Always execute to ensure fresh processing
     
     @classmethod
     def VALIDATE_INPUTS(cls, **kwargs):
@@ -142,8 +143,8 @@ class RvVideo_CombineVideoClips:
             video_first = str(videos[0]).strip()
             video_last =  str(videos[-1]).strip()
 
-            print(f"  video_first: {video_first}")
-            print(f"  video_last: {video_last}")
+            cstr(f"video_first: {video_first}").msg.print()
+            cstr(f"video_last: {video_last}").msg.print()
 
             # Check if required files exist
             if not os.path.exists(video_first):

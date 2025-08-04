@@ -21,10 +21,11 @@ class RvSettings_FilenameConstruct:
             },
         }
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.VIDEO.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
     RETURN_TYPES = ("pipe",)
 
     FUNCTION = "execute"
+    DEPRECATED = True
 
     def execute(self, path, filename_prefix, filename_suffix, number_padding, file_extension, mask_frames_last, mask_frames_first, frame_load_cap):
         rList = list()

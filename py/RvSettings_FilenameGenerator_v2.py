@@ -1,11 +1,14 @@
 import json
+import os
+import folder_paths
 
-from ..core import CATEGORY
+from ..core import CATEGORY, cstr
 
 #created for seamless_join_video_clips & combine_video_clips
 
-class RvSettings_FilenameGenerator:
+class RvSettings_FilenameGenerator_v2:
     def __init__(self):
+        self.output_dir = folder_paths.get_output_directory()
         pass
 
     @classmethod
@@ -20,28 +23,24 @@ class RvSettings_FilenameGenerator:
                 "simple_combine": ("BOOLEAN", {"default": False}),
                 "file_extension": ("STRING", {"default": ".mp4"}),
                 "frame_load_cap": ("INT", {"default": 81}),
-                "mask_last_frames": ("INT", {"default": 0}),
-                "mask_first_frames": ("INT", {"default": 10}),
 
             },
         }
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.VIDEO.value
     RETURN_TYPES = ("pipe",)
 
     FUNCTION = "execute"
-    DEPRECATED = True
 
-    def execute(self, path, filename_prefix, filename_suffix_start, filename_suffix_end, join_suffix_start, simple_combine, file_extension, frame_load_cap, mask_last_frames, mask_first_frames):
+    def execute(self, path, filename_prefix, filename_suffix_start, filename_suffix_end, join_suffix_start, simple_combine, file_extension, frame_load_cap):
         if not path:
             raise ValueError(f"Path is missing. Enter the Path to your Video Files.")                    
         else:
             rList = list()
             Filename = ""
 
+            rList.append(path)    
             rList.append(frame_load_cap)    
-            rList.append(mask_last_frames)    
-            rList.append(mask_first_frames)    
             rList.append(simple_combine)    
 
             counter = filename_suffix_start
@@ -76,11 +75,11 @@ class RvSettings_FilenameGenerator:
 
             return (rList,)
 
-NODE_NAME = 'VC-Filename Generator [RvTools]'
-NODE_DESC = 'VC-Filename Generator'
+NODE_NAME = 'VC-Filename Generator II [RvTools]'
+NODE_DESC = 'VC-Filename Generator II'
 
 NODE_CLASS_MAPPINGS = {
-   NODE_NAME: RvSettings_FilenameGenerator
+   NODE_NAME: RvSettings_FilenameGenerator_v2
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
