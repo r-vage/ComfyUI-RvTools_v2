@@ -22,7 +22,8 @@ class CATEGORY(Enum):
     SELECTOR = "/ Selector"
     SETTINGS = "/ Settings"
     SWITCHES = "/ Switches"
-    MULTISWITCHES = "/ Switches (Multi)"
+    MULTISWITCHES = "/ Multi-Switches"
+    MULTISWITCHESWW = "/ Multi-Switches (WVW)"
     TEXT = "/ Text"
     VIDEO = "/ Video"
 

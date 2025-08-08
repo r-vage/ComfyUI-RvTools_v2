@@ -1,6 +1,6 @@
 from ..core import CATEGORY
 
-class RvSwitch_CacheArgs_MultiSwitch:
+class RvSwitch_TextEmbeds_MultiSwitch:
     def __init__(self):
         pass
 
@@ -11,17 +11,17 @@ class RvSwitch_CacheArgs_MultiSwitch:
                 "Purge_VRAM": ("BOOLEAN", {"default": False}),
             },
             "optional": {
-                "input1": ("CACHEARGS", {"forceInput": True}),
-                "input2": ("CACHEARGS", {"forceInput": True}),
-                "input3": ("CACHEARGS", {"forceInput": True}),
-                "input4": ("CACHEARGS", {"forceInput": True}),
-                "input5": ("CACHEARGS", {"forceInput": True}),
+                "input1": ("WANVIDEOTEXTEMBEDS", {"forceInput": True}),
+                "input2": ("WANVIDEOTEXTEMBEDS", {"forceInput": True}),
+                "input3": ("WANVIDEOTEXTEMBEDS", {"forceInput": True}),
+                "input4": ("WANVIDEOTEXTEMBEDS", {"forceInput": True}),
+                "input5": ("WANVIDEOTEXTEMBEDS", {"forceInput": True}),
             }
         }
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.MULTISWITCHES.value
-    RETURN_TYPES = ("CACHEARGS",)
-    RETURN_NAMES = ("cache_args",)
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.MULTISWITCHESWW.value
+    RETURN_TYPES = ("WANVIDEOTEXTEMBEDS",)
+    RETURN_NAMES = ("text_embeds",)
 
     FUNCTION = "execute"
 
@@ -55,13 +55,13 @@ class RvSwitch_CacheArgs_MultiSwitch:
         elif input5 != None:
             return (input5,)
         else:
-            return (None,)
+            raise ValueError("Missing Input: Multi Text_Embeds Switch has no active Input")
 
-NODE_NAME = 'WAN Cache Args Multi-Switch [RvTools]'
-NODE_DESC = 'WAN Cache Args Multi-Switch'
+NODE_NAME = 'WAN Text_Embeds Multi-Switch [RvTools]'
+NODE_DESC = 'WAN Text_Embeds Multi-Switch'
 
 NODE_CLASS_MAPPINGS = {
-   NODE_NAME: RvSwitch_CacheArgs_MultiSwitch
+   NODE_NAME: RvSwitch_TextEmbeds_MultiSwitch
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {

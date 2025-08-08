@@ -1,6 +1,6 @@
 from ..core import CATEGORY
 
-class RvSwitch_TextEmbeds_MultiSwitch:
+class RvSwitch_ImageEmbeds_MultiSwitch:
     def __init__(self):
         pass
 
@@ -11,17 +11,17 @@ class RvSwitch_TextEmbeds_MultiSwitch:
                 "Purge_VRAM": ("BOOLEAN", {"default": False}),
             },
             "optional": {
-                "input1": ("WANVIDEOTEXTEMBEDS", {"forceInput": True}),
-                "input2": ("WANVIDEOTEXTEMBEDS", {"forceInput": True}),
-                "input3": ("WANVIDEOTEXTEMBEDS", {"forceInput": True}),
-                "input4": ("WANVIDEOTEXTEMBEDS", {"forceInput": True}),
-                "input5": ("WANVIDEOTEXTEMBEDS", {"forceInput": True}),
+                "input1": ("WANVIDIMAGE_EMBEDS", {"forceInput": True}),
+                "input2": ("WANVIDIMAGE_EMBEDS", {"forceInput": True}),
+                "input3": ("WANVIDIMAGE_EMBEDS", {"forceInput": True}),
+                "input4": ("WANVIDIMAGE_EMBEDS", {"forceInput": True}),
+                "input5": ("WANVIDIMAGE_EMBEDS", {"forceInput": True}),
             }
         }
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.MULTISWITCHES.value
-    RETURN_TYPES = ("WANVIDEOTEXTEMBEDS",)
-    RETURN_NAMES = ("text_embeds",)
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.MULTISWITCHESWW.value
+    RETURN_TYPES = ("WANVIDIMAGE_EMBEDS",)
+    RETURN_NAMES = ("image_embeds",)
 
     FUNCTION = "execute"
 
@@ -55,13 +55,13 @@ class RvSwitch_TextEmbeds_MultiSwitch:
         elif input5 != None:
             return (input5,)
         else:
-            raise ValueError("Missing Input: Multi Text_Embeds Switch has no active Input")
+            raise ValueError("Missing Input: Multi Image_Embeds Switch has no active Input")
 
-NODE_NAME = 'WAN Text_Embeds Multi-Switch [RvTools]'
-NODE_DESC = 'WAN Text_Embeds Multi-Switch'
+NODE_NAME = 'WAN Image_Embeds Multi-Switch [RvTools]'
+NODE_DESC = 'WAN Image_Embeds Multi-Switch'
 
 NODE_CLASS_MAPPINGS = {
-   NODE_NAME: RvSwitch_TextEmbeds_MultiSwitch
+   NODE_NAME: RvSwitch_ImageEmbeds_MultiSwitch
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
