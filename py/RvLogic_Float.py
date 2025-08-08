@@ -9,7 +9,7 @@ class RvLogic_Float:
     @classmethod
     def INPUT_TYPES(cls):
         return {
-            "required": {"_float": ("FLOAT", {"default": 1.00,"min": -sys.float_info.max,"max": sys.float_info.max,"step": 0.01}),}}
+            "required": {"value": ("FLOAT", {"default": 1.00,"min": -sys.float_info.max,"max": sys.float_info.max,"step": 0.01}),}}
 
     CATEGORY = CATEGORY.MAIN.value + CATEGORY.PRIMITIVE.value
     RETURN_TYPES = ("FLOAT",)
@@ -17,8 +17,8 @@ class RvLogic_Float:
 
     FUNCTION = "execute"
 
-    def execute(self, _float):
-        return (_float,)
+    def execute(self, value):
+        return (value,)
 
 NODE_NAME = 'Float [RvTools]'
 NODE_DESC = 'Float'

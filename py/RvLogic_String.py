@@ -6,7 +6,7 @@ class RvLogic_String:
 
     @classmethod
     def INPUT_TYPES(cls):
-        return {"required": {"string": ("STRING", {"default": ""}),}}
+        return {"required": {"value": ("STRING", {"default": ""}),}}
 
     CATEGORY = CATEGORY.MAIN.value + CATEGORY.PRIMITIVE.value
     RETURN_TYPES = ("STRING",)
@@ -14,8 +14,8 @@ class RvLogic_String:
 
     FUNCTION = "execute"
 
-    def execute(self, string=""):
-        return (string,)
+    def execute(self, value=""):
+        return (value,)
 
 NODE_NAME = 'String [RvTools]'
 NODE_DESC = 'String'

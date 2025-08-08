@@ -7,7 +7,7 @@ class RvLogic_Boolean:
 
     @classmethod
     def INPUT_TYPES(cls):
-        return {"required": {"boolean": ("BOOLEAN", {"default": True}),}}
+        return {"required": {"value": ("BOOLEAN", {"default": True}),}}
 
     CATEGORY = CATEGORY.MAIN.value + CATEGORY.PRIMITIVE.value
     RETURN_TYPES = ("BOOLEAN",)
@@ -15,8 +15,8 @@ class RvLogic_Boolean:
 
     FUNCTION = "execute"
 
-    def execute(self, boolean=True):
-        return (boolean,)
+    def execute(self, value=True):
+        return (value,)
 
 NODE_NAME = 'Boolean [RvTools]'
 NODE_DESC = 'Boolean'
