@@ -36,7 +36,7 @@ class RvFolders_ProjectFolder_Video_Pipe:
     resolution =     ["Custom",
                       "240x426 (240p)",              
                       "360x640 (360p)",
-                      "480x854 (SD)",
+                      "480x853 (SD)",
                       "720x1280 (HD)",
                       "1080x1920 (FullHD)",
                       "1440x2560 (2K)",
@@ -44,7 +44,7 @@ class RvFolders_ProjectFolder_Video_Pipe:
                       "4320x7680 (8K)",
                       "426x240 (240p)",              
                       "640x360 (360p)",
-                      "854x480 (SD)",
+                      "853x480 (SD)",
                       "1280x720x (HD)",
                       "1920x1080 (FullHD)",
                       "2560x1440 (2K)",
@@ -66,8 +66,8 @@ class RvFolders_ProjectFolder_Video_Pipe:
                 "create_batch_folder": ("BOOLEAN", {"default": False}),
                 "relative_path": ("BOOLEAN", {"default": True}),
                 "resolution": (cls.resolution,),
-                "width": ("INT", {"default": 576, "min": 16, "max": MAX_RESOLUTION, "step": 8},),
-                "height": ("INT", {"default": 1024, "min": 16, "max": MAX_RESOLUTION, "step": 8},),
+                "width": ("INT", {"default": 576, "min": 16, "max": MAX_RESOLUTION, "step": 4},),
+                "height": ("INT", {"default": 1024, "min": 16, "max": MAX_RESOLUTION, "step": 4},),
                 "batch_size": ("INT", {"default": 1, "min": 1, "max": 4096}),
                 "frame_rate": ("FLOAT", {"default": 30.0, "min": 8, "max": 240}),
                 "frame_load_cap": ("INT", {"default": 81, "min": 1, "max": MAX_RESOLUTION, "step": 4},),
@@ -104,7 +104,7 @@ class RvFolders_ProjectFolder_Video_Pipe:
             width, height = 240, 426
         if(resolution == "360x640 (360p)"):
             width, height = 360, 640
-        if(resolution == "480x854 (SD)"):
+        if(resolution == "480x853 (SD)"):
             width, height = 480, 854
         if(resolution == "720x1280 (HD)"):
             width, height = 720, 1280
@@ -121,7 +121,7 @@ class RvFolders_ProjectFolder_Video_Pipe:
             width, height = 426, 240
         if(resolution == "640x360 (360p)"):
             width, height = 640, 360
-        if(resolution == "854x480 (SD)"):
+        if(resolution == "853x480 (SD)"):
             width, height = 854, 480
         if(resolution == "1280x720x (HD)"):
             width, height = 1280, 720
