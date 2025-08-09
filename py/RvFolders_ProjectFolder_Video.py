@@ -106,7 +106,7 @@ class RvFolders_ProjectFolder_Video:
         if(resolution == "360x640 (360p)"):
             width, height = 360, 640
         if(resolution == "480x853 (SD)"):
-            width, height = 480, 854
+            width, height = 480, 853
         if(resolution == "720x1280 (HD)"):
             width, height = 720, 1280
         if(resolution == "1080x1920 (FullHD)"):
@@ -123,7 +123,7 @@ class RvFolders_ProjectFolder_Video:
         if(resolution == "640x360 (360p)"):
             width, height = 640, 360
         if(resolution == "853x480 (SD)"):
-            width, height = 854, 480
+            width, height = 853, 480
         if(resolution == "1280x720x (HD)"):
             width, height = 1280, 720
         if(resolution == "1920x1080 (FullHD)"):
