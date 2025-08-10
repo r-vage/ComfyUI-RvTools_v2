@@ -34,6 +34,9 @@ def format_variables(string, input_variables):
 
 class RvFolders_ProjectFolder_Video:
     resolution =     ["Custom",
+                      "480x832",
+                      "576x1024",
+                      "--- 9:16 ---",
                       "240x426 (240p)",              
                       "360x640 (360p)",
                       "480x853 (SD)",
@@ -42,6 +45,9 @@ class RvFolders_ProjectFolder_Video:
                       "1440x2560 (2K)",
                       "2160x3840 (4K)",
                       "4320x7680 (8K)",
+                      "--- 16:9 ---",
+                      "832x480",
+                      "1024x576",
                       "426x240 (240p)",              
                       "640x360 (360p)",
                       "853x480 (SD)",
@@ -66,8 +72,8 @@ class RvFolders_ProjectFolder_Video:
                 "create_batch_folder": ("BOOLEAN", {"default": False}),
                 "relative_path": ("BOOLEAN", {"default": True}),
                 "resolution": (cls.resolution,),
-                "width": ("INT", {"default": 576, "min": 16, "max": MAX_RESOLUTION, "step": 4},),
-                "height": ("INT", {"default": 1024, "min": 16, "max": MAX_RESOLUTION, "step": 4},),
+                "width": ("INT", {"default": 576, "min": 16, "max": MAX_RESOLUTION, "step": 1},),
+                "height": ("INT", {"default": 1024, "min": 16, "max": MAX_RESOLUTION, "step": 1},),
                 "batch_size": ("INT", {"default": 1, "min": 1, "max": 4096}),
                 "frame_rate": ("FLOAT", {"default": 30.0, "min": 8, "max": 240}),
                 "frame_load_cap": ("INT", {"default": 81, "min": 1, "max": MAX_RESOLUTION, "step": 4},),
@@ -101,6 +107,10 @@ class RvFolders_ProjectFolder_Video:
            folder_name_parsed = format_variables(batch_folder_name, batch_no)
            new_path = os.path.join(new_path, folder_name_parsed)
 
+        if(resolution == "480x832"):
+            width, height = 480, 832
+        if(resolution == "576x1024"):
+            width, height = 576, 1024 
         if(resolution == "240x426 (240p)"):
             width, height = 240, 426
         if(resolution == "360x640 (360p)"):
@@ -118,6 +128,10 @@ class RvFolders_ProjectFolder_Video:
         if(resolution == "4320x7680 (8K)"):
             width, height = 4320, 7680
 
+        if(resolution == "832x480"):
+            width, height = 832, 480
+        if(resolution == "1024x576"):
+            width, height = 1024, 576
         if(resolution == "426x240 (240p)"):
             width, height = 426, 240
         if(resolution == "640x360 (360p)"):
