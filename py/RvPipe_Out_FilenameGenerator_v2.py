@@ -25,8 +25,8 @@ class RvPipe_Out_FilenameGenerator_v2:
         files = ""
         files_join = ""
 
-        rel_path = os.path.relpath(path)
-        cstr(f"relative path {rel_path}").msg.print()
+        rel_path = re.sub("(<?^.*output)", ".", path)
+        #cstr(f"relative path {rel_path}").msg.print()
 
         if not file_dict in (None, '', 'undefined', 'none') :
             files = str(file_dict.get("FILE"))

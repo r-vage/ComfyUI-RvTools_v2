@@ -5,11 +5,15 @@ import folder_paths
 from ..core import CATEGORY, cstr
 
 #created for seamless_join_video_clips & combine_video_clips
-
+#v2 is used for join only it generates the list from/to
 class RvSettings_FilenameGenerator_v2:
     def __init__(self):
         self.output_dir = folder_paths.get_output_directory()
         pass
+
+    @classmethod
+    def IS_CHANGED(cls, **kwargs):
+        return float("NaN")  # Always execute to ensure fresh processing
 
     @classmethod
     def INPUT_TYPES(cls):
@@ -53,6 +57,7 @@ class RvSettings_FilenameGenerator_v2:
         
                 Filename = path + "\\" + filename_prefix + "_" + number.zfill(5) + file_extension
                 flist.append(Filename)
+                #cstr(f"File added {Filename}").msg.print()
                 counter += 1
             
             fDict["FILE"] = flist
@@ -68,6 +73,7 @@ class RvSettings_FilenameGenerator_v2:
                 number = str(counter)
                 Filename = path + "\\" + filename_prefix + "_join_" + number.zfill(5) + file_extension
                 jlist.append(Filename)
+                #cstr(f"Join-File added {Filename}").msg.print()
                 counter += 1
             
             jDict["JOIN"] = jlist

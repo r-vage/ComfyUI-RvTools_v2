@@ -60,9 +60,9 @@ class RvVideo_SeamlessJoinVideoClips:
     
     FUNCTION = "process_videos"
     
-#    @classmethod
-#    def IS_CHANGED(cls, **kwargs):
-#        return float("NaN")  # Always execute to ensure fresh processing
+    @classmethod
+    def IS_CHANGED(cls, **kwargs):
+        return float("NaN")  # Always execute to ensure fresh processing
     
     @classmethod
     def VALIDATE_INPUTS(cls, **kwargs):

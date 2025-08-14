@@ -5,6 +5,7 @@ import folder_paths
 from ..core import CATEGORY, cstr
 
 #created for seamless_join_video_clips & combine_video_clips
+#v1 is used for combine only it automaticly sets the 2nd filename (filename_suffix_start +1), it also provides the mask settings
 
 class RvSettings_FilenameGenerator_v1:
     def __init__(self):
@@ -12,12 +13,16 @@ class RvSettings_FilenameGenerator_v1:
         pass
 
     @classmethod
+    def IS_CHANGED(cls, **kwargs):
+        return float("NaN")  # Always execute to ensure fresh processing
+
+    @classmethod
     def INPUT_TYPES(cls):
         return {
             "required": {
                 "path": ("STRING", {"default": ""}),
                 "filename_prefix": ("STRING", {"default": "vc"}),
-                "filename_suffix_start": ("INT", {"default": 1, "min": 1,}),
+                "filename_suffix_start": ("INT", {"default": 1, "min": 1, "max": 0xffffffffffffffff, "control_after_generate": True,}),
                 "file_extension": ("STRING", {"default": ".mp4"}),
                 "frame_load_cap": ("INT", {"default": 81}),
                 "mask_first_frames": ("INT", {"default": 10}),                
