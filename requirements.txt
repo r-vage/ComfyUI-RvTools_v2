@@ -3,5 +3,4 @@ numpy
 Pillow
 pynvml
 piexif
-cv2
-
+opencv-python
