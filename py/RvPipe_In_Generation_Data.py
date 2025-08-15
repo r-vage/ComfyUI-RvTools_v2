@@ -22,7 +22,11 @@ class RvPipe_In_Generation_Data:
                 "seed_value": ("INT",{"forceInput": True}),
                 "loras": ("STRING",{"forceInput": True, "default": ""}),
                 "vae_name": ("STRING",{"forceInput": True, "default": ""}),
-            }
+            },
+            "hidden": {
+                "pipe_version": ("STRING",{"default": "V2"}),
+
+            },            
         }
 
     CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
@@ -33,7 +37,8 @@ class RvPipe_In_Generation_Data:
 
     #steps, cfg, sampler_name, scheduler, positive, negative, modelname, width, height, seed_value, loras = pipe
 
-    def execute(self, pipe=None, steps=None, cfg=None, sampler_name=None, scheduler=None, positive=None, negative=None, modelname=None, width=None, height=None, seed_value=None, loras=None, vae_name=None):
+    def execute(self, pipe=None, pipe_version=None, steps=None, cfg=None, sampler_name=None, scheduler=None, positive=None, negative=None, modelname=None, width=None, height=None, seed_value=None, loras=None, vae_name=None):
+        pipe_version = "V1"
         steps_original = None
         cfg_original = None
         sampler_name_original = None
@@ -52,7 +57,7 @@ class RvPipe_In_Generation_Data:
 
         RBusAnyMod = []
 
-        RBusAnyMod.append("V1")
+        RBusAnyMod.append(pipe_version)
         RBusAnyMod.append(steps if steps is not None else steps_original)
         RBusAnyMod.append(cfg if cfg is not None else cfg_original)
         RBusAnyMod.append(sampler_name if sampler_name is not None else sampler_name_original)

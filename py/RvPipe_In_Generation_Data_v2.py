@@ -22,7 +22,13 @@ class RvPipe_In_Generation_Data_v2:
                 "modelname": ("STRING",{"forceInput": True, "default": ""}),
                 "vae_name": ("STRING",{"forceInput": True, "default": ""}),
                 "loras": ("STRING",{"forceInput": True, "default": ""}),
-            }
+                "denoise": ("FLOAT",{"forceInput": True, "default": 0}),
+                "clip_skip": ("INT",{"forceInput": True, "default": 0}),
+            },
+            "hidden": {
+                "pipe_version": ("STRING",{"default": "V2"}),
+
+            },
         }
 
     CATEGORY = CATEGORY.MAIN.value + CATEGORY.PIPE.value
@@ -30,7 +36,8 @@ class RvPipe_In_Generation_Data_v2:
 
     FUNCTION = "execute"
 
-    def execute(self, pipe=None, sampler_name=None, scheduler=None, steps=None, cfg=None, seed_value=None, width=None, height=None, positive=None, negative=None, modelname=None, vae_name=None, loras=None):
+    def execute(self, pipe=None, pipe_version=None, sampler_name=None, scheduler=None, steps=None, cfg=None, seed_value=None, width=None, height=None, positive=None, negative=None, modelname=None, vae_name=None, loras=None, denoise=None, clip_skip=None):
+        pipe_version = "V2"
         sampler_name_original = None
         scheduler_original = None
         steps_original = None
@@ -43,13 +50,15 @@ class RvPipe_In_Generation_Data_v2:
         modelname_original = None
         vae_name_original = None
         loras_original = None
+        denoise_original = None
+        clip_skip_original = None
 
         if pipe != None:
-            sampler_name_original, scheduler_original, steps_original, cfg_original, seed_value_original, width_original, height_original, positive_original, negative_original, modelname_original, vae_name_original, loras_original = pipe
+           pipe_version, sampler_name_original, scheduler_original, steps_original, cfg_original, seed_value_original, width_original, height_original, positive_original, negative_original, modelname_original, vae_name_original, loras_original, denoise_original, clip_skip_original = pipe
 
         RBusAnyMod = []
 
-        RBusAnyMod.append("V2")
+        RBusAnyMod.append(pipe_version)
         RBusAnyMod.append(sampler_name if sampler_name is not None else sampler_name_original)
         RBusAnyMod.append(scheduler if scheduler is not None else scheduler_original)
         RBusAnyMod.append(steps if steps is not None else steps_original)
@@ -62,6 +71,8 @@ class RvPipe_In_Generation_Data_v2:
         RBusAnyMod.append(modelname if modelname is not None else modelname_original)
         RBusAnyMod.append(vae_name if vae_name is not None else vae_name_original)
         RBusAnyMod.append(loras if loras is not None else loras_original)
+        RBusAnyMod.append(denoise if denoise is not None else denoise_original)
+        RBusAnyMod.append(clip_skip if clip_skip is not None else clip_skip_original)
 
 
         return (RBusAnyMod,)

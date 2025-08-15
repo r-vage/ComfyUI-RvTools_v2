@@ -9,15 +9,15 @@ class RvPipe_Out_Generation_Data_v2:
         return {"required": {"pipe": ("pipe",),}}
 
     CATEGORY = CATEGORY.MAIN.value + CATEGORY.PIPE.value
-    RETURN_TYPES = ("pipe", "STRING",       "STRING",    "INT",   "FLOAT", "INT",        "INT",   "INT",     "STRING",   "STRING",   "STRING",     "STRING",   "STRING",)
-    RETURN_NAMES = ("pipe", "sampler_name", "scheduler", "steps", "cfg",   "seed_value", "width", "height",  "positive", "negative", "modelname",  "vae_name", "loras",)
+    RETURN_TYPES = ("pipe", "STRING",       "STRING",    "INT",   "FLOAT", "INT",        "INT",   "INT",     "STRING",   "STRING",   "STRING",     "STRING",   "STRING", "FLOAT" , "INT")
+    RETURN_NAMES = ("pipe", "sampler_name", "scheduler", "steps", "cfg",   "seed_value", "width", "height",  "positive", "negative", "modelname",  "vae_name", "loras",  "denoise", "clip_skip")
 
     FUNCTION = "execute"
     PipeVersion = 'V2'
 
     def execute(self, pipe=None, ):
-        PipeVersion, sampler_name, scheduler, steps, cfg, seed_value, width, height, positive, negative, modelname, vae_name, loras = pipe
-        return pipe, PipeVersion, sampler_name, scheduler, steps, cfg, seed_value, width, height, positive, negative, modelname, vae_name, loras
+        PipeVersion, sampler_name, scheduler, steps, cfg, seed_value, width, height, positive, negative, modelname, vae_name, loras, denoise, clip_skip = pipe
+        return pipe, sampler_name, scheduler, steps, cfg, seed_value, width, height, positive, negative, modelname, vae_name, loras, denoise, clip_skip
 
 NODE_NAME = 'Pipe Out Generation Data II [RvTools]'
 NODE_DESC = 'Pipe Out Generation Data II'

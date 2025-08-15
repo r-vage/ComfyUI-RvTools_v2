@@ -329,7 +329,7 @@ class RvImage_SaveImages:
             PipeVersion = pipe_opt[0]
             if PipeVersion == "V2":
                 #GData II
-                PipeVersion, sampler_name, scheduler, steps, cfg, seed_value, width, height, positive, negative, modelname, vae_name, lora_names = pipe_opt
+                PipeVersion, sampler_name, scheduler, steps, cfg, seed_value, width, height, positive, negative, modelname, vae_name, lora_names, denoise, clip_skip = pipe_opt
             elif PipeVersion == "V1":
                 PipeVersion, steps, cfg, sampler_name, scheduler, positive, negative, modelname, width, height, seed_value, lora_names, vae_name = pipe_opt
   
