@@ -153,30 +153,24 @@ class RvVideo_CombineVideoClips:
                 
                 video_1 = str(videos[i]).strip()
                 video_1_exists = os.path.exists(video_1)
-
+                
                 if last_was_join:
-                    #check if next is join or the "last video" to add, last video because we add the 2nd half of it to complete the join process of vc_1 + join + vc_2, or vc_1 + join + join + join...
-
                     if joined: #list of join files
                         video_join = str(joined[i]).strip()   #both list have the same length but maybe a different start number but "i" should be the correct position anyways
-                        join_exists = os.path.exists(video_join)
-                    else:
-                        join_exists = False
+                    
+                    join_exists = os.path.exists(video_join)
 
                     if join_exists:
-                        #cstr(f"video_Join: {video_join}").msg.print()
                         video_join_list.extend(self.load_video_frames(video_join))                
                         
                         if video_join_list:
-                            #If video_join_list is not empty, append all its images
-                            #cstr(f"Adding Frames video_join: {len(video_join_list)}").msg.print()
                             output_images_list.extend(video_join_list)
 
                     else:
+                        last_was_join = False
                         #no join file, last file was join, add 2nd half of video_1, this is the "last video" after the join file
 
                         if video_1_exists:
-                            #cstr(f"video_1: {video_1}").msg.print()
                             video_1_list = self.load_video_frames(video_1, frame_load_cap)
 
                         if video_1_list:
@@ -187,30 +181,25 @@ class RvVideo_CombineVideoClips:
                             video_1_end_idx = min(video_1_end_idx, len(video_1_list))
 
                             #Append images from video_1_list to output_images_list
-                            #cstr(f"Adding Frames video_1 [{video_1_start_idx}:{video_1_end_idx}]").msg.print()
+                            cstr(f"Adding Frames video_1 [{video_1_start_idx}:{video_1_end_idx}]").msg.print()
                             
                             for i in range(video_1_start_idx, video_1_end_idx):
                                 if i < len(video_1_list):
                                     output_images_list.append(video_1_list[i])
-
-                            last_was_join = False
 
                 else:
                     #load the first video (first half if a join file exists)
                     #check if a join file exists
 
                     if video_1_exists:
-                        #cstr(f"video_1: {video_1}").msg.print()
                         video_1_list = self.load_video_frames(video_1, frame_load_cap)
 
                     if joined: #list of join files
                         video_join = str(joined[i]).strip()   #both list have the same length but maybe a different start number but "i" should be the correct position anyways
-                        join_exists = os.path.exists(video_join)
-                    else:
-                        join_exists = False
+
+                    join_exists = os.path.exists(video_join)
 
                     if join_exists:
-                        #cstr(f"video_Join: {video_join}").msg.print()
                         video_join_list.extend(self.load_video_frames(video_join))                
                         
                         if video_1_list:
