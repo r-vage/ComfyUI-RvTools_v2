@@ -24,10 +24,11 @@ class RvPipe_In_8CHPipe:
             }
         }
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.PIPE.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
     RETURN_TYPES = ("pipe",)
 
     FUNCTION = "execute"
+    DEPRECATED = True
 
     def execute(self, pipe=None, any_1=None, any_2=None, any_3=None, any_4=None, any_5=None, any_6=None, any_7=None, any_8=None):
         any_1_original = None

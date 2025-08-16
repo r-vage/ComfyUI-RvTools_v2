@@ -11,11 +11,12 @@ class RvPipe_Out_12CHPipe:
     def INPUT_TYPES(cls):
         return {"required": {"pipe": ("pipe",),}}
 
-    CATEGORY = CATEGORY.MAIN.value + CATEGORY.PIPE.value
+    CATEGORY = CATEGORY.MAIN.value + CATEGORY.DEPRECATED.value
     RETURN_TYPES = ("pipe", any, any, any, any, any, any, any, any, any, any, any, any,)
     RETURN_NAMES = ("pipe", "any_1", "any_2", "any_3", "any_4", "any_5", "any_6", "any_7", "any_8", "any_9", "any_10", "any_11", "any_12",)
 
     FUNCTION = "execute"
+    DEPRECATED = True
 
     def execute(self, pipe=None, ):
         any_1, any_2, any_3, any_4, any_5, any_6, any_7, any_8, any_9, any_10, any_11, any_12 = pipe
