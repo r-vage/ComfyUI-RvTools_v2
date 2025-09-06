@@ -11,7 +11,7 @@ class RvSettings_WvW_Setup:
                 "steps": ("INT", {"default": 4, "min": 1}),
                 "cfg": ("FLOAT", {"default": 1.0, "min": 1.0}),
                 "model_shift": ("FLOAT", {"default": 5.0, "min": 0}),
-                "split_steps_start": ("INT", {"default": 2, "min": 0}),
+                "split_steps_start": ("INT", {"default": 2, "min": -1}),
                 "split_steps_end": ("INT", {"default": 2, "min": -1, "max": 10000}),
             },
         }
