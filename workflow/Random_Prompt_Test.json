@@ -1,0 +1,2661 @@
+{
+  "id": "888b624d-e40e-4bde-9a8b-13af9da89f7c",
+  "revision": 0,
+  "last_node_id": 31,
+  "last_link_id": 41,
+  "nodes": [
+    {
+      "id": 4,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        26,
+        474
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "ckpt_name",
+          "name": "ckpt_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "ckpt_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            1
+          ]
+        },
+        {
+          "localized_name": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "slot_index": 1,
+          "links": [
+            3,
+            5
+          ]
+        },
+        {
+          "localized_name": "VAE",
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 2,
+          "links": [
+            8
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.56",
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "illustrious\\illustrij_v18.safetensors"
+      ],
+      "shape": 1
+    },
+    {
+      "id": 22,
+      "type": "Aspect Ratio (SDXL) [RvTools]",
+      "pos": [
+        29,
+        622
+      ],
+      "size": [
+        314,
+        78
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "resolution",
+          "name": "resolution",
+          "type": "COMBO",
+          "widget": {
+            "name": "resolution"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "links": [
+            20
+          ]
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "links": [
+            21
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "cac349590dafec35997fc4aa2a937567a2fa37fe",
+        "Node name for S&R": "Aspect Ratio (SDXL) [RvTools]"
+      },
+      "widgets_values": [
+        "832x1216 (2:3)"
+      ],
+      "shape": 1
+    },
+    {
+      "id": 25,
+      "type": "Preview Image [RvTools]",
+      "pos": [
+        1221,
+        181
+      ],
+      "size": [
+        449,
+        729
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 27
+        },
+        {
+          "localized_name": "Show_Images",
+          "name": "Show_Images",
+          "type": "INT",
+          "widget": {
+            "name": "Show_Images"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "cac349590dafec35997fc4aa2a937567a2fa37fe",
+        "Node name for S&R": "Preview Image [RvTools]"
+      },
+      "widgets_values": [
+        -1
+      ],
+      "shape": 1
+    },
+    {
+      "id": 27,
+      "type": "Preview Image [RvTools]",
+      "pos": [
+        1701,
+        181
+      ],
+      "size": [
+        449,
+        729
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 32
+        },
+        {
+          "localized_name": "Show_Images",
+          "name": "Show_Images",
+          "type": "INT",
+          "widget": {
+            "name": "Show_Images"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "cac349590dafec35997fc4aa2a937567a2fa37fe",
+        "Node name for S&R": "Preview Image [RvTools]"
+      },
+      "widgets_values": [
+        -1
+      ],
+      "shape": 1
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        971,
+        951
+      ],
+      "size": [
+        219,
+        49
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "link": 7
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            27,
+            31
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.56",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": [],
+      "shape": 1
+    },
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": [
+        861,
+        181
+      ],
+      "size": [
+        329,
+        729
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 1
+        },
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 4
+        },
+        {
+          "localized_name": "negative",
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 6
+        },
+        {
+          "localized_name": "latent_image",
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 2
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 18
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "cfg",
+          "name": "cfg",
+          "type": "FLOAT",
+          "widget": {
+            "name": "cfg"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "sampler_name",
+          "name": "sampler_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "sampler_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "type": "COMBO",
+          "widget": {
+            "name": "scheduler"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "denoise",
+          "name": "denoise",
+          "type": "FLOAT",
+          "widget": {
+            "name": "denoise"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.56",
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        1000207995014725,
+        "randomize",
+        40,
+        4,
+        "dpmpp_2m",
+        "karras",
+        1
+      ],
+      "shape": 1
+    },
+    {
+      "id": 21,
+      "type": "Image Style [RvTools]",
+      "pos": [
+        1701,
+        951
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 31
+        },
+        {
+          "localized_name": "style",
+          "name": "style",
+          "type": "COMBO",
+          "widget": {
+            "name": "style"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "All",
+          "name": "All",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "All"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            32
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "cac349590dafec35997fc4aa2a937567a2fa37fe",
+        "Node name for S&R": "Image Style [RvTools]"
+      },
+      "widgets_values": [
+        "hudson",
+        false
+      ],
+      "shape": 1
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        411,
+        181
+      ],
+      "size": [
+        419,
+        149
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 3
+        },
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 14
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.56",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "beautiful scenery nature glass bottle landscape, , purple galaxy bottle,"
+      ],
+      "shape": 1
+    },
+    {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": [
+        411,
+        391
+      ],
+      "size": [
+        419,
+        169
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 5
+        },
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            6
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.56",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "text, watermark"
+      ],
+      "shape": 1
+    },
+    {
+      "id": 5,
+      "type": "EmptyLatentImage",
+      "pos": [
+        521,
+        621
+      ],
+      "size": [
+        309,
+        106
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 20
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 21
+        },
+        {
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "type": "INT",
+          "widget": {
+            "name": "batch_size"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.56",
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        832,
+        1216,
+        1
+      ],
+      "shape": 1
+    },
+    {
+      "id": 18,
+      "type": "Seed (rgthree)",
+      "pos": [
+        -593,
+        313
+      ],
+      "size": [
+        315,
+        130
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "dir": 4,
+          "name": "SEED",
+          "shape": 3,
+          "type": "INT",
+          "links": [
+            16,
+            17,
+            18,
+            41
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "110e4ef1dbf2ea20ec39ae5a737bd5e56d4e54c2"
+      },
+      "widgets_values": [
+        -1,
+        "",
+        "",
+        ""
+      ],
+      "shape": 1
+    },
+    {
+      "id": 13,
+      "type": "Prompt Settings [RvTools]",
+      "pos": [
+        -599,
+        -339
+      ],
+      "size": [
+        274,
+        586
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "Shotstyle 1",
+          "name": "Shotstyle 1",
+          "type": "COMBO",
+          "widget": {
+            "name": "Shotstyle 1"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Shotstyle 2",
+          "name": "Shotstyle 2",
+          "type": "COMBO",
+          "widget": {
+            "name": "Shotstyle 2"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Artists",
+          "name": "Artists",
+          "type": "COMBO",
+          "widget": {
+            "name": "Artists"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Arists Special",
+          "name": "Arists Special",
+          "type": "COMBO",
+          "widget": {
+            "name": "Arists Special"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Film Directors",
+          "name": "Film Directors",
+          "type": "COMBO",
+          "widget": {
+            "name": "Film Directors"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Architects",
+          "name": "Architects",
+          "type": "COMBO",
+          "widget": {
+            "name": "Architects"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Photography Styles",
+          "name": "Photography Styles",
+          "type": "COMBO",
+          "widget": {
+            "name": "Photography Styles"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Lighting",
+          "name": "Lighting",
+          "type": "COMBO",
+          "widget": {
+            "name": "Lighting"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Effects",
+          "name": "Effects",
+          "type": "COMBO",
+          "widget": {
+            "name": "Effects"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Magic Elements",
+          "name": "Magic Elements",
+          "type": "COMBO",
+          "widget": {
+            "name": "Magic Elements"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Camera",
+          "name": "Camera",
+          "type": "COMBO",
+          "widget": {
+            "name": "Camera"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Films",
+          "name": "Films",
+          "type": "COMBO",
+          "widget": {
+            "name": "Films"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Image Type",
+          "name": "Image Type",
+          "type": "COMBO",
+          "widget": {
+            "name": "Image Type"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Composition Method",
+          "name": "Composition Method",
+          "type": "COMBO",
+          "widget": {
+            "name": "Composition Method"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Art Style 1",
+          "name": "Art Style 1",
+          "type": "COMBO",
+          "widget": {
+            "name": "Art Style 1"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Art Style 2",
+          "name": "Art Style 2",
+          "type": "COMBO",
+          "widget": {
+            "name": "Art Style 2"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Scene Atmosphere",
+          "name": "Scene Atmosphere",
+          "type": "COMBO",
+          "widget": {
+            "name": "Scene Atmosphere"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Theme",
+          "name": "Theme",
+          "type": "COMBO",
+          "widget": {
+            "name": "Theme"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Printing Materials",
+          "name": "Printing Materials",
+          "type": "COMBO",
+          "widget": {
+            "name": "Printing Materials"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Illustration Style",
+          "name": "Illustration Style",
+          "type": "COMBO",
+          "widget": {
+            "name": "Illustration Style"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Color Theme",
+          "name": "Color Theme",
+          "type": "COMBO",
+          "widget": {
+            "name": "Color Theme"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            39
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "cac349590dafec35997fc4aa2a937567a2fa37fe",
+        "Node name for S&R": "Prompt Settings [RvTools]"
+      },
+      "widgets_values": [
+        "Random",
+        "None",
+        "Random",
+        "Random",
+        "None",
+        "None",
+        "Random",
+        "Random",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "Random",
+        "Random",
+        "None",
+        "None",
+        "None",
+        0,
+        "fixed"
+      ],
+      "shape": 1
+    },
+    {
+      "id": 10,
+      "type": "Prompt Environment [RvTools]",
+      "pos": [
+        -289,
+        -339
+      ],
+      "size": [
+        270,
+        226
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "Sky",
+          "name": "Sky",
+          "type": "COMBO",
+          "widget": {
+            "name": "Sky"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Indoor",
+          "name": "Indoor",
+          "type": "COMBO",
+          "widget": {
+            "name": "Indoor"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Outdoor",
+          "name": "Outdoor",
+          "type": "COMBO",
+          "widget": {
+            "name": "Outdoor"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Building",
+          "name": "Building",
+          "type": "COMBO",
+          "widget": {
+            "name": "Building"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Flowers",
+          "name": "Flowers",
+          "type": "COMBO",
+          "widget": {
+            "name": "Flowers"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Background",
+          "name": "Background",
+          "type": "COMBO",
+          "widget": {
+            "name": "Background"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 16
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            38
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "cac349590dafec35997fc4aa2a937567a2fa37fe",
+        "Node name for S&R": "Prompt Environment [RvTools]"
+      },
+      "widgets_values": [
+        "Random",
+        "Random",
+        "Random",
+        "Random",
+        "Random",
+        "Random",
+        0,
+        "fixed"
+      ],
+      "shape": 1
+    },
+    {
+      "id": 17,
+      "type": "Merge Strings v2 [RvTools]",
+      "pos": [
+        351,
+        -339
+      ],
+      "size": [
+        270,
+        138
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "string_1",
+          "name": "string_1",
+          "shape": 7,
+          "type": "STRING",
+          "link": 40
+        },
+        {
+          "localized_name": "string_2",
+          "name": "string_2",
+          "shape": 7,
+          "type": "STRING",
+          "link": 38
+        },
+        {
+          "localized_name": "string_3",
+          "name": "string_3",
+          "shape": 7,
+          "type": "STRING",
+          "link": 39
+        },
+        {
+          "localized_name": "string_4",
+          "name": "string_4",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "string_5",
+          "name": "string_5",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "Delimiter",
+          "name": "Delimiter",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "Delimiter"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            14,
+            28
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "cac349590dafec35997fc4aa2a937567a2fa37fe",
+        "Node name for S&R": "Merge Strings v2 [RvTools]"
+      },
+      "widgets_values": [
+        ", "
+      ],
+      "shape": 1
+    },
+    {
+      "id": 26,
+      "type": "easy showAnything",
+      "pos": [
+        651,
+        -339
+      ],
+      "size": [
+        581,
+        174
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "anything",
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 28
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "output",
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "1.3.2",
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "1girl,\\n/,ass focus,messy hair,long hair,side-swept fringe,dark blonde,smiley,goat ears,checkered neckwear,open kimono,command spell,bottomless,buttons,torn legwear,sword,, cloud,bathroom,roller coaster,shack,grass lily,pentagram,, Close-Up(CU),Helmut Newton,laurie greasley,Long Exposure Photography,candlelit scene,Dark Atmosphere,Hyper Real,"
+      ],
+      "shape": 1
+    },
+    {
+      "id": 30,
+      "type": "Prompt Subject [RvTools]",
+      "pos": [
+        21,
+        -339
+      ],
+      "size": [
+        288.6666564941406,
+        562
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "Character",
+          "name": "Character",
+          "type": "COMBO",
+          "widget": {
+            "name": "Character"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Subject Type",
+          "name": "Subject Type",
+          "type": "COMBO",
+          "widget": {
+            "name": "Subject Type"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Action",
+          "name": "Action",
+          "type": "COMBO",
+          "widget": {
+            "name": "Action"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Action+",
+          "name": "Action+",
+          "type": "COMBO",
+          "widget": {
+            "name": "Action+"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Action++",
+          "name": "Action++",
+          "type": "COMBO",
+          "widget": {
+            "name": "Action++"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Positioning",
+          "name": "Positioning",
+          "type": "COMBO",
+          "widget": {
+            "name": "Positioning"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Hair",
+          "name": "Hair",
+          "type": "COMBO",
+          "widget": {
+            "name": "Hair"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Rare Hairstyle",
+          "name": "Rare Hairstyle",
+          "type": "COMBO",
+          "widget": {
+            "name": "Rare Hairstyle"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Rare Hairstyle Man",
+          "name": "Rare Hairstyle Man",
+          "type": "COMBO",
+          "widget": {
+            "name": "Rare Hairstyle Man"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Rare Hair Colors",
+          "name": "Rare Hair Colors",
+          "type": "COMBO",
+          "widget": {
+            "name": "Rare Hair Colors"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Head Accessories",
+          "name": "Head Accessories",
+          "type": "COMBO",
+          "widget": {
+            "name": "Head Accessories"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Face",
+          "name": "Face",
+          "type": "COMBO",
+          "widget": {
+            "name": "Face"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Ears",
+          "name": "Ears",
+          "type": "COMBO",
+          "widget": {
+            "name": "Ears"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Neck",
+          "name": "Neck",
+          "type": "COMBO",
+          "widget": {
+            "name": "Neck"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Clothing",
+          "name": "Clothing",
+          "type": "COMBO",
+          "widget": {
+            "name": "Clothing"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Upper Body Decoration",
+          "name": "Upper Body Decoration",
+          "type": "COMBO",
+          "widget": {
+            "name": "Upper Body Decoration"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Lower Body Decoration",
+          "name": "Lower Body Decoration",
+          "type": "COMBO",
+          "widget": {
+            "name": "Lower Body Decoration"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Full body decoration",
+          "name": "Full body decoration",
+          "type": "COMBO",
+          "widget": {
+            "name": "Full body decoration"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Shoes and socks",
+          "name": "Shoes and socks",
+          "type": "COMBO",
+          "widget": {
+            "name": "Shoes and socks"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Accessories",
+          "name": "Accessories",
+          "type": "COMBO",
+          "widget": {
+            "name": "Accessories"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 41
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            40
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "cac349590dafec35997fc4aa2a937567a2fa37fe",
+        "Node name for S&R": "Prompt Subject [RvTools]"
+      },
+      "widgets_values": [
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        0,
+        "fixed"
+      ],
+      "shape": 1
+    },
+    {
+      "id": 31,
+      "type": "Prompt Subject Slider [RvTools]",
+      "pos": [
+        -985,
+        -343
+      ],
+      "size": [
+        323.33331298828125,
+        1042
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "Character",
+          "name": "Character",
+          "type": "COMBO",
+          "widget": {
+            "name": "Character"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Characterweight",
+          "name": "Characterweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Characterweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Subject Type",
+          "name": "Subject Type",
+          "type": "COMBO",
+          "widget": {
+            "name": "Subject Type"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Subject Typeweight",
+          "name": "Subject Typeweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Subject Typeweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Action",
+          "name": "Action",
+          "type": "COMBO",
+          "widget": {
+            "name": "Action"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Actionweight",
+          "name": "Actionweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Actionweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Action+",
+          "name": "Action+",
+          "type": "COMBO",
+          "widget": {
+            "name": "Action+"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Action+weight",
+          "name": "Action+weight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Action+weight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Action++",
+          "name": "Action++",
+          "type": "COMBO",
+          "widget": {
+            "name": "Action++"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Action++weight",
+          "name": "Action++weight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Action++weight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Positioning",
+          "name": "Positioning",
+          "type": "COMBO",
+          "widget": {
+            "name": "Positioning"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Positioningweight",
+          "name": "Positioningweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Positioningweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Hair",
+          "name": "Hair",
+          "type": "COMBO",
+          "widget": {
+            "name": "Hair"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Hairweight",
+          "name": "Hairweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Hairweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Rare Hairstyle",
+          "name": "Rare Hairstyle",
+          "type": "COMBO",
+          "widget": {
+            "name": "Rare Hairstyle"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Rare Hairstyleweight",
+          "name": "Rare Hairstyleweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Rare Hairstyleweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Rare Hairstyle Man",
+          "name": "Rare Hairstyle Man",
+          "type": "COMBO",
+          "widget": {
+            "name": "Rare Hairstyle Man"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Rare Hairstyle Manweight",
+          "name": "Rare Hairstyle Manweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Rare Hairstyle Manweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Rare Hair Colors",
+          "name": "Rare Hair Colors",
+          "type": "COMBO",
+          "widget": {
+            "name": "Rare Hair Colors"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Rare Hair Colorsweight",
+          "name": "Rare Hair Colorsweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Rare Hair Colorsweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Head Accessories",
+          "name": "Head Accessories",
+          "type": "COMBO",
+          "widget": {
+            "name": "Head Accessories"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Head Accessoriesweight",
+          "name": "Head Accessoriesweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Head Accessoriesweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Face",
+          "name": "Face",
+          "type": "COMBO",
+          "widget": {
+            "name": "Face"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Faceweight",
+          "name": "Faceweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Faceweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Ears",
+          "name": "Ears",
+          "type": "COMBO",
+          "widget": {
+            "name": "Ears"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Earsweight",
+          "name": "Earsweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Earsweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Neck",
+          "name": "Neck",
+          "type": "COMBO",
+          "widget": {
+            "name": "Neck"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Neckweight",
+          "name": "Neckweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Neckweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Clothing",
+          "name": "Clothing",
+          "type": "COMBO",
+          "widget": {
+            "name": "Clothing"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Clothingweight",
+          "name": "Clothingweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Clothingweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Upper Body Decoration",
+          "name": "Upper Body Decoration",
+          "type": "COMBO",
+          "widget": {
+            "name": "Upper Body Decoration"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Upper Body Decorationweight",
+          "name": "Upper Body Decorationweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Upper Body Decorationweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Lower Body Decoration",
+          "name": "Lower Body Decoration",
+          "type": "COMBO",
+          "widget": {
+            "name": "Lower Body Decoration"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Lower Body Decorationweight",
+          "name": "Lower Body Decorationweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Lower Body Decorationweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Full body decoration",
+          "name": "Full body decoration",
+          "type": "COMBO",
+          "widget": {
+            "name": "Full body decoration"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Full body decorationweight",
+          "name": "Full body decorationweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Full body decorationweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Shoes and socks",
+          "name": "Shoes and socks",
+          "type": "COMBO",
+          "widget": {
+            "name": "Shoes and socks"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Shoes and socksweight",
+          "name": "Shoes and socksweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Shoes and socksweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Accessories",
+          "name": "Accessories",
+          "type": "COMBO",
+          "widget": {
+            "name": "Accessories"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Accessoriesweight",
+          "name": "Accessoriesweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Accessoriesweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "cac349590dafec35997fc4aa2a937567a2fa37fe",
+        "Node name for S&R": "Prompt Subject Slider [RvTools]"
+      },
+      "widgets_values": [
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        0,
+        "fixed"
+      ],
+      "shape": 1
+    },
+    {
+      "id": 11,
+      "type": "Prompt Environment Slider [RvTools]",
+      "pos": [
+        -1282,
+        -343
+      ],
+      "size": [
+        270,
+        370
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "Sky",
+          "name": "Sky",
+          "type": "COMBO",
+          "widget": {
+            "name": "Sky"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Skyweight",
+          "name": "Skyweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Skyweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Indoor",
+          "name": "Indoor",
+          "type": "COMBO",
+          "widget": {
+            "name": "Indoor"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Indoorweight",
+          "name": "Indoorweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Indoorweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Outdoor",
+          "name": "Outdoor",
+          "type": "COMBO",
+          "widget": {
+            "name": "Outdoor"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Outdoorweight",
+          "name": "Outdoorweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Outdoorweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Building",
+          "name": "Building",
+          "type": "COMBO",
+          "widget": {
+            "name": "Building"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Buildingweight",
+          "name": "Buildingweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Buildingweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Flowers",
+          "name": "Flowers",
+          "type": "COMBO",
+          "widget": {
+            "name": "Flowers"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Flowersweight",
+          "name": "Flowersweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Flowersweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Background",
+          "name": "Background",
+          "type": "COMBO",
+          "widget": {
+            "name": "Background"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Backgroundweight",
+          "name": "Backgroundweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Backgroundweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "cac349590dafec35997fc4aa2a937567a2fa37fe",
+        "Node name for S&R": "Prompt Environment Slider [RvTools]"
+      },
+      "widgets_values": [
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        585352259454629,
+        "fixed"
+      ],
+      "shape": 1
+    },
+    {
+      "id": 14,
+      "type": "Prompt Settings Slider [RvTools]",
+      "pos": [
+        -1631,
+        -343
+      ],
+      "size": [
+        308.66668701171875,
+        1090
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "Shotstyle 1",
+          "name": "Shotstyle 1",
+          "type": "COMBO",
+          "widget": {
+            "name": "Shotstyle 1"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Shotstyle 1weight",
+          "name": "Shotstyle 1weight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Shotstyle 1weight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Shotstyle 2",
+          "name": "Shotstyle 2",
+          "type": "COMBO",
+          "widget": {
+            "name": "Shotstyle 2"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Shotstyle 2weight",
+          "name": "Shotstyle 2weight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Shotstyle 2weight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Artists",
+          "name": "Artists",
+          "type": "COMBO",
+          "widget": {
+            "name": "Artists"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Artistsweight",
+          "name": "Artistsweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Artistsweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Arists Special",
+          "name": "Arists Special",
+          "type": "COMBO",
+          "widget": {
+            "name": "Arists Special"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Arists Specialweight",
+          "name": "Arists Specialweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Arists Specialweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Film Directors",
+          "name": "Film Directors",
+          "type": "COMBO",
+          "widget": {
+            "name": "Film Directors"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Film Directorsweight",
+          "name": "Film Directorsweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Film Directorsweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Architects",
+          "name": "Architects",
+          "type": "COMBO",
+          "widget": {
+            "name": "Architects"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Architectsweight",
+          "name": "Architectsweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Architectsweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Photography Styles",
+          "name": "Photography Styles",
+          "type": "COMBO",
+          "widget": {
+            "name": "Photography Styles"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Photography Stylesweight",
+          "name": "Photography Stylesweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Photography Stylesweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Lighting",
+          "name": "Lighting",
+          "type": "COMBO",
+          "widget": {
+            "name": "Lighting"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Lightingweight",
+          "name": "Lightingweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Lightingweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Effects",
+          "name": "Effects",
+          "type": "COMBO",
+          "widget": {
+            "name": "Effects"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Effectsweight",
+          "name": "Effectsweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Effectsweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Magic Elements",
+          "name": "Magic Elements",
+          "type": "COMBO",
+          "widget": {
+            "name": "Magic Elements"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Magic Elementsweight",
+          "name": "Magic Elementsweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Magic Elementsweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Camera",
+          "name": "Camera",
+          "type": "COMBO",
+          "widget": {
+            "name": "Camera"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Cameraweight",
+          "name": "Cameraweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Cameraweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Films",
+          "name": "Films",
+          "type": "COMBO",
+          "widget": {
+            "name": "Films"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Filmsweight",
+          "name": "Filmsweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Filmsweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Image Type",
+          "name": "Image Type",
+          "type": "COMBO",
+          "widget": {
+            "name": "Image Type"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Image Typeweight",
+          "name": "Image Typeweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Image Typeweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Composition Method",
+          "name": "Composition Method",
+          "type": "COMBO",
+          "widget": {
+            "name": "Composition Method"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Composition Methodweight",
+          "name": "Composition Methodweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Composition Methodweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Art Style 1",
+          "name": "Art Style 1",
+          "type": "COMBO",
+          "widget": {
+            "name": "Art Style 1"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Art Style 1weight",
+          "name": "Art Style 1weight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Art Style 1weight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Art Style 2",
+          "name": "Art Style 2",
+          "type": "COMBO",
+          "widget": {
+            "name": "Art Style 2"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Art Style 2weight",
+          "name": "Art Style 2weight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Art Style 2weight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Scene Atmosphere",
+          "name": "Scene Atmosphere",
+          "type": "COMBO",
+          "widget": {
+            "name": "Scene Atmosphere"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Scene Atmosphereweight",
+          "name": "Scene Atmosphereweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Scene Atmosphereweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Theme",
+          "name": "Theme",
+          "type": "COMBO",
+          "widget": {
+            "name": "Theme"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Themeweight",
+          "name": "Themeweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Themeweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Printing Materials",
+          "name": "Printing Materials",
+          "type": "COMBO",
+          "widget": {
+            "name": "Printing Materials"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Printing Materialsweight",
+          "name": "Printing Materialsweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Printing Materialsweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Illustration Style",
+          "name": "Illustration Style",
+          "type": "COMBO",
+          "widget": {
+            "name": "Illustration Style"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Illustration Styleweight",
+          "name": "Illustration Styleweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Illustration Styleweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Color Theme",
+          "name": "Color Theme",
+          "type": "COMBO",
+          "widget": {
+            "name": "Color Theme"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Color Themeweight",
+          "name": "Color Themeweight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Color Themeweight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "cac349590dafec35997fc4aa2a937567a2fa37fe",
+        "Node name for S&R": "Prompt Settings Slider [RvTools]"
+      },
+      "widgets_values": [
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1,
+        -368867456812023,
+        "fixed"
+      ],
+      "shape": 1
+    }
+  ],
+  "links": [
+    [
+      1,
+      4,
+      0,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      2,
+      5,
+      0,
+      3,
+      3,
+      "LATENT"
+    ],
+    [
+      3,
+      4,
+      1,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      4,
+      6,
+      0,
+      3,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      5,
+      4,
+      1,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      6,
+      7,
+      0,
+      3,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      7,
+      3,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      8,
+      4,
+      2,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      14,
+      17,
+      0,
+      6,
+      1,
+      "STRING"
+    ],
+    [
+      16,
+      18,
+      0,
+      10,
+      6,
+      "INT"
+    ],
+    [
+      17,
+      18,
+      0,
+      13,
+      21,
+      "INT"
+    ],
+    [
+      18,
+      18,
+      0,
+      3,
+      4,
+      "INT"
+    ],
+    [
+      20,
+      22,
+      0,
+      5,
+      0,
+      "INT"
+    ],
+    [
+      21,
+      22,
+      1,
+      5,
+      1,
+      "INT"
+    ],
+    [
+      27,
+      8,
+      0,
+      25,
+      0,
+      "IMAGE"
+    ],
+    [
+      28,
+      17,
+      0,
+      26,
+      0,
+      "*"
+    ],
+    [
+      31,
+      8,
+      0,
+      21,
+      0,
+      "IMAGE"
+    ],
+    [
+      32,
+      21,
+      0,
+      27,
+      0,
+      "IMAGE"
+    ],
+    [
+      38,
+      10,
+      0,
+      17,
+      1,
+      "STRING"
+    ],
+    [
+      39,
+      13,
+      0,
+      17,
+      2,
+      "STRING"
+    ],
+    [
+      40,
+      30,
+      0,
+      17,
+      0,
+      "STRING"
+    ],
+    [
+      41,
+      18,
+      0,
+      30,
+      20,
+      "INT"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1,
+      "offset": [
+        1415.9448006114217,
+        504.80976987588906
+      ]
+    }
+  },
+  "version": 0.4
+}
