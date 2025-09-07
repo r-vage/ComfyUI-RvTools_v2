@@ -72,6 +72,7 @@ class RvText_Prompt_Subject_Slider:
             if key in kwargs and kwargs[key] in self.options[key] and kwargs[key] != "None" and kwargs[key] == "Random":
                 Optional = list(self.options[key].keys())
                 Optional.remove("None")
+                Optional.remove("Random")
                 Random_selection = random.choice(Optional)
                 weight_key = f"{key}weight"
                 weight = kwargs[weight_key] if weight_key in kwargs and kwargs[weight_key] is not None else 1
