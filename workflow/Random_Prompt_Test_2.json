@@ -1,0 +1,2442 @@
+{
+  "id": "888b624d-e40e-4bde-9a8b-13af9da89f7c",
+  "revision": 0,
+  "last_node_id": 47,
+  "last_link_id": 68,
+  "nodes": [
+    {
+      "id": 27,
+      "type": "Preview Image [RvTools]",
+      "pos": [
+        821,
+        -109
+      ],
+      "size": [
+        449,
+        729
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 32
+        },
+        {
+          "localized_name": "Show_Images",
+          "name": "Show_Images",
+          "type": "INT",
+          "widget": {
+            "name": "Show_Images"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "cac349590dafec35997fc4aa2a937567a2fa37fe",
+        "Node name for S&R": "Preview Image [RvTools]"
+      },
+      "widgets_values": [
+        -1
+      ],
+      "shape": 1
+    },
+    {
+      "id": 21,
+      "type": "Image Style [RvTools]",
+      "pos": [
+        821,
+        661
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 31
+        },
+        {
+          "localized_name": "style",
+          "name": "style",
+          "type": "COMBO",
+          "widget": {
+            "name": "style"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "All",
+          "name": "All",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "All"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            32
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "cac349590dafec35997fc4aa2a937567a2fa37fe",
+        "Node name for S&R": "Image Style [RvTools]"
+      },
+      "widgets_values": [
+        "hudson",
+        false
+      ],
+      "shape": 1
+    },
+    {
+      "id": 34,
+      "type": "Seed (rgthree)",
+      "pos": [
+        -319,
+        661
+      ],
+      "size": [
+        259,
+        139
+      ],
+      "flags": {
+        "collapsed": false,
+        "pinned": false
+      },
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "dir": 4,
+          "name": "SEED",
+          "shape": 3,
+          "type": "INT",
+          "slot_index": 0,
+          "links": [
+            44,
+            55
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "777cfaabc6870f4254485137820282165fe0cf66",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        -1,
+        null,
+        null,
+        null
+      ],
+      "color": "#007d52",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 35,
+      "type": "String Multiline [RvTools]",
+      "pos": [
+        -1139,
+        -69
+      ],
+      "size": [
+        269,
+        209
+      ],
+      "flags": {
+        "collapsed": false,
+        "pinned": false
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "widget": {
+            "name": "string"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            48,
+            61
+          ]
+        }
+      ],
+      "title": "Prefix (1)",
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "69d500dc99a1a5020b3f315ec4499b20144813c1",
+        "Node name for S&R": "String Multiline [RvTools]",
+        "aux_id": "Rvage0815/ComfyUI-RvTools_v2",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "masterpiece, best quality, nails, face, portrait, realistic,"
+      ],
+      "color": "#007d52",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 36,
+      "type": "Prompt Subject [RvTools]",
+      "pos": [
+        -1139,
+        191
+      ],
+      "size": [
+        269,
+        569
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "Character",
+          "name": "Character",
+          "type": "COMBO",
+          "widget": {
+            "name": "Character"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Subject Type",
+          "name": "Subject Type",
+          "type": "COMBO",
+          "widget": {
+            "name": "Subject Type"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Action",
+          "name": "Action",
+          "type": "COMBO",
+          "widget": {
+            "name": "Action"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Action+",
+          "name": "Action+",
+          "type": "COMBO",
+          "widget": {
+            "name": "Action+"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Action++",
+          "name": "Action++",
+          "type": "COMBO",
+          "widget": {
+            "name": "Action++"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Positioning",
+          "name": "Positioning",
+          "type": "COMBO",
+          "widget": {
+            "name": "Positioning"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Hair",
+          "name": "Hair",
+          "type": "COMBO",
+          "widget": {
+            "name": "Hair"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Rare Hairstyle",
+          "name": "Rare Hairstyle",
+          "type": "COMBO",
+          "widget": {
+            "name": "Rare Hairstyle"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Rare Hairstyle Man",
+          "name": "Rare Hairstyle Man",
+          "type": "COMBO",
+          "widget": {
+            "name": "Rare Hairstyle Man"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Rare Hair Colors",
+          "name": "Rare Hair Colors",
+          "type": "COMBO",
+          "widget": {
+            "name": "Rare Hair Colors"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Head Accessories",
+          "name": "Head Accessories",
+          "type": "COMBO",
+          "widget": {
+            "name": "Head Accessories"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Face",
+          "name": "Face",
+          "type": "COMBO",
+          "widget": {
+            "name": "Face"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Ears",
+          "name": "Ears",
+          "type": "COMBO",
+          "widget": {
+            "name": "Ears"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Neck",
+          "name": "Neck",
+          "type": "COMBO",
+          "widget": {
+            "name": "Neck"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Clothing",
+          "name": "Clothing",
+          "type": "COMBO",
+          "widget": {
+            "name": "Clothing"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Upper Body Decoration",
+          "name": "Upper Body Decoration",
+          "type": "COMBO",
+          "widget": {
+            "name": "Upper Body Decoration"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Lower Body Decoration",
+          "name": "Lower Body Decoration",
+          "type": "COMBO",
+          "widget": {
+            "name": "Lower Body Decoration"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Full body decoration",
+          "name": "Full body decoration",
+          "type": "COMBO",
+          "widget": {
+            "name": "Full body decoration"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Shoes and socks",
+          "name": "Shoes and socks",
+          "type": "COMBO",
+          "widget": {
+            "name": "Shoes and socks"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Accessories",
+          "name": "Accessories",
+          "type": "COMBO",
+          "widget": {
+            "name": "Accessories"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 44
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            49,
+            57
+          ]
+        }
+      ],
+      "title": "Prompt Subject (2)",
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "cac349590dafec35997fc4aa2a937567a2fa37fe",
+        "Node name for S&R": "Prompt Subject [RvTools]"
+      },
+      "widgets_values": [
+        "None",
+        "mature woman",
+        "None",
+        "None",
+        "None",
+        "None",
+        "very long hair",
+        "messy hair",
+        "None",
+        "Random",
+        "None",
+        "eyes visible through hair",
+        "None",
+        "None",
+        "Random",
+        "open clothes",
+        "None",
+        "tattoo",
+        "Random",
+        "Random",
+        0,
+        "fixed"
+      ],
+      "color": "#007d52",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 37,
+      "type": "Prompt Environment [RvTools]",
+      "pos": [
+        -319,
+        -69
+      ],
+      "size": [
+        259,
+        229
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "Sky",
+          "name": "Sky",
+          "type": "COMBO",
+          "widget": {
+            "name": "Sky"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Indoor",
+          "name": "Indoor",
+          "type": "COMBO",
+          "widget": {
+            "name": "Indoor"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Outdoor",
+          "name": "Outdoor",
+          "type": "COMBO",
+          "widget": {
+            "name": "Outdoor"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Building",
+          "name": "Building",
+          "type": "COMBO",
+          "widget": {
+            "name": "Building"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Flowers",
+          "name": "Flowers",
+          "type": "COMBO",
+          "widget": {
+            "name": "Flowers"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Background",
+          "name": "Background",
+          "type": "COMBO",
+          "widget": {
+            "name": "Background"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            52,
+            60
+          ]
+        }
+      ],
+      "title": "Prompt Environment (5)",
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "cac349590dafec35997fc4aa2a937567a2fa37fe",
+        "Node name for S&R": "Prompt Environment [RvTools]"
+      },
+      "widgets_values": [
+        "Random",
+        "Random",
+        "Random",
+        "Random",
+        "Random",
+        "Random",
+        0,
+        "fixed"
+      ],
+      "color": "#007d52",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 38,
+      "type": "SDXLPromptStyler",
+      "pos": [
+        -559,
+        731
+      ],
+      "size": [
+        259,
+        258
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": false
+      },
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text_positive",
+          "name": "text_positive",
+          "type": "STRING",
+          "widget": {
+            "name": "text_positive"
+          },
+          "link": 45
+        },
+        {
+          "localized_name": "text_negative",
+          "name": "text_negative",
+          "type": "STRING",
+          "widget": {
+            "name": "text_negative"
+          },
+          "link": 46
+        },
+        {
+          "localized_name": "style",
+          "name": "style",
+          "type": "COMBO",
+          "widget": {
+            "name": "style"
+          },
+          "link": 47
+        },
+        {
+          "localized_name": "log_prompt",
+          "name": "log_prompt",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "log_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "style_positive",
+          "name": "style_positive",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "style_positive"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "style_negative",
+          "name": "style_negative",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "style_negative"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "text_positive",
+          "name": "text_positive",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            53,
+            62
+          ]
+        },
+        {
+          "localized_name": "text_negative",
+          "name": "text_negative",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": [
+            43
+          ]
+        }
+      ],
+      "title": "SDXL Prompt Styler (6)",
+      "properties": {
+        "cnr_id": "twri-styler",
+        "ver": "51068179927f79dce14f38c6b1984390ab242be2",
+        "Node name for S&R": "SDXLPromptStyler",
+        "widget_ue_connectable": {
+          "text_positive": true,
+          "text_negative": true,
+          "style": true
+        }
+      },
+      "widgets_values": [
+        "",
+        "",
+        "ads-real estate",
+        false,
+        true,
+        true
+      ],
+      "color": "#007d52",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 39,
+      "type": "PrimitiveNode",
+      "pos": [
+        -589,
+        691
+      ],
+      "size": [
+        259,
+        109
+      ],
+      "flags": {
+        "collapsed": false,
+        "pinned": false
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "COMBO",
+          "type": "COMBO",
+          "widget": {
+            "name": "style"
+          },
+          "slot_index": 0,
+          "links": [
+            47
+          ]
+        }
+      ],
+      "title": "Prompt Styler (6)",
+      "properties": {
+        "Run widget replace on values": false,
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "ads-real estate",
+        "fixed",
+        ""
+      ],
+      "color": "#007d52",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 40,
+      "type": "Node Collector (rgthree)",
+      "pos": [
+        -829,
+        711
+      ],
+      "size": [
+        191.66665649414062,
+        186
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "Prefix (1)",
+          "type": "*",
+          "link": 48
+        },
+        {
+          "dir": 3,
+          "name": "Prompt Subject (2)",
+          "type": "*",
+          "link": 49
+        },
+        {
+          "dir": 3,
+          "name": "Positive Prompt (3)",
+          "type": "*",
+          "link": 50
+        },
+        {
+          "dir": 3,
+          "name": "Prompt Settings (4)",
+          "type": "*",
+          "link": 51
+        },
+        {
+          "dir": 3,
+          "name": "Prompt Environment (5)",
+          "type": "*",
+          "link": 52
+        },
+        {
+          "dir": 3,
+          "name": "SDXL Prompt Styler (6)",
+          "type": "*",
+          "link": 53
+        },
+        {
+          "dir": 3,
+          "name": "Appendix (7)",
+          "type": "*",
+          "link": 54
+        },
+        {
+          "dir": 3,
+          "name": "",
+          "type": "*",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "name": "Output",
+          "type": "*",
+          "slot_index": 0,
+          "links": [
+            56
+          ]
+        }
+      ],
+      "title": "nodes",
+      "properties": {
+        "widget_ue_connectable": {}
+      },
+      "color": "#21a57a",
+      "bgcolor": "#0d9166",
+      "shape": 1
+    },
+    {
+      "id": 41,
+      "type": "String Multiline [RvTools]",
+      "pos": [
+        -319,
+        441
+      ],
+      "size": [
+        259,
+        179
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "widget": {
+            "name": "string"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            46
+          ]
+        }
+      ],
+      "title": "Negative Prompt",
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "69d500dc99a1a5020b3f315ec4499b20144813c1",
+        "Node name for S&R": "String Multiline [RvTools]",
+        "aux_id": "Rvage0815/ComfyUI-RvTools_v2",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "bad quality, worst quality, lowres, jpeg artifacts, bad anatomy, bad hands, bad proportions, mutated, deformed, deformed hands, multiple views, signature, watermark, copyright, text, censored, ugly, broken, glowing eyes, glowing"
+      ],
+      "color": "#841e1e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 45,
+      "type": "Prompt Settings [RvTools]",
+      "pos": [
+        -589,
+        -69
+      ],
+      "size": [
+        259,
+        589
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "Shotstyle 1",
+          "name": "Shotstyle 1",
+          "type": "COMBO",
+          "widget": {
+            "name": "Shotstyle 1"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Shotstyle 2",
+          "name": "Shotstyle 2",
+          "type": "COMBO",
+          "widget": {
+            "name": "Shotstyle 2"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Artists",
+          "name": "Artists",
+          "type": "COMBO",
+          "widget": {
+            "name": "Artists"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Arists Special",
+          "name": "Arists Special",
+          "type": "COMBO",
+          "widget": {
+            "name": "Arists Special"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Film Directors",
+          "name": "Film Directors",
+          "type": "COMBO",
+          "widget": {
+            "name": "Film Directors"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Architects",
+          "name": "Architects",
+          "type": "COMBO",
+          "widget": {
+            "name": "Architects"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Photography Styles",
+          "name": "Photography Styles",
+          "type": "COMBO",
+          "widget": {
+            "name": "Photography Styles"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Lighting",
+          "name": "Lighting",
+          "type": "COMBO",
+          "widget": {
+            "name": "Lighting"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Effects",
+          "name": "Effects",
+          "type": "COMBO",
+          "widget": {
+            "name": "Effects"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Magic Elements",
+          "name": "Magic Elements",
+          "type": "COMBO",
+          "widget": {
+            "name": "Magic Elements"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Camera",
+          "name": "Camera",
+          "type": "COMBO",
+          "widget": {
+            "name": "Camera"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Films",
+          "name": "Films",
+          "type": "COMBO",
+          "widget": {
+            "name": "Films"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Image Type",
+          "name": "Image Type",
+          "type": "COMBO",
+          "widget": {
+            "name": "Image Type"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Composition Method",
+          "name": "Composition Method",
+          "type": "COMBO",
+          "widget": {
+            "name": "Composition Method"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Art Style 1",
+          "name": "Art Style 1",
+          "type": "COMBO",
+          "widget": {
+            "name": "Art Style 1"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Art Style 2",
+          "name": "Art Style 2",
+          "type": "COMBO",
+          "widget": {
+            "name": "Art Style 2"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Scene Atmosphere",
+          "name": "Scene Atmosphere",
+          "type": "COMBO",
+          "widget": {
+            "name": "Scene Atmosphere"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Theme",
+          "name": "Theme",
+          "type": "COMBO",
+          "widget": {
+            "name": "Theme"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Printing Materials",
+          "name": "Printing Materials",
+          "type": "COMBO",
+          "widget": {
+            "name": "Printing Materials"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Illustration Style",
+          "name": "Illustration Style",
+          "type": "COMBO",
+          "widget": {
+            "name": "Illustration Style"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Color Theme",
+          "name": "Color Theme",
+          "type": "COMBO",
+          "widget": {
+            "name": "Color Theme"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            51,
+            59
+          ]
+        }
+      ],
+      "title": "Prompt Settings (4)",
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "cac349590dafec35997fc4aa2a937567a2fa37fe",
+        "Node name for S&R": "Prompt Settings [RvTools]"
+      },
+      "widgets_values": [
+        "sideways",
+        "eye-level shot",
+        "Random",
+        "Random",
+        "None",
+        "None",
+        "Random",
+        "Random",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "Random",
+        "Random",
+        "None",
+        "None",
+        "None",
+        0,
+        "fixed"
+      ],
+      "color": "#007d52",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 46,
+      "type": "Merge Strings v2 (Large) [RvTools]",
+      "pos": [
+        -589,
+        598
+      ],
+      "size": [
+        210,
+        238
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "string_1",
+          "name": "string_1",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "string_2",
+          "name": "string_2",
+          "shape": 7,
+          "type": "STRING",
+          "link": 57
+        },
+        {
+          "localized_name": "string_3",
+          "name": "string_3",
+          "shape": 7,
+          "type": "STRING",
+          "link": 58
+        },
+        {
+          "localized_name": "string_4",
+          "name": "string_4",
+          "shape": 7,
+          "type": "STRING",
+          "link": 59
+        },
+        {
+          "localized_name": "string_5",
+          "name": "string_5",
+          "shape": 7,
+          "type": "STRING",
+          "link": 60
+        },
+        {
+          "localized_name": "string_6",
+          "name": "string_6",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "string_7",
+          "name": "string_7",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "string_8",
+          "name": "string_8",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "string_9",
+          "name": "string_9",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "string_10",
+          "name": "string_10",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "Delimiter",
+          "name": "Delimiter",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "Delimiter"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            45
+          ]
+        }
+      ],
+      "title": "Concat Prompts",
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "bc352e4e79494e5fdfeca71e1128ffb73a760ca1",
+        "Node name for S&R": "Merge Strings v2 (Large) [RvTools]"
+      },
+      "widgets_values": [
+        ", "
+      ],
+      "color": "#141414",
+      "bgcolor": "#000000",
+      "shape": 1
+    },
+    {
+      "id": 32,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -1139,
+        800
+      ],
+      "size": [
+        210.25,
+        88
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 64
+        },
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 42
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            67
+          ]
+        }
+      ],
+      "title": "CTE+",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.43",
+        "Node name for S&R": "CLIPTextEncode",
+        "widget_ue_connectable": {
+          "text": true
+        }
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#141414",
+      "bgcolor": "#000000",
+      "shape": 1
+    },
+    {
+      "id": 33,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -958,
+        800
+      ],
+      "size": [
+        210,
+        88
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 65
+        },
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 43
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            66
+          ]
+        }
+      ],
+      "title": "CTE-",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.43",
+        "Node name for S&R": "CLIPTextEncode",
+        "widget_ue_connectable": {
+          "text": true
+        }
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#141414",
+      "bgcolor": "#000000",
+      "shape": 1
+    },
+    {
+      "id": 4,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -1499,
+        -109
+      ],
+      "size": [
+        319,
+        99
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "ckpt_name",
+          "name": "ckpt_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "ckpt_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            1
+          ]
+        },
+        {
+          "localized_name": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "slot_index": 1,
+          "links": [
+            64,
+            65
+          ]
+        },
+        {
+          "localized_name": "VAE",
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 2,
+          "links": [
+            8
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.56",
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "illustrious\\illustrij_v18.safetensors"
+      ],
+      "shape": 1
+    },
+    {
+      "id": 22,
+      "type": "Aspect Ratio (SDXL) [RvTools]",
+      "pos": [
+        -1499,
+        31
+      ],
+      "size": [
+        319,
+        79
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "resolution",
+          "name": "resolution",
+          "type": "COMBO",
+          "widget": {
+            "name": "resolution"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "links": [
+            20
+          ]
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "links": [
+            21
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "cac349590dafec35997fc4aa2a937567a2fa37fe",
+        "Node name for S&R": "Aspect Ratio (SDXL) [RvTools]"
+      },
+      "widgets_values": [
+        "832x1216 (2:3)"
+      ],
+      "shape": 1
+    },
+    {
+      "id": 5,
+      "type": "EmptyLatentImage",
+      "pos": [
+        -1499,
+        151
+      ],
+      "size": [
+        319,
+        109
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 20
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 21
+        },
+        {
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "type": "INT",
+          "widget": {
+            "name": "batch_size"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.56",
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        832,
+        1216,
+        1
+      ],
+      "shape": 1
+    },
+    {
+      "id": 26,
+      "type": "easy showAnything",
+      "pos": [
+        -1499,
+        321
+      ],
+      "size": [
+        319,
+        489
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "anything",
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 68
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "output",
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "1.3.2",
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "masterpiece, best quality, nails, face, portrait, realistic,, real estate photography style mature woman,very long hair,messy hair,dark red,eyes visible through hair,wedding dress,open clothes,tattoo,seamed legwear,guitar,, the face of a beautiful woman with fair skin, and long, wavy blonde hair. She has blue eyes and a dark makeup look that accentuates her features, she wears a red form fitting suit, skin press, her expression is naughty, moaning, half closed eyes, her head is slightly tilted back, she looks seductivly to the viewer, sideways,eye-level shot,Alejandro Jodorowsky,chris leib,Lifestyle Photography,subdued nightlight,Tranquil Atmosphere,Photorealism,, starry sky,clubroom,railroad crossing,treehouse,trumpet creeper,white background, . professional, inviting, well-lit, high-resolution, property-focused, commercial, highly detailed"
+      ],
+      "shape": 1
+    },
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": [
+        -19,
+        -109
+      ],
+      "size": [
+        329,
+        729
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 1
+        },
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 67
+        },
+        {
+          "localized_name": "negative",
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 66
+        },
+        {
+          "localized_name": "latent_image",
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 2
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "cfg",
+          "name": "cfg",
+          "type": "FLOAT",
+          "widget": {
+            "name": "cfg"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "sampler_name",
+          "name": "sampler_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "sampler_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "type": "COMBO",
+          "widget": {
+            "name": "scheduler"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "denoise",
+          "name": "denoise",
+          "type": "FLOAT",
+          "widget": {
+            "name": "denoise"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.56",
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        367759367661607,
+        "randomize",
+        40,
+        4,
+        "dpmpp_2m",
+        "karras",
+        1
+      ],
+      "shape": 1
+    },
+    {
+      "id": 25,
+      "type": "Preview Image [RvTools]",
+      "pos": [
+        341,
+        -109
+      ],
+      "size": [
+        449,
+        729
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 27
+        },
+        {
+          "localized_name": "Show_Images",
+          "name": "Show_Images",
+          "type": "INT",
+          "widget": {
+            "name": "Show_Images"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "cac349590dafec35997fc4aa2a937567a2fa37fe",
+        "Node name for S&R": "Preview Image [RvTools]"
+      },
+      "widgets_values": [
+        -1
+      ],
+      "shape": 1
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        91,
+        661
+      ],
+      "size": [
+        219,
+        49
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "link": 7
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            27,
+            31
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.56",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": [],
+      "shape": 1
+    },
+    {
+      "id": 47,
+      "type": "Merge Strings v2 [RvTools]",
+      "pos": [
+        -589,
+        641
+      ],
+      "size": [
+        210,
+        138
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "string_1",
+          "name": "string_1",
+          "shape": 7,
+          "type": "STRING",
+          "link": 61
+        },
+        {
+          "localized_name": "string_2",
+          "name": "string_2",
+          "shape": 7,
+          "type": "STRING",
+          "link": 62
+        },
+        {
+          "localized_name": "string_3",
+          "name": "string_3",
+          "shape": 7,
+          "type": "STRING",
+          "link": 63
+        },
+        {
+          "localized_name": "string_4",
+          "name": "string_4",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "string_5",
+          "name": "string_5",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "Delimiter",
+          "name": "Delimiter",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "Delimiter"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            42,
+            68
+          ]
+        }
+      ],
+      "title": "Add Pre/Appendix",
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "06c6018870c8ce853f40313f8fac888c7a5f2c98",
+        "Node name for S&R": "Merge Strings v2 [RvTools]",
+        "aux_id": "r-vage/ComfyUI-RvTools_v2",
+        "widget_ue_connectable": {
+          "Delimiter": true
+        }
+      },
+      "widgets_values": [
+        ", "
+      ],
+      "color": "#141414",
+      "bgcolor": "#000000",
+      "shape": 1
+    },
+    {
+      "id": 44,
+      "type": "String Multiline [RvTools]",
+      "pos": [
+        -319,
+        201
+      ],
+      "size": [
+        259,
+        199
+      ],
+      "flags": {
+        "collapsed": false,
+        "pinned": false
+      },
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "widget": {
+            "name": "string"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            54,
+            63
+          ]
+        }
+      ],
+      "title": "Appendix (7)",
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "69d500dc99a1a5020b3f315ec4499b20144813c1",
+        "Node name for S&R": "String Multiline [RvTools]",
+        "aux_id": "Rvage0815/ComfyUI-RvTools_v2",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#007d52",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 43,
+      "type": "Fast Bypasser (rgthree)",
+      "pos": [
+        -859,
+        598
+      ],
+      "size": [
+        259,
+        202
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "label": " ",
+          "name": "Prefix (1)",
+          "type": "*",
+          "link": 56
+        },
+        {
+          "dir": 3,
+          "label": " ",
+          "name": "",
+          "type": "*",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "label": " ",
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Fast Bypasser",
+      "properties": {
+        "toggleRestriction": "default",
+        "widget_ue_connectable": {},
+        "collapse_connections": true
+      },
+      "color": "#366ca1",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 42,
+      "type": "ImpactWildcardProcessor",
+      "pos": [
+        -859,
+        -69
+      ],
+      "size": [
+        259,
+        619
+      ],
+      "flags": {
+        "collapsed": false,
+        "pinned": false
+      },
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "wildcard_text",
+          "name": "wildcard_text",
+          "type": "STRING",
+          "widget": {
+            "name": "wildcard_text"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "populated_text",
+          "name": "populated_text",
+          "type": "STRING",
+          "widget": {
+            "name": "populated_text"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "mode",
+          "name": "mode",
+          "type": "COMBO",
+          "widget": {
+            "name": "mode"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 55
+        },
+        {
+          "localized_name": "Select to add Wildcard",
+          "name": "Select to add Wildcard",
+          "type": "COMBO",
+          "widget": {
+            "name": "Select to add Wildcard"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "processed text",
+          "name": "processed text",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            50,
+            58
+          ]
+        }
+      ],
+      "title": "Positive Prompt (3)",
+      "properties": {
+        "cnr_id": "comfyui-impact-pack",
+        "ver": "93fc248503a09068e5d76eea9bc7c71ba1618060",
+        "Node name for S&R": "ImpactWildcardProcessor",
+        "widget_ue_connectable": {
+          "seed": true
+        }
+      },
+      "widgets_values": [
+        "the face of a beautiful woman with fair skin, and long, {straight|messy|wavy} {blonde|white|red|black} hair. She has {blue|green|grey|brown} eyes and a {subtle tasteful|dark} makeup look that accentuates her features, she wears a {red|white|black|pink} form fitting {dress|suit|bikini|lace underwear}, skin press, her expression is naughty, moaning, half closed eyes, her head is slightly tilted back, she looks seductivly to the viewer",
+        "the face of a beautiful woman with fair skin, and long, wavy blonde hair. She has blue eyes and a dark makeup look that accentuates her features, she wears a red form fitting suit, skin press, her expression is naughty, moaning, half closed eyes, her head is slightly tilted back, she looks seductivly to the viewer",
+        "populate",
+        140818382643265,
+        "fixed",
+        "Select the Wildcard to add to the text"
+      ],
+      "color": "#007d52",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    }
+  ],
+  "links": [
+    [
+      1,
+      4,
+      0,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      2,
+      5,
+      0,
+      3,
+      3,
+      "LATENT"
+    ],
+    [
+      7,
+      3,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      8,
+      4,
+      2,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      20,
+      22,
+      0,
+      5,
+      0,
+      "INT"
+    ],
+    [
+      21,
+      22,
+      1,
+      5,
+      1,
+      "INT"
+    ],
+    [
+      27,
+      8,
+      0,
+      25,
+      0,
+      "IMAGE"
+    ],
+    [
+      31,
+      8,
+      0,
+      21,
+      0,
+      "IMAGE"
+    ],
+    [
+      32,
+      21,
+      0,
+      27,
+      0,
+      "IMAGE"
+    ],
+    [
+      42,
+      47,
+      0,
+      32,
+      1,
+      "STRING"
+    ],
+    [
+      43,
+      38,
+      1,
+      33,
+      1,
+      "STRING"
+    ],
+    [
+      44,
+      34,
+      0,
+      36,
+      20,
+      "INT"
+    ],
+    [
+      45,
+      46,
+      0,
+      38,
+      0,
+      "STRING"
+    ],
+    [
+      46,
+      41,
+      0,
+      38,
+      1,
+      "STRING"
+    ],
+    [
+      47,
+      39,
+      0,
+      38,
+      2,
+      "COMBO"
+    ],
+    [
+      48,
+      35,
+      0,
+      40,
+      0,
+      "*"
+    ],
+    [
+      49,
+      36,
+      0,
+      40,
+      1,
+      "*"
+    ],
+    [
+      50,
+      42,
+      0,
+      40,
+      2,
+      "*"
+    ],
+    [
+      51,
+      45,
+      0,
+      40,
+      3,
+      "*"
+    ],
+    [
+      52,
+      37,
+      0,
+      40,
+      4,
+      "*"
+    ],
+    [
+      53,
+      38,
+      0,
+      40,
+      5,
+      "*"
+    ],
+    [
+      54,
+      44,
+      0,
+      40,
+      6,
+      "*"
+    ],
+    [
+      55,
+      34,
+      0,
+      42,
+      3,
+      "INT"
+    ],
+    [
+      56,
+      40,
+      0,
+      43,
+      0,
+      "*"
+    ],
+    [
+      57,
+      36,
+      0,
+      46,
+      1,
+      "STRING"
+    ],
+    [
+      58,
+      42,
+      0,
+      46,
+      2,
+      "STRING"
+    ],
+    [
+      59,
+      45,
+      0,
+      46,
+      3,
+      "STRING"
+    ],
+    [
+      60,
+      37,
+      0,
+      46,
+      4,
+      "STRING"
+    ],
+    [
+      61,
+      35,
+      0,
+      47,
+      0,
+      "STRING"
+    ],
+    [
+      62,
+      38,
+      0,
+      47,
+      1,
+      "STRING"
+    ],
+    [
+      63,
+      44,
+      0,
+      47,
+      2,
+      "STRING"
+    ],
+    [
+      64,
+      4,
+      1,
+      32,
+      0,
+      "CLIP"
+    ],
+    [
+      65,
+      4,
+      1,
+      33,
+      0,
+      "CLIP"
+    ],
+    [
+      66,
+      33,
+      0,
+      3,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      67,
+      32,
+      0,
+      3,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      68,
+      47,
+      0,
+      26,
+      0,
+      "*"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Prompt",
+      "bounding": [
+        -1149,
+        -139,
+        1098,
+        948
+      ],
+      "color": "#4a4a4a",
+      "font_size": 20,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7627768444385479,
+      "offset": [
+        1599,
+        209
+      ]
+    }
+  },
+  "version": 0.4
+}
