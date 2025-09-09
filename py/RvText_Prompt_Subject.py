@@ -7,7 +7,7 @@ from ..core import CATEGORY, cstr
 class RvText_Prompt_Subject:
     JSON_FILE_PATH = 'subject.json'
     CATEGORY_KEYS = ['Character', 'Subject Type', 'Action', 'Action+', 'Action++', 'Positioning', 'Hair', 'Rare Hairstyle', 'Rare Hairstyle Man', 'Rare Hair Colors', 'Head Accessories', 'Face', 'Ears', 'Neck', 
-                     'Clothing', 'Upper Body Decoration', 'Lower Body Decoration', 'Full body decoration', 'Shoes and socks', 'Accessories']
+                     'Skin', 'Clothing', 'Upper Body Decoration', 'Lower Body Decoration', 'Full body decoration', 'Shoes and socks', 'Accessories']
     
     def __init__(self):
         self.load_json()
