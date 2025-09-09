@@ -7,7 +7,7 @@ from ..core import CATEGORY, cstr
 class RvText_Prompt_Settings_Slider:
     JSON_FILE_PATH = 'settings.json'
     CATEGORY_KEYS = ['Shotstyle 1', 'Shotstyle 2', 'Artists', 'Arists Special', 'Film Directors', 'Architects','Photography Styles', 'Lighting', 'Effects', 'Magic Elements', 'Camera',
-                     'Films', 'Image Type', 'Composition Method', 'Art Style 1', 'Art Style 2', 'Scene Atmosphere', 'Theme', 'Printing Materials', 'Illustration Style', 'Color Theme']
+                     'Films', 'Image Type', 'Composition Method', 'Art Style', 'Art Style+', 'Scene Atmosphere', 'Theme', 'Printing Materials', 'Illustration Style', 'Color Theme']
 
     def __init__(self):
         self.load_json()
