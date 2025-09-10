@@ -1,0 +1,3383 @@
+{
+  "id": "4b065ec6-ebff-4b02-aaf4-8e55ccc2144f",
+  "revision": 0,
+  "last_node_id": 104,
+  "last_link_id": 178,
+  "nodes": [
+    {
+      "id": 57,
+      "type": "Pipe In Context [RvTools]",
+      "pos": [
+        396,
+        1211
+      ],
+      "size": [
+        184,
+        566
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "base_ctx",
+          "name": "base_ctx",
+          "shape": 7,
+          "type": "pipe",
+          "link": 87
+        },
+        {
+          "localized_name": "model",
+          "name": "model",
+          "shape": 7,
+          "type": "MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "shape": 7,
+          "type": "CLIP",
+          "link": null
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        },
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "shape": 7,
+          "type": "CONDITIONING",
+          "link": null
+        },
+        {
+          "localized_name": "negative",
+          "name": "negative",
+          "shape": 7,
+          "type": "CONDITIONING",
+          "link": null
+        },
+        {
+          "localized_name": "latent",
+          "name": "latent",
+          "shape": 7,
+          "type": "LATENT",
+          "link": null
+        },
+        {
+          "localized_name": "images",
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "image_ref",
+          "name": "image_ref",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "image_pp",
+          "name": "image_pp",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "mask1",
+          "name": "mask1",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "localized_name": "mask2",
+          "name": "mask2",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "localized_name": "sampler",
+          "name": "sampler",
+          "shape": 7,
+          "type": "*",
+          "link": null
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "shape": 7,
+          "type": "*",
+          "link": null
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "localized_name": "cfg",
+          "name": "cfg",
+          "shape": 7,
+          "type": "FLOAT",
+          "link": null
+        },
+        {
+          "localized_name": "guidance",
+          "name": "guidance",
+          "shape": 7,
+          "type": "FLOAT",
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "localized_name": "text_pos",
+          "name": "text_pos",
+          "shape": 7,
+          "type": "STRING",
+          "link": 120
+        },
+        {
+          "localized_name": "text_pos_i2p",
+          "name": "text_pos_i2p",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "text_neg",
+          "name": "text_neg",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "model_name",
+          "name": "model_name",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "lora_names",
+          "name": "lora_names",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "path",
+          "name": "path",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "context",
+          "name": "context",
+          "type": "pipe",
+          "links": []
+        },
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "links": []
+        },
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "links": []
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "links": []
+        },
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": []
+        },
+        {
+          "localized_name": "negative",
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": []
+        },
+        {
+          "localized_name": "latent",
+          "name": "latent",
+          "type": "LATENT",
+          "links": null
+        },
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "localized_name": "image_ref",
+          "name": "image_ref",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "localized_name": "image_pp",
+          "name": "image_pp",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "localized_name": "mask1",
+          "name": "mask1",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "localized_name": "mask2",
+          "name": "mask2",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "localized_name": "sampler",
+          "name": "sampler",
+          "type": "*",
+          "links": null
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "type": "*",
+          "links": null
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "cfg",
+          "name": "cfg",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "localized_name": "guidance",
+          "name": "guidance",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "text_pos",
+          "name": "text_pos",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "localized_name": "text_pos_i2p",
+          "name": "text_pos_i2p",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "localized_name": "text_neg",
+          "name": "text_neg",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "model_name",
+          "name": "model_name",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "lora_names",
+          "name": "lora_names",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "path",
+          "name": "path",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "ctx",
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "64444d003f8d4a98493abbd42d0314eb6521259e",
+        "Node name for S&R": "Pipe In Context [RvTools]",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [],
+      "color": "#141414",
+      "bgcolor": "#000000",
+      "shape": 1
+    },
+    {
+      "id": 78,
+      "type": "SDXLPromptStyler",
+      "pos": [
+        -359,
+        1091
+      ],
+      "size": [
+        259,
+        258
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": false
+      },
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text_positive",
+          "name": "text_positive",
+          "type": "STRING",
+          "widget": {
+            "name": "text_positive"
+          },
+          "link": 121
+        },
+        {
+          "localized_name": "text_negative",
+          "name": "text_negative",
+          "type": "STRING",
+          "widget": {
+            "name": "text_negative"
+          },
+          "link": 122
+        },
+        {
+          "localized_name": "style",
+          "name": "style",
+          "type": "COMBO",
+          "widget": {
+            "name": "style"
+          },
+          "link": 123
+        },
+        {
+          "localized_name": "log_prompt",
+          "name": "log_prompt",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "log_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "style_positive",
+          "name": "style_positive",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "style_positive"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "style_negative",
+          "name": "style_negative",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "style_negative"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "text_positive",
+          "name": "text_positive",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            125,
+            141
+          ]
+        },
+        {
+          "localized_name": "text_negative",
+          "name": "text_negative",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": [
+            144
+          ]
+        }
+      ],
+      "title": "SDXL Prompt Styler (6)",
+      "properties": {
+        "cnr_id": "twri-styler",
+        "ver": "51068179927f79dce14f38c6b1984390ab242be2",
+        "Node name for S&R": "SDXLPromptStyler",
+        "widget_ue_connectable": {
+          "text_positive": true,
+          "text_negative": true,
+          "style": true
+        }
+      },
+      "widgets_values": [
+        "",
+        "",
+        "misc-macabre",
+        false,
+        true,
+        true
+      ],
+      "color": "#007d52",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 81,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -939,
+        1160
+      ],
+      "size": [
+        210.25,
+        88
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        },
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 134
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": []
+        }
+      ],
+      "title": "CTE+",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.43",
+        "Node name for S&R": "CLIPTextEncode",
+        "widget_ue_connectable": {
+          "text": true
+        }
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#141414",
+      "bgcolor": "#000000",
+      "shape": 1
+    },
+    {
+      "id": 82,
+      "type": "PrimitiveNode",
+      "pos": [
+        -389,
+        1051
+      ],
+      "size": [
+        259,
+        109
+      ],
+      "flags": {
+        "collapsed": false,
+        "pinned": false
+      },
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "COMBO",
+          "type": "COMBO",
+          "widget": {
+            "name": "style"
+          },
+          "slot_index": 0,
+          "links": [
+            123
+          ]
+        }
+      ],
+      "title": "Prompt Styler (6)",
+      "properties": {
+        "Run widget replace on values": false,
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "misc-macabre",
+        "fixed",
+        ""
+      ],
+      "color": "#007d52",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 83,
+      "type": "Prompt Environment [RvTools]",
+      "pos": [
+        -119,
+        251
+      ],
+      "size": [
+        259,
+        229
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "Sky",
+          "name": "Sky",
+          "type": "COMBO",
+          "widget": {
+            "name": "Sky"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Indoor",
+          "name": "Indoor",
+          "type": "COMBO",
+          "widget": {
+            "name": "Indoor"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Outdoor",
+          "name": "Outdoor",
+          "type": "COMBO",
+          "widget": {
+            "name": "Outdoor"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Building",
+          "name": "Building",
+          "type": "COMBO",
+          "widget": {
+            "name": "Building"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Flowers",
+          "name": "Flowers",
+          "type": "COMBO",
+          "widget": {
+            "name": "Flowers"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Background",
+          "name": "Background",
+          "type": "COMBO",
+          "widget": {
+            "name": "Background"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 135
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            140,
+            149
+          ]
+        }
+      ],
+      "title": "Prompt Environment (5)",
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "cac349590dafec35997fc4aa2a937567a2fa37fe",
+        "Node name for S&R": "Prompt Environment [RvTools]"
+      },
+      "widgets_values": [
+        "moonlight",
+        "None",
+        "None",
+        "None",
+        "black rose",
+        "transparent background",
+        3938000566925,
+        "fixed"
+      ],
+      "color": "#007d52",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 84,
+      "type": "String Multiline [RvTools]",
+      "pos": [
+        -119,
+        781
+      ],
+      "size": [
+        259,
+        189
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "widget": {
+            "name": "string"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            122
+          ]
+        }
+      ],
+      "title": "Negative Prompt",
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "69d500dc99a1a5020b3f315ec4499b20144813c1",
+        "Node name for S&R": "String Multiline [RvTools]",
+        "aux_id": "Rvage0815/ComfyUI-RvTools_v2",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "bad quality, worst quality, lowres, jpeg artifacts, bad anatomy, bad hands, bad proportions, mutated, deformed, deformed hands, multiple views, signature, watermark, copyright, text, censored, ugly, broken, 5fingers"
+      ],
+      "color": "#841e1e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 85,
+      "type": "String Multiline [RvTools]",
+      "pos": [
+        -119,
+        521
+      ],
+      "size": [
+        259,
+        219
+      ],
+      "flags": {
+        "collapsed": false,
+        "pinned": false
+      },
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "widget": {
+            "name": "string"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            126,
+            142
+          ]
+        }
+      ],
+      "title": "Appendix (7)",
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "69d500dc99a1a5020b3f315ec4499b20144813c1",
+        "Node name for S&R": "String Multiline [RvTools]",
+        "aux_id": "Rvage0815/ComfyUI-RvTools_v2",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#007d52",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 86,
+      "type": "Node Collector (rgthree)",
+      "pos": [
+        -629,
+        1071
+      ],
+      "size": [
+        191.66665649414062,
+        186
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "Prefix (1)",
+          "type": "*",
+          "link": 136
+        },
+        {
+          "dir": 3,
+          "name": "Prompt Settings (2)",
+          "type": "*",
+          "link": 137
+        },
+        {
+          "dir": 3,
+          "name": "Prompt Subject (3)",
+          "type": "*",
+          "link": 138
+        },
+        {
+          "dir": 3,
+          "name": "Wildcard Processor (4)",
+          "type": "*",
+          "link": 139
+        },
+        {
+          "dir": 3,
+          "name": "Prompt Environment (5)",
+          "type": "*",
+          "link": 140
+        },
+        {
+          "dir": 3,
+          "name": "SDXL Prompt Styler (6)",
+          "type": "*",
+          "link": 141
+        },
+        {
+          "dir": 3,
+          "name": "Appendix (7)",
+          "type": "*",
+          "link": 142
+        },
+        {
+          "dir": 3,
+          "name": "",
+          "type": "*",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "name": "Output",
+          "type": "*",
+          "slot_index": 0,
+          "links": [
+            153
+          ]
+        }
+      ],
+      "title": "nodes",
+      "properties": {
+        "widget_ue_connectable": {}
+      },
+      "color": "#21a57a",
+      "bgcolor": "#0d9166",
+      "shape": 1
+    },
+    {
+      "id": 87,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -768,
+        1160
+      ],
+      "size": [
+        210,
+        88
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        },
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 144
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": []
+        }
+      ],
+      "title": "CTE-",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.43",
+        "Node name for S&R": "CLIPTextEncode",
+        "widget_ue_connectable": {
+          "text": true
+        }
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#141414",
+      "bgcolor": "#000000",
+      "shape": 1
+    },
+    {
+      "id": 88,
+      "type": "Merge Strings v2 (Large) [RvTools]",
+      "pos": [
+        -669,
+        881
+      ],
+      "size": [
+        210,
+        238
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "string_1",
+          "name": "string_1",
+          "shape": 7,
+          "type": "STRING",
+          "link": 145
+        },
+        {
+          "localized_name": "string_2",
+          "name": "string_2",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "string_3",
+          "name": "string_3",
+          "shape": 7,
+          "type": "STRING",
+          "link": 147
+        },
+        {
+          "localized_name": "string_4",
+          "name": "string_4",
+          "shape": 7,
+          "type": "STRING",
+          "link": 148
+        },
+        {
+          "localized_name": "string_5",
+          "name": "string_5",
+          "shape": 7,
+          "type": "STRING",
+          "link": 149
+        },
+        {
+          "localized_name": "string_6",
+          "name": "string_6",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "string_7",
+          "name": "string_7",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "string_8",
+          "name": "string_8",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "string_9",
+          "name": "string_9",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "string_10",
+          "name": "string_10",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "Delimiter",
+          "name": "Delimiter",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "Delimiter"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            121
+          ]
+        }
+      ],
+      "title": "Concat Prompts",
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "bc352e4e79494e5fdfeca71e1128ffb73a760ca1",
+        "Node name for S&R": "Merge Strings v2 (Large) [RvTools]"
+      },
+      "widgets_values": [
+        ", "
+      ],
+      "color": "#141414",
+      "bgcolor": "#000000",
+      "shape": 1
+    },
+    {
+      "id": 89,
+      "type": "String Multiline [RvTools]",
+      "pos": [
+        -939,
+        251
+      ],
+      "size": [
+        259,
+        229
+      ],
+      "flags": {
+        "collapsed": false,
+        "pinned": false
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "widget": {
+            "name": "string"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            124,
+            136
+          ]
+        }
+      ],
+      "title": "Prefix (1)",
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "69d500dc99a1a5020b3f315ec4499b20144813c1",
+        "Node name for S&R": "String Multiline [RvTools]",
+        "aux_id": "Rvage0815/ComfyUI-RvTools_v2",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "masterpiece, best quality, face, realistic, product_art, solo, stunning beautiful"
+      ],
+      "color": "#007d52",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 90,
+      "type": "Prompt Settings [RvTools]",
+      "pos": [
+        -939,
+        531
+      ],
+      "size": [
+        259,
+        589
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "Shotstyle 1",
+          "name": "Shotstyle 1",
+          "type": "COMBO",
+          "widget": {
+            "name": "Shotstyle 1"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Shotstyle 2",
+          "name": "Shotstyle 2",
+          "type": "COMBO",
+          "widget": {
+            "name": "Shotstyle 2"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Artists",
+          "name": "Artists",
+          "type": "COMBO",
+          "widget": {
+            "name": "Artists"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Arists Special",
+          "name": "Arists Special",
+          "type": "COMBO",
+          "widget": {
+            "name": "Arists Special"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Film Directors",
+          "name": "Film Directors",
+          "type": "COMBO",
+          "widget": {
+            "name": "Film Directors"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Architects",
+          "name": "Architects",
+          "type": "COMBO",
+          "widget": {
+            "name": "Architects"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Photography Styles",
+          "name": "Photography Styles",
+          "type": "COMBO",
+          "widget": {
+            "name": "Photography Styles"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Lighting",
+          "name": "Lighting",
+          "type": "COMBO",
+          "widget": {
+            "name": "Lighting"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Effects",
+          "name": "Effects",
+          "type": "COMBO",
+          "widget": {
+            "name": "Effects"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Magic Elements",
+          "name": "Magic Elements",
+          "type": "COMBO",
+          "widget": {
+            "name": "Magic Elements"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Camera",
+          "name": "Camera",
+          "type": "COMBO",
+          "widget": {
+            "name": "Camera"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Films",
+          "name": "Films",
+          "type": "COMBO",
+          "widget": {
+            "name": "Films"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Image Type",
+          "name": "Image Type",
+          "type": "COMBO",
+          "widget": {
+            "name": "Image Type"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Composition Method",
+          "name": "Composition Method",
+          "type": "COMBO",
+          "widget": {
+            "name": "Composition Method"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Art Style",
+          "name": "Art Style",
+          "type": "COMBO",
+          "widget": {
+            "name": "Art Style"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Art Style+",
+          "name": "Art Style+",
+          "type": "COMBO",
+          "widget": {
+            "name": "Art Style+"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Scene Atmosphere",
+          "name": "Scene Atmosphere",
+          "type": "COMBO",
+          "widget": {
+            "name": "Scene Atmosphere"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Theme",
+          "name": "Theme",
+          "type": "COMBO",
+          "widget": {
+            "name": "Theme"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Printing Materials",
+          "name": "Printing Materials",
+          "type": "COMBO",
+          "widget": {
+            "name": "Printing Materials"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Illustration Style",
+          "name": "Illustration Style",
+          "type": "COMBO",
+          "widget": {
+            "name": "Illustration Style"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Color Theme",
+          "name": "Color Theme",
+          "type": "COMBO",
+          "widget": {
+            "name": "Color Theme"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 150
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            137,
+            145
+          ]
+        }
+      ],
+      "title": "Prompt Settings (2)",
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "cac349590dafec35997fc4aa2a937567a2fa37fe",
+        "Node name for S&R": "Prompt Settings [RvTools]"
+      },
+      "widgets_values": [
+        "cinematic shot",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "Documentary Photography",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "realistic hyper-detailed rendering, 32k UHD",
+        "purple theme",
+        -1028250358549686,
+        "fixed"
+      ],
+      "color": "#007d52",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 91,
+      "type": "Prompt Subject [RvTools]",
+      "pos": [
+        -669,
+        251
+      ],
+      "size": [
+        269,
+        589
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "Character",
+          "name": "Character",
+          "type": "COMBO",
+          "widget": {
+            "name": "Character"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Subject Type",
+          "name": "Subject Type",
+          "type": "COMBO",
+          "widget": {
+            "name": "Subject Type"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Action",
+          "name": "Action",
+          "type": "COMBO",
+          "widget": {
+            "name": "Action"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Action+",
+          "name": "Action+",
+          "type": "COMBO",
+          "widget": {
+            "name": "Action+"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Action++",
+          "name": "Action++",
+          "type": "COMBO",
+          "widget": {
+            "name": "Action++"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Positioning",
+          "name": "Positioning",
+          "type": "COMBO",
+          "widget": {
+            "name": "Positioning"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Hair",
+          "name": "Hair",
+          "type": "COMBO",
+          "widget": {
+            "name": "Hair"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Rare Hairstyle",
+          "name": "Rare Hairstyle",
+          "type": "COMBO",
+          "widget": {
+            "name": "Rare Hairstyle"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Rare Hairstyle Man",
+          "name": "Rare Hairstyle Man",
+          "type": "COMBO",
+          "widget": {
+            "name": "Rare Hairstyle Man"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Rare Hair Colors",
+          "name": "Rare Hair Colors",
+          "type": "COMBO",
+          "widget": {
+            "name": "Rare Hair Colors"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Head Accessories",
+          "name": "Head Accessories",
+          "type": "COMBO",
+          "widget": {
+            "name": "Head Accessories"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Face",
+          "name": "Face",
+          "type": "COMBO",
+          "widget": {
+            "name": "Face"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Ears",
+          "name": "Ears",
+          "type": "COMBO",
+          "widget": {
+            "name": "Ears"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Neck",
+          "name": "Neck",
+          "type": "COMBO",
+          "widget": {
+            "name": "Neck"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Skin",
+          "name": "Skin",
+          "type": "COMBO",
+          "widget": {
+            "name": "Skin"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Clothing",
+          "name": "Clothing",
+          "type": "COMBO",
+          "widget": {
+            "name": "Clothing"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Upper Body Decoration",
+          "name": "Upper Body Decoration",
+          "type": "COMBO",
+          "widget": {
+            "name": "Upper Body Decoration"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Lower Body Decoration",
+          "name": "Lower Body Decoration",
+          "type": "COMBO",
+          "widget": {
+            "name": "Lower Body Decoration"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Full body decoration",
+          "name": "Full body decoration",
+          "type": "COMBO",
+          "widget": {
+            "name": "Full body decoration"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Shoes and socks",
+          "name": "Shoes and socks",
+          "type": "COMBO",
+          "widget": {
+            "name": "Shoes and socks"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Accessories",
+          "name": "Accessories",
+          "type": "COMBO",
+          "widget": {
+            "name": "Accessories"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 151
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            138,
+            147
+          ]
+        }
+      ],
+      "title": "Prompt Subject (3)",
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "cac349590dafec35997fc4aa2a937567a2fa37fe",
+        "Node name for S&R": "Prompt Subject [RvTools]"
+      },
+      "widgets_values": [
+        "female embodiment of Slaanesh",
+        "unique ice-inspired humanoid",
+        "None",
+        "None",
+        "None",
+        "looking at viewer",
+        "long, flowing hair shifts like tendrils of smoke",
+        "None",
+        "None",
+        "None",
+        "None",
+        "black sclera",
+        "None",
+        "wing collar",
+        "skin that glimmers like frost",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        0,
+        "fixed"
+      ],
+      "color": "#007d52",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 92,
+      "type": "Seed (rgthree)",
+      "pos": [
+        -119,
+        1021
+      ],
+      "size": [
+        259,
+        139
+      ],
+      "flags": {
+        "collapsed": false,
+        "pinned": false
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "dir": 4,
+          "name": "SEED",
+          "shape": 3,
+          "type": "INT",
+          "slot_index": 0,
+          "links": [
+            135,
+            150,
+            151,
+            152
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "777cfaabc6870f4254485137820282165fe0cf66",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        490632634316335,
+        null,
+        null,
+        null
+      ],
+      "color": "#007d52",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 93,
+      "type": "ImpactWildcardProcessor",
+      "pos": [
+        -389,
+        251
+      ],
+      "size": [
+        259,
+        749
+      ],
+      "flags": {
+        "collapsed": false,
+        "pinned": false
+      },
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "wildcard_text",
+          "name": "wildcard_text",
+          "type": "STRING",
+          "widget": {
+            "name": "wildcard_text"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "populated_text",
+          "name": "populated_text",
+          "type": "STRING",
+          "widget": {
+            "name": "populated_text"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "mode",
+          "name": "mode",
+          "type": "COMBO",
+          "widget": {
+            "name": "mode"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 152
+        },
+        {
+          "localized_name": "Select to add Wildcard",
+          "name": "Select to add Wildcard",
+          "type": "COMBO",
+          "widget": {
+            "name": "Select to add Wildcard"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "processed text",
+          "name": "processed text",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            139,
+            148
+          ]
+        }
+      ],
+      "title": "Wildcard Processor (4)",
+      "properties": {
+        "cnr_id": "comfyui-impact-pack",
+        "ver": "93fc248503a09068e5d76eea9bc7c71ba1618060",
+        "Node name for S&R": "ImpactWildcardProcessor",
+        "widget_ue_connectable": {
+          "seed": true
+        }
+      },
+      "widgets_values": [
+        "the face of a beautiful woman with fair skin, and long, {straight|messy|wavy} {blonde|white|red|black} hair. She has {blue|green|grey|brown} eyes and a {subtle tasteful|dark} makeup look that accentuates her features, she wears a {red|white|black|pink} form fitting {dress|suit|bikini|lace underwear}, skin press, her expression is naughty, moaning, half closed eyes, her head is slightly tilted back, she looks seductivly to the viewer",
+        "",
+        "fixed",
+        258534296636366,
+        "fixed",
+        "Select the Wildcard to add to the text"
+      ],
+      "color": "#007d52",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 94,
+      "type": "Fast Bypasser (rgthree)",
+      "pos": [
+        -669,
+        958
+      ],
+      "size": [
+        269,
+        202
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "label": " ",
+          "name": "Prefix (1)",
+          "type": "*",
+          "link": 153
+        },
+        {
+          "dir": 3,
+          "label": " ",
+          "name": "",
+          "type": "*",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "label": " ",
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Fast Bypasser",
+      "properties": {
+        "toggleRestriction": "default",
+        "widget_ue_connectable": {},
+        "collapse_connections": true
+      },
+      "color": "#366ca1",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 79,
+      "type": "Merge Strings v2 [RvTools]",
+      "pos": [
+        -669,
+        911
+      ],
+      "size": [
+        210,
+        138
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "string_1",
+          "name": "string_1",
+          "shape": 7,
+          "type": "STRING",
+          "link": 124
+        },
+        {
+          "localized_name": "string_2",
+          "name": "string_2",
+          "shape": 7,
+          "type": "STRING",
+          "link": 125
+        },
+        {
+          "localized_name": "string_3",
+          "name": "string_3",
+          "shape": 7,
+          "type": "STRING",
+          "link": 126
+        },
+        {
+          "localized_name": "string_4",
+          "name": "string_4",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "string_5",
+          "name": "string_5",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "Delimiter",
+          "name": "Delimiter",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "Delimiter"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            134,
+            160,
+            164
+          ]
+        }
+      ],
+      "title": "Add Pre/Appendix",
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "06c6018870c8ce853f40313f8fac888c7a5f2c98",
+        "Node name for S&R": "Merge Strings v2 [RvTools]",
+        "aux_id": "r-vage/ComfyUI-RvTools_v2",
+        "widget_ue_connectable": {
+          "Delimiter": true
+        }
+      },
+      "widgets_values": [
+        ", "
+      ],
+      "color": "#141414",
+      "bgcolor": "#000000",
+      "shape": 1
+    },
+    {
+      "id": 56,
+      "type": "Pipe In Context [RvTools]",
+      "pos": [
+        161,
+        1211
+      ],
+      "size": [
+        184,
+        566
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "base_ctx",
+          "name": "base_ctx",
+          "shape": 7,
+          "type": "pipe",
+          "link": null
+        },
+        {
+          "localized_name": "model",
+          "name": "model",
+          "shape": 7,
+          "type": "MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "shape": 7,
+          "type": "CLIP",
+          "link": null
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        },
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "shape": 7,
+          "type": "CONDITIONING",
+          "link": null
+        },
+        {
+          "localized_name": "negative",
+          "name": "negative",
+          "shape": 7,
+          "type": "CONDITIONING",
+          "link": null
+        },
+        {
+          "localized_name": "latent",
+          "name": "latent",
+          "shape": 7,
+          "type": "LATENT",
+          "link": null
+        },
+        {
+          "localized_name": "images",
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "image_ref",
+          "name": "image_ref",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "image_pp",
+          "name": "image_pp",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "mask1",
+          "name": "mask1",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "localized_name": "mask2",
+          "name": "mask2",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "localized_name": "sampler",
+          "name": "sampler",
+          "shape": 7,
+          "type": "*",
+          "link": null
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "shape": 7,
+          "type": "*",
+          "link": null
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "localized_name": "cfg",
+          "name": "cfg",
+          "shape": 7,
+          "type": "FLOAT",
+          "link": null
+        },
+        {
+          "localized_name": "guidance",
+          "name": "guidance",
+          "shape": 7,
+          "type": "FLOAT",
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "localized_name": "text_pos",
+          "name": "text_pos",
+          "shape": 7,
+          "type": "STRING",
+          "link": 160
+        },
+        {
+          "localized_name": "text_pos_i2p",
+          "name": "text_pos_i2p",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "text_neg",
+          "name": "text_neg",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "model_name",
+          "name": "model_name",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "lora_names",
+          "name": "lora_names",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "path",
+          "name": "path",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "context",
+          "name": "context",
+          "type": "pipe",
+          "links": [
+            87
+          ]
+        },
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "links": []
+        },
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "links": []
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "links": []
+        },
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": []
+        },
+        {
+          "localized_name": "negative",
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": []
+        },
+        {
+          "localized_name": "latent",
+          "name": "latent",
+          "type": "LATENT",
+          "links": null
+        },
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "localized_name": "image_ref",
+          "name": "image_ref",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "localized_name": "image_pp",
+          "name": "image_pp",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "localized_name": "mask1",
+          "name": "mask1",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "localized_name": "mask2",
+          "name": "mask2",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "localized_name": "sampler",
+          "name": "sampler",
+          "type": "*",
+          "links": null
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "type": "*",
+          "links": null
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "cfg",
+          "name": "cfg",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "localized_name": "guidance",
+          "name": "guidance",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "text_pos",
+          "name": "text_pos",
+          "type": "STRING",
+          "links": [
+            111
+          ]
+        },
+        {
+          "localized_name": "text_pos_i2p",
+          "name": "text_pos_i2p",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "localized_name": "text_neg",
+          "name": "text_neg",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "model_name",
+          "name": "model_name",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "lora_names",
+          "name": "lora_names",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "path",
+          "name": "path",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "ctx",
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "64444d003f8d4a98493abbd42d0314eb6521259e",
+        "Node name for S&R": "Pipe In Context [RvTools]",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [],
+      "color": "#141414",
+      "bgcolor": "#000000",
+      "shape": 1
+    },
+    {
+      "id": 96,
+      "type": "ShowText|pysssss",
+      "pos": [
+        171,
+        571
+      ],
+      "size": [
+        289,
+        589
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "link": 162
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "Behold, the stunningly beautiful and macabre 'Eternal Siren' - a cinematic shot that embodies the essence of Slaanesh, the Chaos God of pleasure and pain. This hyper-detailed rendering is a testament to the power of art and the human form, as a unique ice-inspired humanoid stands before you, her long, flowing hair shifting like tendrils of smoke in the moonlight.\n\nHer black sclera seems to pierce through the darkness, as if she is gazing directly into your soul. The delicate, wing-like collar around her neck is a subtle nod to the ethereal beauty that lies within. And yet, the black rose that adorns her forehead is a stark reminder of the darkness that lurks beneath.\n\nThis 32k UHD masterpiece is a true work of art, with every detail meticulously crafted to create a sense of haunting, gothic beauty. The transparent background allows the viewer to focus on the subject, drawing them in with an otherworldly allure."
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 97,
+      "type": "ShowText|pysssss",
+      "pos": [
+        501,
+        571
+      ],
+      "size": [
+        289,
+        589
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "link": 163
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "Here's a potential product description for your masterpiece:\n\n\"Behold, the stunningly beautiful and macabre 'Eternal Siren' - a cinematic shot that embodies the essence of Slaanesh, the Chaos God of pleasure and pain. This hyper-detailed rendering is a testament to the power of art and the human form, as a unique ice-inspired humanoid stands before you, her long, flowing hair shifting like tendrils of smoke in the moonlight.\n\nHer black sclera seems to pierce through the darkness, as if she is gazing directly into your soul. The delicate, wing-like collar around her neck is a subtle nod to the ethereal beauty that lies within. And yet, the black rose that adorns her forehead is a stark reminder of the darkness that lurks beneath.\n\nThis 32k UHD masterpiece is a true work of art, with every detail meticulously crafted to create a sense of haunting, gothic beauty. The transparent background allows the viewer to focus on the subject, drawing them in with an otherworldly allure.\n\nWhether you're a fan of dark, gothic aesthetics or simply appreciate the beauty of the human form, 'Eternal Siren' is a must-have for any art lover. So, immerse yourself in this stunning, realistic portrait and let the beauty of the macabre consume you.\""
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 74,
+      "type": "LLMOptionalMemoryFreeSimple",
+      "pos": [
+        171,
+        251
+      ],
+      "size": [
+        289,
+        179
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "link": 111
+        },
+        {
+          "localized_name": "ckpt_name",
+          "name": "ckpt_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "ckpt_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "max_ctx",
+          "name": "max_ctx",
+          "type": "INT",
+          "widget": {
+            "name": "max_ctx"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "gpu_layers",
+          "name": "gpu_layers",
+          "type": "INT",
+          "widget": {
+            "name": "gpu_layers"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "n_threads",
+          "name": "n_threads",
+          "type": "INT",
+          "widget": {
+            "name": "n_threads"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "temperature",
+          "name": "temperature",
+          "type": "FLOAT",
+          "widget": {
+            "name": "temperature"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "unload",
+          "name": "unload",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "unload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            116,
+            163
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_vlm_nodes",
+        "ver": "1ca496c1c8e8ada94d7d2644b8a7d4b3dc9729b3",
+        "Node name for S&R": "LLMOptionalMemoryFreeSimple"
+      },
+      "widgets_values": [
+        "gguf\\Lexi-Llama-3-8B-Uncensored_Q4_K_M.gguf",
+        4096,
+        27,
+        8,
+        0.1,
+        true
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 62,
+      "type": "StringTrim",
+      "pos": [
+        551,
+        399
+      ],
+      "size": [
+        210,
+        112
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "widget": {
+            "name": "string"
+          },
+          "link": 176
+        },
+        {
+          "localized_name": "mode",
+          "name": "mode",
+          "type": "COMBO",
+          "widget": {
+            "name": "mode"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            120,
+            162
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.56",
+        "Node name for S&R": "StringTrim"
+      },
+      "widgets_values": [
+        "",
+        "Both"
+      ],
+      "color": "#141414",
+      "bgcolor": "#000000",
+      "shape": 1
+    },
+    {
+      "id": 98,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -1259,
+        575
+      ],
+      "size": [
+        289,
+        589
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "link": 164
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "masterpiece, best quality, face, realistic, product_art, solo, stunning beautiful, macabre style cinematic shot,Documentary Photography,realistic hyper-detailed rendering, 32k UHD,purple theme,, female embodiment of Slaanesh,unique ice-inspired humanoid,looking at viewer,long, flowing hair shifts like tendrils of smoke,black sclera,wing collar,, moonlight,black rose,transparent background, . dark, gothic, grim, haunting, highly detailed"
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 102,
+      "type": "ShowText|pysssss",
+      "pos": [
+        821,
+        571
+      ],
+      "size": [
+        289,
+        589
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "link": 177
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "\n\n\"Behold, the stunningly beautiful and macabre 'Eternal Siren' - a cinematic shot that embodies the essence of Slaanesh, the Chaos God of pleasure and pain. This hyper-detailed rendering is a testament to the power of art and the human form, as a unique ice-inspired humanoid stands before you, her long, flowing hair shifting like tendrils of smoke in the moonlight.\n\nHer black sclera seems to pierce through the darkness, as if she is gazing directly into your soul. The delicate, wing-like collar around her neck is a subtle nod to the ethereal beauty that lies within. And yet, the black rose that adorns her forehead is a stark reminder of the darkness that lurks beneath.\n\nThis 32k UHD masterpiece is a true work of art, with every detail meticulously crafted to create a sense of haunting, gothic beauty. The transparent background allows the viewer to focus on the subject, drawing them in with an otherworldly allure.\n\nWhether you're a fan of dark, gothic aesthetics or simply appreciate the beauty of the human form, 'Eternal Siren' is a must-have for any art lover. So, immerse yourself in this stunning, realistic portrait and let the beauty of the macabre consume you.\""
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 100,
+      "type": "ShowText|pysssss",
+      "pos": [
+        1461,
+        571
+      ],
+      "size": [
+        289,
+        589
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "link": 171
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "\n\nBehold, the stunningly beautiful and macabre 'Eternal Siren' - a cinematic shot that embodies the essence of Slaanesh, the Chaos God of pleasure and pain. This hyper-detailed rendering is a testament to the power of art and the human form, as a unique ice-inspired humanoid stands before you, her long, flowing hair shifting like tendrils of smoke in the moonlight.\n\nHer black sclera seems to pierce through the darkness, as if she is gazing directly into your soul. The delicate, wing-like collar around her neck is a subtle nod to the ethereal beauty that lies within. And yet, the black rose that adorns her forehead is a stark reminder of the darkness that lurks beneath.\n\nThis 32k UHD masterpiece is a true work of art, with every detail meticulously crafted to create a sense of haunting, gothic beauty. The transparent background allows the viewer to focus on the subject, drawing them in with an otherworldly allure.\n\n"
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 103,
+      "type": "ShowText|pysssss",
+      "pos": [
+        1141,
+        571
+      ],
+      "size": [
+        289,
+        589
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "link": 178
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "\n\nBehold, the stunningly beautiful and macabre 'Eternal Siren' - a cinematic shot that embodies the essence of Slaanesh, the Chaos God of pleasure and pain. This hyper-detailed rendering is a testament to the power of art and the human form, as a unique ice-inspired humanoid stands before you, her long, flowing hair shifting like tendrils of smoke in the moonlight.\n\nHer black sclera seems to pierce through the darkness, as if she is gazing directly into your soul. The delicate, wing-like collar around her neck is a subtle nod to the ethereal beauty that lies within. And yet, the black rose that adorns her forehead is a stark reminder of the darkness that lurks beneath.\n\nThis 32k UHD masterpiece is a true work of art, with every detail meticulously crafted to create a sense of haunting, gothic beauty. The transparent background allows the viewer to focus on the subject, drawing them in with an otherworldly allure.\n\nWhether you're a fan of dark, gothic aesthetics or simply appreciate the beauty of the human form, 'Eternal Siren' is a must-have for any art lover. So, immerse yourself in this stunning, realistic portrait and let the beauty of the macabre consume you."
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 99,
+      "type": "Replace String [RvTools]",
+      "pos": [
+        1461,
+        251
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "String",
+          "name": "String",
+          "type": "STRING",
+          "widget": {
+            "name": "String"
+          },
+          "link": 174
+        },
+        {
+          "localized_name": "Regex",
+          "name": "Regex",
+          "type": "STRING",
+          "widget": {
+            "name": "Regex"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "ReplaceWith",
+          "name": "ReplaceWith",
+          "type": "STRING",
+          "widget": {
+            "name": "ReplaceWith"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            171,
+            176
+          ]
+        }
+      ],
+      "title": "Replace Last Block",
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "eacd1a90d730c5f33c2bdcfe70faa8d523d419fc",
+        "Node name for S&R": "Replace String [RvTools]"
+      },
+      "widgets_values": [
+        "",
+        "(?<=\\n)(?!.*\\n).*",
+        ""
+      ],
+      "color": "#141414",
+      "bgcolor": "#000000",
+      "shape": 1
+    },
+    {
+      "id": 61,
+      "type": "Replace String [RvTools]",
+      "pos": [
+        1141,
+        251
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "String",
+          "name": "String",
+          "type": "STRING",
+          "widget": {
+            "name": "String"
+          },
+          "link": 168
+        },
+        {
+          "localized_name": "Regex",
+          "name": "Regex",
+          "type": "STRING",
+          "widget": {
+            "name": "Regex"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "ReplaceWith",
+          "name": "ReplaceWith",
+          "type": "STRING",
+          "widget": {
+            "name": "ReplaceWith"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            174,
+            178
+          ]
+        }
+      ],
+      "title": "Replace Quotes",
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "eacd1a90d730c5f33c2bdcfe70faa8d523d419fc",
+        "Node name for S&R": "Replace String [RvTools]"
+      },
+      "widgets_values": [
+        "",
+        "\"",
+        ""
+      ],
+      "color": "#141414",
+      "bgcolor": "#000000",
+      "shape": 1
+    },
+    {
+      "id": 60,
+      "type": "Replace String [RvTools]",
+      "pos": [
+        821,
+        251
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "String",
+          "name": "String",
+          "type": "STRING",
+          "widget": {
+            "name": "String"
+          },
+          "link": 116
+        },
+        {
+          "localized_name": "Regex",
+          "name": "Regex",
+          "type": "STRING",
+          "widget": {
+            "name": "Regex"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "ReplaceWith",
+          "name": "ReplaceWith",
+          "type": "STRING",
+          "widget": {
+            "name": "ReplaceWith"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            168,
+            177
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "eacd1a90d730c5f33c2bdcfe70faa8d523d419fc",
+        "Node name for S&R": "Replace String [RvTools]"
+      },
+      "widgets_values": [
+        "",
+        "^.*:",
+        ""
+      ],
+      "color": "#141414",
+      "bgcolor": "#000000",
+      "shape": 1
+    },
+    {
+      "id": 104,
+      "type": "MarkdownNote",
+      "pos": [
+        501,
+        -16
+      ],
+      "size": [
+        289,
+        309
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note: Installation",
+      "properties": {
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "👉🏻 if you don't have llama_cpp installed (ignore the cu124 version it works on 12.8 too):\n\n- python_embeded\\python.exe -m pip install https://github.com/abetlen/llama-cpp-python/releases/download/v0.3.4-cu124/llama_cpp_python-0.3.4-cp312-cp312-win_amd64.whl\n\n👉🏻 install the custom node with the manager or manual:\n- https://github.com/gokayfem/ComfyUI_VLM_nodes?tab=readme-ov-file\n\n👉🏻 download a model and save it to:\n- \"comfyui\\models\\LLavacheckpoints\\gguf\\Lexi-Llama-3-8B-Uncensored_Q4_K_M.gguf\"\n\n👉🏻 download the model from here:\n- https://huggingface.co/Orenguteng/Llama-3-8B-Lexi-Uncensored-GGUF/tree/main"
+      ],
+      "color": "#366ca1",
+      "bgcolor": "#252525",
+      "shape": 1
+    }
+  ],
+  "links": [
+    [
+      87,
+      56,
+      0,
+      57,
+      0,
+      "pipe"
+    ],
+    [
+      111,
+      56,
+      21,
+      74,
+      0,
+      "STRING"
+    ],
+    [
+      116,
+      74,
+      0,
+      60,
+      0,
+      "STRING"
+    ],
+    [
+      120,
+      62,
+      0,
+      57,
+      21,
+      "STRING"
+    ],
+    [
+      121,
+      88,
+      0,
+      78,
+      0,
+      "STRING"
+    ],
+    [
+      122,
+      84,
+      0,
+      78,
+      1,
+      "STRING"
+    ],
+    [
+      123,
+      82,
+      0,
+      78,
+      2,
+      "COMBO"
+    ],
+    [
+      124,
+      89,
+      0,
+      79,
+      0,
+      "STRING"
+    ],
+    [
+      125,
+      78,
+      0,
+      79,
+      1,
+      "STRING"
+    ],
+    [
+      126,
+      85,
+      0,
+      79,
+      2,
+      "STRING"
+    ],
+    [
+      134,
+      79,
+      0,
+      81,
+      1,
+      "STRING"
+    ],
+    [
+      135,
+      92,
+      0,
+      83,
+      6,
+      "INT"
+    ],
+    [
+      136,
+      89,
+      0,
+      86,
+      0,
+      "*"
+    ],
+    [
+      137,
+      90,
+      0,
+      86,
+      1,
+      "*"
+    ],
+    [
+      138,
+      91,
+      0,
+      86,
+      2,
+      "*"
+    ],
+    [
+      139,
+      93,
+      0,
+      86,
+      3,
+      "*"
+    ],
+    [
+      140,
+      83,
+      0,
+      86,
+      4,
+      "*"
+    ],
+    [
+      141,
+      78,
+      0,
+      86,
+      5,
+      "*"
+    ],
+    [
+      142,
+      85,
+      0,
+      86,
+      6,
+      "*"
+    ],
+    [
+      144,
+      78,
+      1,
+      87,
+      1,
+      "STRING"
+    ],
+    [
+      145,
+      90,
+      0,
+      88,
+      0,
+      "STRING"
+    ],
+    [
+      147,
+      91,
+      0,
+      88,
+      2,
+      "STRING"
+    ],
+    [
+      148,
+      93,
+      0,
+      88,
+      3,
+      "STRING"
+    ],
+    [
+      149,
+      83,
+      0,
+      88,
+      4,
+      "STRING"
+    ],
+    [
+      150,
+      92,
+      0,
+      90,
+      21,
+      "INT"
+    ],
+    [
+      151,
+      92,
+      0,
+      91,
+      21,
+      "INT"
+    ],
+    [
+      152,
+      92,
+      0,
+      93,
+      3,
+      "INT"
+    ],
+    [
+      153,
+      86,
+      0,
+      94,
+      0,
+      "*"
+    ],
+    [
+      160,
+      79,
+      0,
+      56,
+      21,
+      "STRING"
+    ],
+    [
+      162,
+      62,
+      0,
+      96,
+      0,
+      "STRING"
+    ],
+    [
+      163,
+      74,
+      0,
+      97,
+      0,
+      "STRING"
+    ],
+    [
+      164,
+      79,
+      0,
+      98,
+      0,
+      "STRING"
+    ],
+    [
+      168,
+      60,
+      0,
+      61,
+      0,
+      "STRING"
+    ],
+    [
+      171,
+      99,
+      0,
+      100,
+      0,
+      "STRING"
+    ],
+    [
+      174,
+      61,
+      0,
+      99,
+      0,
+      "STRING"
+    ],
+    [
+      176,
+      99,
+      0,
+      62,
+      0,
+      "STRING"
+    ],
+    [
+      177,
+      60,
+      0,
+      102,
+      0,
+      "STRING"
+    ],
+    [
+      178,
+      61,
+      0,
+      103,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 2,
+      "title": "Tags to natural Language",
+      "bounding": [
+        161,
+        181,
+        308,
+        988
+      ],
+      "color": "#4a4a4a",
+      "font_size": 20,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Prompt",
+      "bounding": [
+        -949,
+        181,
+        1098,
+        988
+      ],
+      "color": "#4a4a4a",
+      "font_size": 20,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.5730855330116841,
+      "offset": [
+        1621.6956743366106,
+        336.8062606160354
+      ]
+    }
+  },
+  "version": 0.4
+}
