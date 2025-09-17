@@ -8,9 +8,11 @@ import numpy as np
 import folder_paths
 import hashlib
 
+from pathlib import Path
+from typing import Optional, Final
+from concurrent.futures import ThreadPoolExecutor
 from PIL import Image
 from PIL.PngImagePlugin import PngInfo
-from typing import List
 
 from ..core import CATEGORY, cstr
 
@@ -19,36 +21,372 @@ MAX_RESOLUTION = 32768
 
 ALLOWED_EXT = ('.jpeg', '.jpg', '.png', '.tiff', '.gif', '.bmp', '.webp')
 
-"""
-Given the file path, finds a matching sha256 file, or creates one
-based on the headers in the source file
-"""
-def get_sha256(file_path: str):
-    if not file_path in (None, '', 'undefined', 'none') : 
-        file_no_ext = os.path.splitext(file_path)[0]
+# Global variables to store values
+global_values = {
+    'model': '',
+    'basemodel': '',
+    'seed': '',
+    'sampler_name': '',
+    'scheduler': '',
+    'steps': '',
+    'cfg': '',
+    'denoise': '',
+    'clip_skip': ''
+}
+
+from typing import Dict, List, Optional, Union, Any
+from datetime import datetime
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+class FilenameProcessor:
+    """Handles filename placeholder processing with improved error handling and type safety"""
+    
+    def __init__(self):
+        self.placeholders = {
+            '%today': self._get_date,
+            '%date': self._get_date,
+            '%time': self._get_time,
+            '%basemodel': lambda: str(global_values.get('basemodel', '')),
+            '%model': lambda: str(global_values.get('model', '')),
+            '%seed': lambda: str(global_values.get('seed', '')),
+            '%sampler_name': lambda: str(global_values.get('sampler_name', '')),
+            '%scheduler': lambda: str(global_values.get('scheduler', '')),
+            '%steps': lambda: str(global_values.get('steps', '')),
+            '%cfg': lambda: str(global_values.get('cfg', '')),
+            '%denoise': lambda: str(global_values.get('denoise', '')),
+            '%clip_skip': lambda: str(global_values.get('clip_skip', ''))
+        }
+
+    @staticmethod
+    def _get_date() -> str:
+        """Get current date in YYYY-MM-DD format"""
+        return datetime.now().strftime("%Y-%m-%d")
+
+    @staticmethod
+    def _get_time() -> str:
+        """Get current time in HHMMSS format"""
+        return datetime.now().strftime("%H%M%S")
+
+    def get_used_placeholders(self, filename: str) -> List[str]:
+        """
+        Get list of placeholders used in filename
+        Args:
+            filename: Input filename string
+        Returns:
+            List of found placeholders
+        """
+        if not isinstance(filename, str):
+            logger.warning(f"Invalid filename type: {type(filename)}")
+            return []
+        
+        return [p for p in self.placeholders.keys() if p in filename]
+
+    def get_placeholder_value(self, placeholder: str) -> str:
+        """
+        Get value for a specific placeholder
+        Args:
+            placeholder: Placeholder string starting with %
+        Returns:
+            Resolved placeholder value or empty string if invalid
+        """
+        try:
+            if placeholder not in self.placeholders:
+                logger.warning(f"Unknown placeholder: {placeholder}")
+                return ''
+                
+            value = self.placeholders[placeholder]()
+            return str(value)
+            
+        except Exception as e:
+            logger.error(f"Error getting value for {placeholder}: {e}")
+            return ''
+
+    def process_string(self, filename_prefix: str, isPath: bool) -> str:
+        """
+        Process filename replacing all placeholders with their values
+        Args:
+            filename_prefix: Input filename with potential placeholders
+        Returns:
+            Processed filename with placeholders replaced
+        """
+        try:
+            if not filename_prefix or not isinstance(filename_prefix, str):
+                logger.warning("Invalid filename_prefix")
+                return "default"
+
+            # Get all placeholders used in this filename
+            used_placeholders = self.get_used_placeholders(filename_prefix)
+            if not used_placeholders:
+                return filename_prefix
+
+            # Replace each placeholder
+            result = filename_prefix
+            for placeholder in used_placeholders:
+                value = self.get_placeholder_value(placeholder)
+                result = result.replace(placeholder, value)
+
+            # Sanitize final filename
+            if isPath:
+                return self.sanitize_path(result)
+            else:
+                return self.sanitize_filename(result)
+            
+            
+
+        except Exception as e:
+            logger.error(f"Error processing filename: {e}")
+            return "error_" + datetime.now().strftime("%Y%m%d_%H%M%S")
+
+    @staticmethod
+    def sanitize_filename(filename: str) -> str:
+        """
+        Remove invalid characters from filename for both Windows and Linux
+        Args:
+            filename: Input filename
+        Returns:
+            Sanitized filename
+        """
+        # Define invalid characters for both OS
+        windows_invalid = '<>:"/\\|?*'
+        linux_invalid = '/'
+        control_chars = ''.join(chr(i) for i in range(32))  # ASCII control characters
+
+        # Replace invalid characters
+        for char in windows_invalid + linux_invalid + control_chars:
+            filename = filename.replace(char, '_')
+        
+        # Remove leading/trailing spaces and dots (problematic in Windows)
+        filename = filename.strip(' .')
+        
+        # Ensure filename isn't empty and has reasonable length
+        if not filename:
+            return "untitled"
+            
+        # Handle Windows reserved names
+        windows_reserved = {
+            'CON', 'PRN', 'AUX', 'NUL', 
+            'COM1', 'COM2', 'COM3', 'COM4', 'COM5', 'COM6', 'COM7', 'COM8', 'COM9',
+            'LPT1', 'LPT2', 'LPT3', 'LPT4', 'LPT5', 'LPT6', 'LPT7', 'LPT8', 'LPT9'
+        }
+        name_without_ext = filename.split('.')[0].upper()
+        if name_without_ext in windows_reserved:
+            filename = '_' + filename
+            
+        # Truncate if too long (Windows MAX_PATH limitation)
+        if len(filename) > 255:
+            base, ext = os.path.splitext(filename)
+            filename = base[:255-len(ext)] + ext
+            
+        return filename
+
+    @staticmethod
+    def sanitize_path(path: str) -> str:
+        """
+        Remove invalid characters from path for both Windows and Linux
+        Args:
+            path: Input path
+        Returns:
+            Sanitized path
+        """
+        # Split path into components
+        parts = Path(path).parts
+        
+        # Sanitize each component
+        sanitized_parts = []
+        for i, part in enumerate(parts):
+            if i == 0 and len(parts) > 1 and part.endswith(':'):
+                # Handle Windows drive letter (e.g., C:)
+                sanitized_parts.append(part)
+            else:
+                # Define invalid characters for path components
+                windows_invalid = '<>:"|?*'  # Note: removed / and \ as they're path separators
+                linux_invalid = ''  # Linux allows most characters in paths except /
+                control_chars = ''.join(chr(i) for i in range(32))
+                
+                # Replace invalid characters
+                for char in windows_invalid + linux_invalid + control_chars:
+                    part = part.replace(char, '_')
+                
+                # Remove leading/trailing spaces and dots
+                part = part.strip(' .')
+                
+                # Ensure part isn't empty
+                if not part:
+                    part = "unnamed"
+                    
+                sanitized_parts.append(part)
+        
+        # Reconstruct path
+        sanitized_path = str(Path(*sanitized_parts))
+        
+        # Ensure path isn't too long
+        if len(sanitized_path) > 255:
+            logger.warning(f"Path too long, may cause issues on some systems: {sanitized_path}")
+            
+        return sanitized_path
+
+def set_global_values(
+    model: Optional[str] = None,
+    basemodel: Optional[str] = None,
+    seed_value: Optional[Union[int, float]] = None,
+    sampler_name: Optional[str] = None,
+    scheduler: Optional[str] = None,
+    steps: Optional[Union[int, float]] = None,
+    cfg: Optional[Union[int, float]] = None,
+    denoise: Optional[Union[int, float]] = None,
+    clip_skip: Optional[Union[int, float]] = None
+) -> None:
+    """
+    Safely set global values with improved type checking and validation
+    """
+    try:
+        value_types = {
+            'model': str, 
+            'basemodel': str, 
+            'seed': (int, float),
+            'sampler_name': str,
+            'scheduler': str, 
+            'steps': (int, float),
+            'cfg': (int, float),
+            'denoise': (int, float),
+            'clip_skip': (int, float)
+        }
+
+        values = {
+            'model': model,
+            'basemodel': basemodel,
+            'seed': seed_value,
+            'sampler_name': sampler_name,
+            'scheduler': scheduler,
+            'steps': steps,
+            'cfg': cfg,
+            'denoise': denoise,
+            'clip_skip': clip_skip
+        }
+
+        # Process each value with strict type checking
+        for key, value in values.items():
+            if value is not None:
+                expected_type = value_types[key]
+                
+                # Validate type
+                if not isinstance(value, expected_type):
+                    try:
+                        # Try type conversion for numbers
+                        if expected_type in [(int, float), float]:
+                            value = float(value)
+                        elif expected_type == int:
+                            value = int(value)
+                        elif expected_type == str:
+                            value = str(value)
+                    except (ValueError, TypeError) as e:
+                        logger.error(f"Error converting {key}: {e}")
+                        value = ''
+
+                # Additional validation
+                if isinstance(value, (int, float)):
+                    # Ensure numeric values are reasonable
+                    if key in ['steps', 'cfg', 'denoise']:
+                        if value < 0:
+                            logger.warning(f"Negative value for {key} adjusted to 0")
+                            value = 0
+                
+                global_values[key] = str(value)
+
+    except Exception as e:
+        logger.error(f"Error in set_global_values: {e}")
+        # Reset to safe defaults
+        for key in value_types.keys():
+            global_values[key] = ''
+
+# Initialize the filename processor as a singleton
+filename_processor = FilenameProcessor()
+
+def string_placeholder(filename_prefix: str, isPath: bool) -> str:
+    """
+    Public interface for filename processing
+    Args:
+        filename_prefix: Input filename with potential placeholders
+    Returns:
+        Processed filename
+    """
+    return filename_processor.process_string(filename_prefix, isPath)
+
+
+# Constants for configuration
+CHUNK_SIZE: Final[int] = 8192  # Optimal chunk size for reading files
+MAX_WORKERS: Final[int] = 4    # Number of concurrent hash operations
+HASH_CACHE: Dict[str, str] = {}  # Cache for hash values
+
+def get_sha256(file_path: str) -> Optional[str]:
+    """
+    Calculate or retrieve SHA256 hash for a file with improved safety and caching.
+    
+    Args:
+        file_path: Path to the file to hash
+        
+    Returns:
+        First 10 characters of SHA256 hash or None if operation fails
+    """
+    if not file_path or file_path in ('undefined', 'none'):
+        logger.warning(f"Invalid file path: {file_path}")
+        return None
+        
+    try:
+        file_path = str(Path(file_path).resolve())
+        
+        # Check cache first
+        if file_path in HASH_CACHE:
+            return HASH_CACHE[file_path]
+
+        # Get paths for file and hash
+        file_no_ext = str(Path(file_path).with_suffix(''))
         hash_file = file_no_ext + ".sha256"
 
-        if os.path.exists(hash_file):
-            try:
+        # Try to read existing hash file
+        try:
+            if Path(hash_file).exists():
                 with open(hash_file, "r") as f:
-                    return f.read().strip()
-            except OSError as e:
-                cstr(f"RvTools: Error reading existing hash file: {e}").error.print()
+                    hash_value = f.read().strip()
+                    if len(hash_value) == 64:  # Validate hash length
+                        HASH_CACHE[file_path] = hash_value
+                        return hash_value
+        except OSError as e:
+            logger.error(f"Error reading hash file {hash_file}: {e}")
 
+        # Calculate new hash if needed
+        if not Path(file_path).exists():
+            logger.error(f"Source file not found: {file_path}")
+            return None
+
+        cstr(f"Calculating SHA256 for: {Path(file_path).name}").msg.print()
+        
         sha256_hash = hashlib.sha256()
-        cstr(f"Hashing File (SHA256): {file_path}").msg.print()
-
+        
+        # Read file in chunks for memory efficiency
         with open(file_path, "rb") as f:
-            for byte_block in iter(lambda: f.read(4096), b""):
-                sha256_hash.update(byte_block)
+            while chunk := f.read(CHUNK_SIZE):
+                sha256_hash.update(chunk)
 
+        hash_value = sha256_hash.hexdigest()
+        HASH_CACHE[file_path] = hash_value
+
+        # Save hash to file for future use
         try:
             with open(hash_file, "w") as f:
-                f.write(sha256_hash.hexdigest())
+                f.write(hash_value)
         except OSError as e:
-            cstr(f"RvTools: Error writing hash to {hash_file}: {e}").error.print()
+            logger.error(f"Failed to save hash file {hash_file}: {e}")
 
-        return sha256_hash.hexdigest()
+        return hash_value
+
+    except Exception as e:
+        logger.error(f"Hash calculation failed for {file_path}: {e}")
+        return None
 
 """
 Represent the given embedding name as key as detected by civitAI
@@ -266,8 +604,8 @@ class RvImage_SaveImages:
         return {
             "required": {
                 "images": ("IMAGE", ),
-                "output_path": ("STRING", {"default": '[time(%Y-%m-%d)]', "multiline": False}),
-                "filename_prefix": ("STRING", {"default": "image"}),
+                "output_path": ("STRING", {"default": '%today\%basemodel', "multiline": False}),
+                "filename_prefix": ("STRING", {"default": "%today, %time, %basemodel, %seed, %sampler_name, %scheduler, %steps, %cfg, %denoise"}),
                 "filename_delimiter": ("STRING", {"default":"_"}),
                 "filename_number_padding": ("INT", {"default":4, "min":1, "max":9, "step":1}),
                 "filename_number_start": ("BOOLEAN", {"default": False}),
@@ -330,9 +668,20 @@ class RvImage_SaveImages:
             if PipeVersion == "V2":
                 #GData II
                 PipeVersion, sampler_name, scheduler, steps, cfg, seed_value, width, height, positive, negative, modelname, vae_name, lora_names, denoise, clip_skip = pipe_opt
+                try:
+                    set_global_values('','', seed_value, sampler_name, scheduler, steps, cfg, denoise, clip_skip)
+                except Exception as e:
+                    print(f"Failed to set global values: {e}")
             elif PipeVersion == "V1":
                 PipeVersion, steps, cfg, sampler_name, scheduler, positive, negative, modelname, width, height, seed_value, lora_names, vae_name = pipe_opt
-  
+                try:
+                    # Set denoise to default value since it's not in V1
+                    denoise = 0.0  
+                    set_global_values('','', seed_value, sampler_name, scheduler, steps, cfg, denoise, -2)
+                except Exception as e:
+                    print(f"Failed to set global values: {e}")
+
+
             ckpt_path = ''
             diffusion_path = ''
 
@@ -343,9 +692,20 @@ class RvImage_SaveImages:
             basemodelname = ''
             modelhash = ""
             vae_hash = ""
+            
+            #get filename placeholder
+            #%today, %date, %time, %model, %basemodel, %seed, %sampler_name, %scheduler, %steps, %cfg, %denoise
+            #mDate = format_datetime(date_time_format)
+            
 
             if not modelname in (None, '', 'undefined', 'none') : 
                 models = modelname.split(', ')
+                # Get first model for basemodel
+                if models and models[0]:
+                    first_model = models[0].strip()  # Remove any whitespace
+                    # Set basemodel in global values
+                    global_values['basemodel'] = return_filename_without_extension(first_model)
+                    global_values['model'] = first_model
 
                 for model in models:
                     if not model in (None, '', 'undefined', 'none') : 
@@ -421,6 +781,8 @@ class RvImage_SaveImages:
         if output_path in [None, '', "none", "."]:
             output_path = self.output_dir
 
+        output_path = string_placeholder(output_path, True)
+
         if not os.path.isabs(output_path):
             output_path = os.path.join(self.output_dir, output_path)
 
@@ -432,6 +794,8 @@ class RvImage_SaveImages:
                 cstr(f'The path `{output_path.strip()}` specified doesn\'t exist! Creating directory.').warning.print()
                 os.makedirs(output_path, exist_ok=True)
 
+        filename_prefix = string_placeholder(filename_prefix, False)
+        
         # Find existing counter values
         if filename_number_start:
             pattern = f"(\\d+){re.escape(delimiter)}{re.escape(filename_prefix)}"

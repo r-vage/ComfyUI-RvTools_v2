@@ -13,16 +13,21 @@ class RvText_Multiline:
         }
 
     CATEGORY = CATEGORY.MAIN.value + CATEGORY.PRIMITIVE.value
-    RETURN_TYPES = ("STRING",)
-    RETURN_NAMES = ("string",)
+    RETURN_TYPES = ("STRING","STRING",)
+    RETURN_NAMES = ("string", "string_list")
+
+    OUTPUT_IS_LIST = (False, True)
 
     FUNCTION = "execute"
 
     def execute(self, string=""):
-        return (string,)
+        string_list = string.strip()
+        string_list_out = string_list.split('\n')
 
-NODE_NAME = 'String Multiline [RvTools]'
-NODE_DESC = 'String Multiline'
+        return (string, string_list_out,)
+
+NODE_NAME = 'String Multiline with List [RvTools]'
+NODE_DESC = 'String Multiline with List'
 
 NODE_CLASS_MAPPINGS = {
    NODE_NAME: RvText_Multiline
