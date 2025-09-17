@@ -4,3 +4,5 @@ Pillow
 pynvml
 piexif
 opencv-python
+pilgram
+
