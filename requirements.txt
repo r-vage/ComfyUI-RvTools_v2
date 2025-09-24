@@ -1,0 +1,8 @@
+torch
+numpy
+Pillow
+pynvml
+piexif
+opencv-python
+pilgram
+

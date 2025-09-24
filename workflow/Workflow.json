@@ -1,0 +1,4112 @@
+{
+  "id": "2e10dc77-8da7-44e6-adc9-2dc8913923bd",
+  "revision": 0,
+  "last_node_id": 61,
+  "last_link_id": 176,
+  "nodes": [
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": [
+        863,
+        183
+      ],
+      "size": [
+        315,
+        474
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 134
+        },
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 4
+        },
+        {
+          "localized_name": "negative",
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 6
+        },
+        {
+          "localized_name": "latent_image",
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 67
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 159
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "link": 154
+        },
+        {
+          "localized_name": "cfg",
+          "name": "cfg",
+          "type": "FLOAT",
+          "widget": {
+            "name": "cfg"
+          },
+          "link": 162
+        },
+        {
+          "localized_name": "sampler_name",
+          "name": "sampler_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "sampler_name"
+          },
+          "link": 160
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "type": "COMBO",
+          "widget": {
+            "name": "scheduler"
+          },
+          "link": 161
+        },
+        {
+          "localized_name": "denoise",
+          "name": "denoise",
+          "type": "FLOAT",
+          "widget": {
+            "name": "denoise"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.43",
+        "Node name for S&R": "KSampler",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        156680208700286,
+        "fixed",
+        20,
+        8,
+        "euler",
+        "normal",
+        1
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 40,
+      "type": "Checkpoint Loader v1 Small (Pipe) [RvTools]",
+      "pos": [
+        -629,
+        411
+      ],
+      "size": [
+        330,
+        106
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "ckpt_name",
+          "name": "ckpt_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "ckpt_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "stop_at_clip_layer",
+          "name": "stop_at_clip_layer",
+          "type": "INT",
+          "widget": {
+            "name": "stop_at_clip_layer"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "pipe",
+          "name": "pipe",
+          "type": "pipe",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "89c2b76fbef610ed0cdf41e5ad4ece7fc5148295",
+        "Node name for S&R": "Checkpoint Loader v1 Small (Pipe) [RvTools]",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "SDXL\\juggernautXL_v9Rundiffusionphoto2.safetensors",
+        "Baked VAE",
+        -2
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1209,
+        183
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "link": 7
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 135
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            103
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.43",
+        "Node name for S&R": "VAEDecode",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 55,
+      "type": "Pipe In Context [RvTools]",
+      "pos": [
+        -41,
+        1061
+      ],
+      "size": [
+        183.6666717529297,
+        566
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "base_ctx",
+          "name": "base_ctx",
+          "shape": 7,
+          "type": "pipe",
+          "link": 123
+        },
+        {
+          "localized_name": "model",
+          "name": "model",
+          "shape": 7,
+          "type": "MODEL",
+          "link": 163
+        },
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "shape": 7,
+          "type": "CLIP",
+          "link": 126
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": 127
+        },
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "shape": 7,
+          "type": "CONDITIONING",
+          "link": null
+        },
+        {
+          "localized_name": "negative",
+          "name": "negative",
+          "shape": 7,
+          "type": "CONDITIONING",
+          "link": null
+        },
+        {
+          "localized_name": "latent",
+          "name": "latent",
+          "shape": 7,
+          "type": "LATENT",
+          "link": null
+        },
+        {
+          "localized_name": "images",
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "image_ref",
+          "name": "image_ref",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "image_pp",
+          "name": "image_pp",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "mask1",
+          "name": "mask1",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "localized_name": "mask2",
+          "name": "mask2",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "localized_name": "sampler",
+          "name": "sampler",
+          "shape": 7,
+          "type": "*",
+          "link": null
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "shape": 7,
+          "type": "*",
+          "link": null
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "localized_name": "cfg",
+          "name": "cfg",
+          "shape": 7,
+          "type": "FLOAT",
+          "link": null
+        },
+        {
+          "localized_name": "guidance",
+          "name": "guidance",
+          "shape": 7,
+          "type": "FLOAT",
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "localized_name": "text_pos",
+          "name": "text_pos",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "text_pos_i2p",
+          "name": "text_pos_i2p",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "text_neg",
+          "name": "text_neg",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "model_name",
+          "name": "model_name",
+          "shape": 7,
+          "type": "STRING",
+          "link": 128
+        },
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "shape": 7,
+          "type": "STRING",
+          "link": 129
+        },
+        {
+          "localized_name": "lora_names",
+          "name": "lora_names",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "path",
+          "name": "path",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "context",
+          "name": "context",
+          "type": "pipe",
+          "links": [
+            130
+          ]
+        },
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "links": null
+        },
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "links": [
+            136,
+            137
+          ]
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "links": null
+        },
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": null
+        },
+        {
+          "localized_name": "negative",
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": null
+        },
+        {
+          "localized_name": "latent",
+          "name": "latent",
+          "type": "LATENT",
+          "links": null
+        },
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "localized_name": "image_ref",
+          "name": "image_ref",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "localized_name": "image_pp",
+          "name": "image_pp",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "localized_name": "mask1",
+          "name": "mask1",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "localized_name": "mask2",
+          "name": "mask2",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "localized_name": "sampler",
+          "name": "sampler",
+          "type": "*",
+          "links": null
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "type": "*",
+          "links": null
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "cfg",
+          "name": "cfg",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "localized_name": "guidance",
+          "name": "guidance",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "text_pos",
+          "name": "text_pos",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "text_pos_i2p",
+          "name": "text_pos_i2p",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "text_neg",
+          "name": "text_neg",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "model_name",
+          "name": "model_name",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "lora_names",
+          "name": "lora_names",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "path",
+          "name": "path",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "89c2b76fbef610ed0cdf41e5ad4ece7fc5148295",
+        "Node name for S&R": "Pipe In Context [RvTools]",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        235,
+        442
+      ],
+      "size": [
+        210.25,
+        88
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 136
+        },
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 87
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.43",
+        "Node name for S&R": "CLIPTextEncode",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "beautiful scenery nature glass bottle landscape, , purple galaxy bottle,"
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 5,
+      "type": "EmptyLatentImage",
+      "pos": [
+        608,
+        554
+      ],
+      "size": [
+        210,
+        106
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 131
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 132
+        },
+        {
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "type": "INT",
+          "widget": {
+            "name": "batch_size"
+          },
+          "link": 133
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            67
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.43",
+        "Node name for S&R": "EmptyLatentImage",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        512,
+        512,
+        1
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 13,
+      "type": "Checkpoint Loader v2 (Pipe) [RvTools]",
+      "pos": [
+        -629,
+        571
+      ],
+      "size": [
+        329,
+        250
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "ckpt_name",
+          "name": "ckpt_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "ckpt_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Baked_Clip",
+          "name": "Baked_Clip",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "Baked_Clip"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Use_Clip_Layer",
+          "name": "Use_Clip_Layer",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "Use_Clip_Layer"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "stop_at_clip_layer",
+          "name": "stop_at_clip_layer",
+          "type": "INT",
+          "widget": {
+            "name": "stop_at_clip_layer"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "resolution",
+          "name": "resolution",
+          "type": "COMBO",
+          "widget": {
+            "name": "resolution"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "type": "INT",
+          "widget": {
+            "name": "batch_size"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "pipe",
+          "name": "pipe",
+          "type": "pipe",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "89c2b76fbef610ed0cdf41e5ad4ece7fc5148295",
+        "Node name for S&R": "Checkpoint Loader v2 (Pipe) [RvTools]",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "SDXL\\juggernautXL_v9Rundiffusionphoto2.safetensors",
+        "Baked VAE",
+        true,
+        true,
+        -1,
+        "Custom",
+        512,
+        512,
+        1
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 14,
+      "type": "Checkpoint Loader v3 (Pipe) [RvTools]",
+      "pos": [
+        -629,
+        871
+      ],
+      "size": [
+        329,
+        322
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "ckpt_name",
+          "name": "ckpt_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "ckpt_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "unet_name",
+          "name": "unet_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "unet_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "weight_dtype",
+          "name": "weight_dtype",
+          "type": "COMBO",
+          "widget": {
+            "name": "weight_dtype"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "clip_name1",
+          "name": "clip_name1",
+          "type": "COMBO",
+          "widget": {
+            "name": "clip_name1"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "clip_name2",
+          "name": "clip_name2",
+          "type": "COMBO",
+          "widget": {
+            "name": "clip_name2"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "clip_name3",
+          "name": "clip_name3",
+          "type": "COMBO",
+          "widget": {
+            "name": "clip_name3"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "clip_type_",
+          "name": "clip_type_",
+          "type": "COMBO",
+          "widget": {
+            "name": "clip_type_"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "baked_clip",
+          "name": "baked_clip",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "baked_clip"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "enable_clip_layer",
+          "name": "enable_clip_layer",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "enable_clip_layer"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "stop_at_clip_layer",
+          "name": "stop_at_clip_layer",
+          "type": "INT",
+          "widget": {
+            "name": "stop_at_clip_layer"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "load_unet_checkpoint",
+          "name": "load_unet_checkpoint",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "load_unet_checkpoint"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "pipe",
+          "name": "pipe",
+          "type": "pipe",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "89c2b76fbef610ed0cdf41e5ad4ece7fc5148295",
+        "Node name for S&R": "Checkpoint Loader v3 (Pipe) [RvTools]",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "None",
+        "None",
+        "default",
+        "None",
+        "None",
+        "None",
+        "flux",
+        "sdxl_vae.safetensors",
+        true,
+        true,
+        -2,
+        false
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 56,
+      "type": "Pipe In Context [RvTools]",
+      "pos": [
+        474,
+        1061
+      ],
+      "size": [
+        183.6666717529297,
+        566
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "base_ctx",
+          "name": "base_ctx",
+          "shape": 7,
+          "type": "pipe",
+          "link": 130
+        },
+        {
+          "localized_name": "model",
+          "name": "model",
+          "shape": 7,
+          "type": "MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "shape": 7,
+          "type": "CLIP",
+          "link": null
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        },
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "shape": 7,
+          "type": "CONDITIONING",
+          "link": null
+        },
+        {
+          "localized_name": "negative",
+          "name": "negative",
+          "shape": 7,
+          "type": "CONDITIONING",
+          "link": null
+        },
+        {
+          "localized_name": "latent",
+          "name": "latent",
+          "shape": 7,
+          "type": "LATENT",
+          "link": null
+        },
+        {
+          "localized_name": "images",
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "image_ref",
+          "name": "image_ref",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "image_pp",
+          "name": "image_pp",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "mask1",
+          "name": "mask1",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "localized_name": "mask2",
+          "name": "mask2",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "localized_name": "sampler",
+          "name": "sampler",
+          "shape": 7,
+          "type": "*",
+          "link": null
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "shape": 7,
+          "type": "*",
+          "link": null
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "localized_name": "cfg",
+          "name": "cfg",
+          "shape": 7,
+          "type": "FLOAT",
+          "link": null
+        },
+        {
+          "localized_name": "guidance",
+          "name": "guidance",
+          "shape": 7,
+          "type": "FLOAT",
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "localized_name": "text_pos",
+          "name": "text_pos",
+          "shape": 7,
+          "type": "STRING",
+          "link": 171
+        },
+        {
+          "localized_name": "text_pos_i2p",
+          "name": "text_pos_i2p",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "text_neg",
+          "name": "text_neg",
+          "shape": 7,
+          "type": "STRING",
+          "link": 170
+        },
+        {
+          "localized_name": "model_name",
+          "name": "model_name",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "lora_names",
+          "name": "lora_names",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "path",
+          "name": "path",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "context",
+          "name": "context",
+          "type": "pipe",
+          "links": [
+            138
+          ]
+        },
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            134
+          ]
+        },
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "links": null
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "links": [
+            135
+          ]
+        },
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": null
+        },
+        {
+          "localized_name": "negative",
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": null
+        },
+        {
+          "localized_name": "latent",
+          "name": "latent",
+          "type": "LATENT",
+          "links": null
+        },
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "localized_name": "image_ref",
+          "name": "image_ref",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "localized_name": "image_pp",
+          "name": "image_pp",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "localized_name": "mask1",
+          "name": "mask1",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "localized_name": "mask2",
+          "name": "mask2",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "localized_name": "sampler",
+          "name": "sampler",
+          "type": "*",
+          "links": [
+            160
+          ]
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "type": "*",
+          "links": [
+            161
+          ]
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "type": "INT",
+          "links": [
+            154
+          ]
+        },
+        {
+          "localized_name": "cfg",
+          "name": "cfg",
+          "type": "FLOAT",
+          "links": [
+            162
+          ]
+        },
+        {
+          "localized_name": "guidance",
+          "name": "guidance",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "links": [
+            159
+          ]
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "links": [
+            131
+          ]
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "links": [
+            132
+          ]
+        },
+        {
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "type": "INT",
+          "links": [
+            133
+          ]
+        },
+        {
+          "localized_name": "text_pos",
+          "name": "text_pos",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "text_pos_i2p",
+          "name": "text_pos_i2p",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "text_neg",
+          "name": "text_neg",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "model_name",
+          "name": "model_name",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "lora_names",
+          "name": "lora_names",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "path",
+          "name": "path",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "89c2b76fbef610ed0cdf41e5ad4ece7fc5148295",
+        "Node name for S&R": "Pipe In Context [RvTools]",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 44,
+      "type": "Sampler Settings (Flux+Seed) [RvTools]",
+      "pos": [
+        -1099,
+        183
+      ],
+      "size": [
+        287.01666259765625,
+        226
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "Sampler",
+          "name": "Sampler",
+          "type": "COMBO",
+          "widget": {
+            "name": "Sampler"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Scheduler",
+          "name": "Scheduler",
+          "type": "COMBO",
+          "widget": {
+            "name": "Scheduler"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Steps",
+          "name": "Steps",
+          "type": "INT",
+          "widget": {
+            "name": "Steps"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "CFG",
+          "name": "CFG",
+          "type": "FLOAT",
+          "widget": {
+            "name": "CFG"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Flux_Guidance",
+          "name": "Flux_Guidance",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Flux_Guidance"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Denoise",
+          "name": "Denoise",
+          "type": "FLOAT",
+          "widget": {
+            "name": "Denoise"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Noise_Seed",
+          "name": "Noise_Seed",
+          "type": "INT",
+          "widget": {
+            "name": "Noise_Seed"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "pipe",
+          "name": "pipe",
+          "type": "pipe",
+          "links": [
+            79
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "89c2b76fbef610ed0cdf41e5ad4ece7fc5148295",
+        "Node name for S&R": "Sampler Settings (Flux+Seed) [RvTools]",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "euler",
+        "normal",
+        20,
+        5.5,
+        3.5,
+        1,
+        794570786605142,
+        "randomize"
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 21,
+      "type": "Pipe Out Checkpoint Loader [RvTools]",
+      "pos": [
+        -246,
+        183
+      ],
+      "size": [
+        215.7333221435547,
+        206
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "pipe",
+          "name": "pipe",
+          "type": "pipe",
+          "link": 176
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "pipe",
+          "name": "pipe",
+          "type": "pipe",
+          "links": [
+            13
+          ]
+        },
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            163
+          ]
+        },
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "links": [
+            126
+          ]
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "links": [
+            127
+          ]
+        },
+        {
+          "localized_name": "latent",
+          "name": "latent",
+          "type": "LATENT",
+          "links": []
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "model_name",
+          "name": "model_name",
+          "type": "STRING",
+          "links": [
+            128
+          ]
+        },
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "type": "STRING",
+          "links": [
+            129
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "89c2b76fbef610ed0cdf41e5ad4ece7fc5148295",
+        "Node name for S&R": "Pipe Out Checkpoint Loader [RvTools]",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": [
+        235,
+        740
+      ],
+      "size": [
+        210.25,
+        88
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 137
+        },
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 88
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            6
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.43",
+        "Node name for S&R": "CLIPTextEncode",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "text, watermark"
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 45,
+      "type": "Pipe Out Sampler Settings (Flux+Seed) [RvTools]",
+      "pos": [
+        -1098,
+        556
+      ],
+      "size": [
+        285.3500061035156,
+        166
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "pipe",
+          "name": "pipe",
+          "type": "pipe",
+          "link": 79
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "pipe",
+          "name": "pipe",
+          "type": "pipe",
+          "links": null
+        },
+        {
+          "localized_name": "sampler",
+          "name": "sampler",
+          "type": "*",
+          "links": [
+            118
+          ]
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "type": "*",
+          "links": [
+            119
+          ]
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "type": "INT",
+          "links": [
+            157
+          ]
+        },
+        {
+          "localized_name": "cfg",
+          "name": "cfg",
+          "type": "FLOAT",
+          "links": [
+            158
+          ]
+        },
+        {
+          "localized_name": "flux_guidance",
+          "name": "flux_guidance",
+          "type": "FLOAT",
+          "links": [
+            122
+          ]
+        },
+        {
+          "localized_name": "denoise",
+          "name": "denoise",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "links": [
+            164
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "89c2b76fbef610ed0cdf41e5ad4ece7fc5148295",
+        "Node name for S&R": "Pipe Out Sampler Settings (Flux+Seed) [RvTools]",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 49,
+      "type": "Save Images [RvTools]",
+      "pos": [
+        1867,
+        183
+      ],
+      "size": [
+        306,
+        650
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 103
+        },
+        {
+          "localized_name": "pipe_opt",
+          "name": "pipe_opt",
+          "shape": 7,
+          "type": "pipe",
+          "link": 124
+        },
+        {
+          "localized_name": "output_path",
+          "name": "output_path",
+          "type": "STRING",
+          "widget": {
+            "name": "output_path"
+          },
+          "link": 166
+        },
+        {
+          "localized_name": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "filename_delimiter",
+          "name": "filename_delimiter",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_delimiter"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "filename_number_padding",
+          "name": "filename_number_padding",
+          "type": "INT",
+          "widget": {
+            "name": "filename_number_padding"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "filename_number_start",
+          "name": "filename_number_start",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "filename_number_start"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "extension",
+          "name": "extension",
+          "type": "COMBO",
+          "widget": {
+            "name": "extension"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "dpi",
+          "name": "dpi",
+          "type": "INT",
+          "widget": {
+            "name": "dpi"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "quality",
+          "name": "quality",
+          "type": "INT",
+          "widget": {
+            "name": "quality"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "optimize_image",
+          "name": "optimize_image",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "optimize_image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "lossless_webp",
+          "name": "lossless_webp",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "lossless_webp"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "embed_workflow",
+          "name": "embed_workflow",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "embed_workflow"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "save_generation_data",
+          "name": "save_generation_data",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "save_generation_data"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "remove_prompts",
+          "name": "remove_prompts",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "remove_prompts"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "save_workflow_as_json",
+          "name": "save_workflow_as_json",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "save_workflow_as_json"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "pipe_v2",
+          "name": "pipe_v2",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "pipe_v2"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "show_previews",
+          "name": "show_previews",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "show_previews"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "localized_name": "files",
+          "name": "files",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "89c2b76fbef610ed0cdf41e5ad4ece7fc5148295",
+        "Node name for S&R": "Save Images [RvTools]",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "[time(%Y-%m-%d)]",
+        "image",
+        "_",
+        4,
+        false,
+        "png",
+        300,
+        100,
+        false,
+        true,
+        true,
+        true,
+        false,
+        false,
+        true,
+        true
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 58,
+      "type": "Display Any (rgthree)",
+      "pos": [
+        -1549,
+        581
+      ],
+      "size": [
+        275,
+        170
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "localized_name": "source",
+          "name": "source",
+          "type": "*",
+          "link": 167
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "1.0.2506230015",
+        "Node name for S&R": "Display Any (rgthree)",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "D:\\AI\\ComfyUI_windows_portable\\ComfyUI\\output\\iGen\\2025-07-15"
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 48,
+      "type": "Project Folder v2 [RvTools]",
+      "pos": [
+        -1549,
+        183
+      ],
+      "size": [
+        270,
+        334
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "batch_no",
+          "name": "batch_no",
+          "shape": 7,
+          "type": "*",
+          "link": null
+        },
+        {
+          "localized_name": "project_root_name",
+          "name": "project_root_name",
+          "type": "STRING",
+          "widget": {
+            "name": "project_root_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "date_time_format",
+          "name": "date_time_format",
+          "type": "STRING",
+          "widget": {
+            "name": "date_time_format"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "add_date_time",
+          "name": "add_date_time",
+          "type": "COMBO",
+          "widget": {
+            "name": "add_date_time"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "batch_folder_name",
+          "name": "batch_folder_name",
+          "type": "STRING",
+          "widget": {
+            "name": "batch_folder_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "create_batch_folder",
+          "name": "create_batch_folder",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "create_batch_folder"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "relative_path",
+          "name": "relative_path",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "relative_path"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "resolution",
+          "name": "resolution",
+          "type": "COMBO",
+          "widget": {
+            "name": "resolution"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "type": "INT",
+          "widget": {
+            "name": "batch_size"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "path",
+          "name": "path",
+          "type": "STRING",
+          "links": [
+            165,
+            167
+          ]
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "links": [
+            114
+          ]
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "links": [
+            115
+          ]
+        },
+        {
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "type": "INT",
+          "links": [
+            116
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "89c2b76fbef610ed0cdf41e5ad4ece7fc5148295",
+        "Node name for S&R": "Project Folder v2 [RvTools]",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "iGen",
+        "%Y-%m-%d",
+        "postfix",
+        "batch_{}",
+        false,
+        false,
+        "832x1216 (2:3)",
+        512,
+        512,
+        1
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 57,
+      "type": "Pipe In Context [RvTools]",
+      "pos": [
+        1276,
+        1061
+      ],
+      "size": [
+        183.6666717529297,
+        566
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "base_ctx",
+          "name": "base_ctx",
+          "shape": 7,
+          "type": "pipe",
+          "link": 138
+        },
+        {
+          "localized_name": "model",
+          "name": "model",
+          "shape": 7,
+          "type": "MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "shape": 7,
+          "type": "CLIP",
+          "link": null
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        },
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "shape": 7,
+          "type": "CONDITIONING",
+          "link": null
+        },
+        {
+          "localized_name": "negative",
+          "name": "negative",
+          "shape": 7,
+          "type": "CONDITIONING",
+          "link": null
+        },
+        {
+          "localized_name": "latent",
+          "name": "latent",
+          "shape": 7,
+          "type": "LATENT",
+          "link": null
+        },
+        {
+          "localized_name": "images",
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "image_ref",
+          "name": "image_ref",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "image_pp",
+          "name": "image_pp",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "mask1",
+          "name": "mask1",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "localized_name": "mask2",
+          "name": "mask2",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "localized_name": "sampler",
+          "name": "sampler",
+          "shape": 7,
+          "type": "*",
+          "link": null
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "shape": 7,
+          "type": "*",
+          "link": null
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "localized_name": "cfg",
+          "name": "cfg",
+          "shape": 7,
+          "type": "FLOAT",
+          "link": null
+        },
+        {
+          "localized_name": "guidance",
+          "name": "guidance",
+          "shape": 7,
+          "type": "FLOAT",
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "localized_name": "text_pos",
+          "name": "text_pos",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "text_pos_i2p",
+          "name": "text_pos_i2p",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "text_neg",
+          "name": "text_neg",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "model_name",
+          "name": "model_name",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "lora_names",
+          "name": "lora_names",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "path",
+          "name": "path",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "context",
+          "name": "context",
+          "type": "pipe",
+          "links": null
+        },
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "links": []
+        },
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "links": null
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "links": []
+        },
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": null
+        },
+        {
+          "localized_name": "negative",
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": null
+        },
+        {
+          "localized_name": "latent",
+          "name": "latent",
+          "type": "LATENT",
+          "links": null
+        },
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "localized_name": "image_ref",
+          "name": "image_ref",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "localized_name": "image_pp",
+          "name": "image_pp",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "localized_name": "mask1",
+          "name": "mask1",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "localized_name": "mask2",
+          "name": "mask2",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "localized_name": "sampler",
+          "name": "sampler",
+          "type": "*",
+          "links": [
+            139
+          ]
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "type": "*",
+          "links": [
+            140
+          ]
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "type": "INT",
+          "links": [
+            141
+          ]
+        },
+        {
+          "localized_name": "cfg",
+          "name": "cfg",
+          "type": "FLOAT",
+          "links": [
+            142
+          ]
+        },
+        {
+          "localized_name": "guidance",
+          "name": "guidance",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "links": [
+            143
+          ]
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "links": [
+            144
+          ]
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "links": [
+            145
+          ]
+        },
+        {
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "localized_name": "text_pos",
+          "name": "text_pos",
+          "type": "STRING",
+          "links": [
+            146
+          ]
+        },
+        {
+          "localized_name": "text_pos_i2p",
+          "name": "text_pos_i2p",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "text_neg",
+          "name": "text_neg",
+          "type": "STRING",
+          "links": [
+            147
+          ]
+        },
+        {
+          "localized_name": "model_name",
+          "name": "model_name",
+          "type": "STRING",
+          "links": [
+            148
+          ]
+        },
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "type": "STRING",
+          "links": [
+            149
+          ]
+        },
+        {
+          "localized_name": "lora_names",
+          "name": "lora_names",
+          "type": "STRING",
+          "links": [
+            150
+          ]
+        },
+        {
+          "localized_name": "path",
+          "name": "path",
+          "type": "STRING",
+          "links": [
+            166
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "89c2b76fbef610ed0cdf41e5ad4ece7fc5148295",
+        "Node name for S&R": "Pipe In Context [RvTools]",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 47,
+      "type": "String Multiline [RvTools]",
+      "pos": [
+        44,
+        493
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "widget": {
+            "name": "string"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            88,
+            170
+          ]
+        }
+      ],
+      "title": "Negative Prompt",
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "89c2b76fbef610ed0cdf41e5ad4ece7fc5148295",
+        "Node name for S&R": "String Multiline [RvTools]",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "text, watermark"
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 46,
+      "type": "String Multiline [RvTools]",
+      "pos": [
+        44,
+        183
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "widget": {
+            "name": "string"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            87,
+            171
+          ]
+        }
+      ],
+      "title": "Positive Prompt",
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "89c2b76fbef610ed0cdf41e5ad4ece7fc5148295",
+        "Node name for S&R": "String Multiline [RvTools]",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "beautiful scenery nature glass bottle landscape, , purple galaxy bottle,"
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 25,
+      "type": "Display Any (rgthree)",
+      "pos": [
+        -263,
+        793
+      ],
+      "size": [
+        363,
+        138
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "localized_name": "source",
+          "name": "source",
+          "type": "*",
+          "link": 13
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "1.0.2506230015",
+        "Node name for S&R": "Display Any (rgthree)",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "[<comfy.model_patcher.ModelPatcher object at 0x000001E60E2F7CE0>, <comfy.sd.CLIP object at 0x000001E59E99E1B0>, <comfy.sd.VAE object at 0x000001E60BC64DA0>, None, 8, 8, 1, 'SDXL\\\\juggernautXL_v9Rundiffusionphoto2.safetensors', '']"
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 15,
+      "type": "Checkpoint Loader v4 (Pipe) [RvTools]",
+      "pos": [
+        -629,
+        1241
+      ],
+      "size": [
+        329,
+        346
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "ckpt_name",
+          "name": "ckpt_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "ckpt_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "unet_name",
+          "name": "unet_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "unet_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "weight_dtype",
+          "name": "weight_dtype",
+          "type": "COMBO",
+          "widget": {
+            "name": "weight_dtype"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "clip_name1",
+          "name": "clip_name1",
+          "type": "COMBO",
+          "widget": {
+            "name": "clip_name1"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "clip_name2",
+          "name": "clip_name2",
+          "type": "COMBO",
+          "widget": {
+            "name": "clip_name2"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "clip_name3",
+          "name": "clip_name3",
+          "type": "COMBO",
+          "widget": {
+            "name": "clip_name3"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "clip_name4",
+          "name": "clip_name4",
+          "type": "COMBO",
+          "widget": {
+            "name": "clip_name4"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "clip_type_",
+          "name": "clip_type_",
+          "type": "COMBO",
+          "widget": {
+            "name": "clip_type_"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "baked_clip",
+          "name": "baked_clip",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "baked_clip"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "enable_clip_layer",
+          "name": "enable_clip_layer",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "enable_clip_layer"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "stop_at_clip_layer",
+          "name": "stop_at_clip_layer",
+          "type": "INT",
+          "widget": {
+            "name": "stop_at_clip_layer"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "load_unet_checkpoint",
+          "name": "load_unet_checkpoint",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "load_unet_checkpoint"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "pipe",
+          "name": "pipe",
+          "type": "pipe",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "89c2b76fbef610ed0cdf41e5ad4ece7fc5148295",
+        "Node name for S&R": "Checkpoint Loader v4 (Pipe) [RvTools]",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "SDXL\\juggernautXL_v9Rundiffusionphoto2.safetensors",
+        "None",
+        "default",
+        "None",
+        "None",
+        "None",
+        "None",
+        "flux",
+        "Baked VAE",
+        true,
+        true,
+        -2,
+        false
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 61,
+      "type": "Checkpoint Loader v1 (Pipe) [RvTools]",
+      "pos": [
+        -629,
+        183
+      ],
+      "size": [
+        330,
+        154
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "ckpt_name",
+          "name": "ckpt_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "ckpt_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Baked_Clip",
+          "name": "Baked_Clip",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "Baked_Clip"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Use_Clip_Layer",
+          "name": "Use_Clip_Layer",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "Use_Clip_Layer"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "stop_at_clip_layer",
+          "name": "stop_at_clip_layer",
+          "type": "INT",
+          "widget": {
+            "name": "stop_at_clip_layer"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "pipe",
+          "name": "pipe",
+          "type": "pipe",
+          "links": [
+            176
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "89c2b76fbef610ed0cdf41e5ad4ece7fc5148295",
+        "Node name for S&R": "Checkpoint Loader v1 (Pipe) [RvTools]",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "SDXL\\juggernautXL_v9Rundiffusionphoto2.safetensors",
+        "Baked VAE",
+        true,
+        true,
+        -2
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 59,
+      "type": "Display Any (rgthree)",
+      "pos": [
+        1866,
+        1061
+      ],
+      "size": [
+        408,
+        123
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "localized_name": "source",
+          "name": "source",
+          "type": "*",
+          "link": 168
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "1.0.2506230015",
+        "Node name for S&R": "Display Any (rgthree)",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "[\"euler\", \"normal\", 20, 5.5, 794570786605142, 832, 1216, \"beautiful scenery nature glass bottle landscape, , purple galaxy bottle,\", \"text, watermark\", \"SDXL\\\\juggernautXL_v9Rundiffusionphoto2.safetensors\", \"\", null]"
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 51,
+      "type": "Pipe In Generation Data II [RvTools]",
+      "pos": [
+        1571,
+        1061
+      ],
+      "size": [
+        201.6999969482422,
+        266
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "pipe",
+          "name": "pipe",
+          "shape": 7,
+          "type": "pipe",
+          "link": null
+        },
+        {
+          "localized_name": "sampler_name",
+          "name": "sampler_name",
+          "shape": 7,
+          "type": "STRING",
+          "link": 139
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "shape": 7,
+          "type": "STRING",
+          "link": 140
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "shape": 7,
+          "type": "INT",
+          "link": 141
+        },
+        {
+          "localized_name": "cfg",
+          "name": "cfg",
+          "shape": 7,
+          "type": "FLOAT",
+          "link": 142
+        },
+        {
+          "localized_name": "seed_value",
+          "name": "seed_value",
+          "shape": 7,
+          "type": "INT",
+          "link": 143
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "shape": 7,
+          "type": "INT",
+          "link": 144
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "shape": 7,
+          "type": "INT",
+          "link": 145
+        },
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "shape": 7,
+          "type": "STRING",
+          "link": 146
+        },
+        {
+          "localized_name": "negative",
+          "name": "negative",
+          "shape": 7,
+          "type": "STRING",
+          "link": 147
+        },
+        {
+          "localized_name": "modelname",
+          "name": "modelname",
+          "shape": 7,
+          "type": "STRING",
+          "link": 148
+        },
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "shape": 7,
+          "type": "STRING",
+          "link": 149
+        },
+        {
+          "localized_name": "loras",
+          "name": "loras",
+          "shape": 7,
+          "type": "STRING",
+          "link": 150
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "pipe",
+          "name": "pipe",
+          "type": "pipe",
+          "links": [
+            124,
+            168
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "89c2b76fbef610ed0cdf41e5ad4ece7fc5148295",
+        "Node name for S&R": "Pipe In Generation Data II [RvTools]",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 54,
+      "type": "Pipe In Context [RvTools]",
+      "pos": [
+        -979,
+        1061
+      ],
+      "size": [
+        183.6666717529297,
+        566
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "base_ctx",
+          "name": "base_ctx",
+          "shape": 7,
+          "type": "pipe",
+          "link": null
+        },
+        {
+          "localized_name": "model",
+          "name": "model",
+          "shape": 7,
+          "type": "MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "shape": 7,
+          "type": "CLIP",
+          "link": null
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        },
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "shape": 7,
+          "type": "CONDITIONING",
+          "link": null
+        },
+        {
+          "localized_name": "negative",
+          "name": "negative",
+          "shape": 7,
+          "type": "CONDITIONING",
+          "link": null
+        },
+        {
+          "localized_name": "latent",
+          "name": "latent",
+          "shape": 7,
+          "type": "LATENT",
+          "link": null
+        },
+        {
+          "localized_name": "images",
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "image_ref",
+          "name": "image_ref",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "image_pp",
+          "name": "image_pp",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "mask1",
+          "name": "mask1",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "localized_name": "mask2",
+          "name": "mask2",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "localized_name": "sampler",
+          "name": "sampler",
+          "shape": 7,
+          "type": "*",
+          "link": 118
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "shape": 7,
+          "type": "*",
+          "link": 119
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "shape": 7,
+          "type": "INT",
+          "link": 157
+        },
+        {
+          "localized_name": "cfg",
+          "name": "cfg",
+          "shape": 7,
+          "type": "FLOAT",
+          "link": 158
+        },
+        {
+          "localized_name": "guidance",
+          "name": "guidance",
+          "shape": 7,
+          "type": "FLOAT",
+          "link": 122
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "shape": 7,
+          "type": "INT",
+          "link": 164
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "shape": 7,
+          "type": "INT",
+          "link": 114
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "shape": 7,
+          "type": "INT",
+          "link": 115
+        },
+        {
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "shape": 7,
+          "type": "INT",
+          "link": 116
+        },
+        {
+          "localized_name": "text_pos",
+          "name": "text_pos",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "text_pos_i2p",
+          "name": "text_pos_i2p",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "text_neg",
+          "name": "text_neg",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "model_name",
+          "name": "model_name",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "lora_names",
+          "name": "lora_names",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "localized_name": "path",
+          "name": "path",
+          "shape": 7,
+          "type": "STRING",
+          "link": 165
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "context",
+          "name": "context",
+          "type": "pipe",
+          "links": [
+            123
+          ]
+        },
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "links": null
+        },
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "links": null
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "links": null
+        },
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": null
+        },
+        {
+          "localized_name": "negative",
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": null
+        },
+        {
+          "localized_name": "latent",
+          "name": "latent",
+          "type": "LATENT",
+          "links": null
+        },
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "localized_name": "image_ref",
+          "name": "image_ref",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "localized_name": "image_pp",
+          "name": "image_pp",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "localized_name": "mask1",
+          "name": "mask1",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "localized_name": "mask2",
+          "name": "mask2",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "localized_name": "sampler",
+          "name": "sampler",
+          "type": "*",
+          "links": null
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "type": "*",
+          "links": null
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "cfg",
+          "name": "cfg",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "localized_name": "guidance",
+          "name": "guidance",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "text_pos",
+          "name": "text_pos",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "text_pos_i2p",
+          "name": "text_pos_i2p",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "text_neg",
+          "name": "text_neg",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "model_name",
+          "name": "model_name",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "lora_names",
+          "name": "lora_names",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "path",
+          "name": "path",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "89c2b76fbef610ed0cdf41e5ad4ece7fc5148295",
+        "Node name for S&R": "Pipe In Context [RvTools]",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    }
+  ],
+  "links": [
+    [
+      4,
+      6,
+      0,
+      3,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      6,
+      7,
+      0,
+      3,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      7,
+      3,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      13,
+      21,
+      0,
+      25,
+      0,
+      "*"
+    ],
+    [
+      67,
+      5,
+      0,
+      3,
+      3,
+      "LATENT"
+    ],
+    [
+      79,
+      44,
+      0,
+      45,
+      0,
+      "pipe"
+    ],
+    [
+      87,
+      46,
+      0,
+      6,
+      1,
+      "STRING"
+    ],
+    [
+      88,
+      47,
+      0,
+      7,
+      1,
+      "STRING"
+    ],
+    [
+      103,
+      8,
+      0,
+      49,
+      0,
+      "IMAGE"
+    ],
+    [
+      114,
+      48,
+      1,
+      54,
+      18,
+      "INT"
+    ],
+    [
+      115,
+      48,
+      2,
+      54,
+      19,
+      "INT"
+    ],
+    [
+      116,
+      48,
+      3,
+      54,
+      20,
+      "INT"
+    ],
+    [
+      118,
+      45,
+      1,
+      54,
+      12,
+      "*"
+    ],
+    [
+      119,
+      45,
+      2,
+      54,
+      13,
+      "*"
+    ],
+    [
+      122,
+      45,
+      5,
+      54,
+      16,
+      "FLOAT"
+    ],
+    [
+      123,
+      54,
+      0,
+      55,
+      0,
+      "pipe"
+    ],
+    [
+      124,
+      51,
+      0,
+      49,
+      1,
+      "pipe"
+    ],
+    [
+      126,
+      21,
+      2,
+      55,
+      2,
+      "CLIP"
+    ],
+    [
+      127,
+      21,
+      3,
+      55,
+      3,
+      "VAE"
+    ],
+    [
+      128,
+      21,
+      8,
+      55,
+      24,
+      "STRING"
+    ],
+    [
+      129,
+      21,
+      9,
+      55,
+      25,
+      "STRING"
+    ],
+    [
+      130,
+      55,
+      0,
+      56,
+      0,
+      "pipe"
+    ],
+    [
+      131,
+      56,
+      18,
+      5,
+      0,
+      "INT"
+    ],
+    [
+      132,
+      56,
+      19,
+      5,
+      1,
+      "INT"
+    ],
+    [
+      133,
+      56,
+      20,
+      5,
+      2,
+      "INT"
+    ],
+    [
+      134,
+      56,
+      1,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      135,
+      56,
+      3,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      136,
+      55,
+      2,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      137,
+      55,
+      2,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      138,
+      56,
+      0,
+      57,
+      0,
+      "pipe"
+    ],
+    [
+      139,
+      57,
+      12,
+      51,
+      1,
+      "STRING"
+    ],
+    [
+      140,
+      57,
+      13,
+      51,
+      2,
+      "STRING"
+    ],
+    [
+      141,
+      57,
+      14,
+      51,
+      3,
+      "INT"
+    ],
+    [
+      142,
+      57,
+      15,
+      51,
+      4,
+      "FLOAT"
+    ],
+    [
+      143,
+      57,
+      17,
+      51,
+      5,
+      "INT"
+    ],
+    [
+      144,
+      57,
+      18,
+      51,
+      6,
+      "INT"
+    ],
+    [
+      145,
+      57,
+      19,
+      51,
+      7,
+      "INT"
+    ],
+    [
+      146,
+      57,
+      21,
+      51,
+      8,
+      "STRING"
+    ],
+    [
+      147,
+      57,
+      23,
+      51,
+      9,
+      "STRING"
+    ],
+    [
+      148,
+      57,
+      24,
+      51,
+      10,
+      "STRING"
+    ],
+    [
+      149,
+      57,
+      25,
+      51,
+      11,
+      "STRING"
+    ],
+    [
+      150,
+      57,
+      26,
+      51,
+      12,
+      "STRING"
+    ],
+    [
+      154,
+      56,
+      14,
+      3,
+      5,
+      "INT"
+    ],
+    [
+      157,
+      45,
+      3,
+      54,
+      14,
+      "INT"
+    ],
+    [
+      158,
+      45,
+      4,
+      54,
+      15,
+      "FLOAT"
+    ],
+    [
+      159,
+      56,
+      17,
+      3,
+      4,
+      "INT"
+    ],
+    [
+      160,
+      56,
+      12,
+      3,
+      7,
+      "COMBO"
+    ],
+    [
+      161,
+      56,
+      13,
+      3,
+      8,
+      "COMBO"
+    ],
+    [
+      162,
+      56,
+      15,
+      3,
+      6,
+      "FLOAT"
+    ],
+    [
+      163,
+      21,
+      1,
+      55,
+      1,
+      "MODEL"
+    ],
+    [
+      164,
+      45,
+      7,
+      54,
+      17,
+      "INT"
+    ],
+    [
+      165,
+      48,
+      0,
+      54,
+      27,
+      "STRING"
+    ],
+    [
+      166,
+      57,
+      27,
+      49,
+      2,
+      "STRING"
+    ],
+    [
+      167,
+      48,
+      0,
+      58,
+      0,
+      "*"
+    ],
+    [
+      168,
+      51,
+      0,
+      59,
+      0,
+      "*"
+    ],
+    [
+      170,
+      47,
+      0,
+      56,
+      23,
+      "STRING"
+    ],
+    [
+      171,
+      46,
+      0,
+      56,
+      21,
+      "STRING"
+    ],
+    [
+      176,
+      61,
+      0,
+      21,
+      0,
+      "pipe"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.38554328942953164,
+      "offset": [
+        2402.7831751224326,
+        249.44419680131966
+      ]
+    },
+    "ue_links": [],
+    "links_added_by_ue": []
+  },
+  "version": 0.4
+}

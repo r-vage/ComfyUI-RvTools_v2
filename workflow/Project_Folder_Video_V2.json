@@ -1,0 +1,455 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "revision": 0,
+  "last_node_id": 6,
+  "last_link_id": 3,
+  "nodes": [
+    {
+      "id": 2,
+      "type": "Pipe Out Project Folder Video [RvTools]",
+      "pos": [
+        1151,
+        201
+      ],
+      "size": [
+        229,
+        189
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "pipe",
+          "name": "pipe",
+          "type": "pipe",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "pipe",
+          "name": "pipe",
+          "type": "pipe",
+          "links": [
+            2
+          ]
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "frame_rate",
+          "name": "frame_rate",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "localized_name": "frame_load_cap",
+          "name": "frame_load_cap",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "skip_first_frames",
+          "name": "skip_first_frames",
+          "type": "INT",
+          "links": [
+            3
+          ]
+        },
+        {
+          "localized_name": "select_every_nth",
+          "name": "select_every_nth",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "path",
+          "name": "path",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "6be5b83c5ddaa1b12c2ac9d764fcb1bf3eb5252f",
+        "widget_ue_connectable": {},
+        "Node name for S&R": "Pipe Out Project Folder Video [RvTools]"
+      },
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 6,
+      "type": "MarkdownNote",
+      "pos": [
+        471,
+        411
+      ],
+      "size": [
+        329,
+        239
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "skip_first_frames_calc: \nincrease the value step by step to skip the the (load cap * value)<br><br>\nvalues entered in skip_first_frames are added<br><br>\nfirst thing to do when adding the node is setting control_after_generate to fixed !!\n\n\n| skip_first_frames_calc | Value | Load_Cap | Skipped |\n|-----------------|-----------|--------------|-------------|\n|                 |   0       |      81      |           0 |\n|                 |   1       |  81          |          81 | \n|                 |   2       |  81          |         162 |\n"
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 1,
+      "type": "Project Folder Video v2 (Pipe) [RvTools]",
+      "pos": [
+        831,
+        201
+      ],
+      "size": [
+        289,
+        449
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "project_root_name",
+          "name": "project_root_name",
+          "type": "STRING",
+          "widget": {
+            "name": "project_root_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "date_time_format",
+          "name": "date_time_format",
+          "type": "STRING",
+          "widget": {
+            "name": "date_time_format"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "add_date_time",
+          "name": "add_date_time",
+          "type": "COMBO",
+          "widget": {
+            "name": "add_date_time"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "batch_folder_name",
+          "name": "batch_folder_name",
+          "type": "STRING",
+          "widget": {
+            "name": "batch_folder_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "create_batch_folder",
+          "name": "create_batch_folder",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "create_batch_folder"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "relative_path",
+          "name": "relative_path",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "relative_path"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "resolution",
+          "name": "resolution",
+          "type": "COMBO",
+          "widget": {
+            "name": "resolution"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "frame_rate",
+          "name": "frame_rate",
+          "type": "FLOAT",
+          "widget": {
+            "name": "frame_rate"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "frame_load_cap",
+          "name": "frame_load_cap",
+          "type": "INT",
+          "widget": {
+            "name": "frame_load_cap"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "skip_first_frames",
+          "name": "skip_first_frames",
+          "type": "INT",
+          "widget": {
+            "name": "skip_first_frames"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "skip_first_frames_calc",
+          "name": "skip_first_frames_calc",
+          "type": "INT",
+          "widget": {
+            "name": "skip_first_frames_calc"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "select_every_nth",
+          "name": "select_every_nth",
+          "type": "INT",
+          "widget": {
+            "name": "select_every_nth"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "batch_number",
+          "name": "batch_number",
+          "type": "INT",
+          "widget": {
+            "name": "batch_number"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "pipe",
+          "name": "pipe",
+          "type": "pipe",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rvtools_v2",
+        "ver": "6be5b83c5ddaa1b12c2ac9d764fcb1bf3eb5252f",
+        "widget_ue_connectable": {},
+        "Node name for S&R": "Project Folder Video v2 (Pipe) [RvTools]"
+      },
+      "widgets_values": [
+        "vGEN",
+        "%Y-%m-%d",
+        "postfix",
+        "batch_{}",
+        true,
+        true,
+        "Custom",
+        576,
+        1024,
+        30,
+        81,
+        20,
+        0,
+        "fixed",
+        1,
+        1,
+        "fixed"
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 4,
+      "type": "easy showAnything",
+      "pos": [
+        1411,
+        711
+      ],
+      "size": [
+        259,
+        89
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "anything",
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "output",
+          "name": "output",
+          "type": "*",
+          "links": []
+        }
+      ],
+      "title": "Skipped Frames at Start",
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "1.3.0",
+        "widget_ue_connectable": {},
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "20"
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    },
+    {
+      "id": 3,
+      "type": "easy showAnything",
+      "pos": [
+        1411,
+        201
+      ],
+      "size": [
+        259,
+        469
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "anything",
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "output",
+          "name": "output",
+          "type": "*",
+          "links": []
+        }
+      ],
+      "title": "Pipe",
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "1.3.0",
+        "widget_ue_connectable": {},
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "576",
+        "1024",
+        "1",
+        "30",
+        "81",
+        "20",
+        "1",
+        "./vGEN\\2025-08-04\\batch_1"
+      ],
+      "color": "#4e4e4e",
+      "bgcolor": "#3a3a3a",
+      "shape": 1
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "pipe"
+    ],
+    [
+      2,
+      2,
+      0,
+      3,
+      0,
+      "*"
+    ],
+    [
+      3,
+      2,
+      6,
+      4,
+      0,
+      "*"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ue_links": [],
+    "ds": {
+      "scale": 1.7715610000000035,
+      "offset": [
+        -399.5403900634668,
+        -113.60366135796454
+      ]
+    },
+    "links_added_by_ue": []
+  },
+  "version": 0.4
+}
