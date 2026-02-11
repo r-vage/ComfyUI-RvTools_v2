@@ -1,4 +1,4 @@
-﻿from ..core import CATEGORY
+﻿from ..core import CATEGORY, log
 
 class RvText_Multiline:
     def __init__(self):
@@ -45,7 +45,7 @@ class RvText_Multiline:
             return (string_list[0], string_list)
 
         except Exception as e:
-            print(f"Error in RvText_Multiline: {str(e)}")
+            log.error("MultilineList", f"Error in RvText_Multiline: {str(e)}")
             return ("", [""])
 
 NODE_NAME = 'String Multiline with List [RvTools]'

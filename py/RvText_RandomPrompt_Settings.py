@@ -1,9 +1,9 @@
 ﻿import random
 import os
-import folder_paths
+import folder_paths  # type: ignore
 import csv
 
-from ..core import CATEGORY, cstr
+from ..core import CATEGORY, log
 
 comfy_path = os.path.dirname(folder_paths.__file__)
 
@@ -62,7 +62,7 @@ class RvText_RandomPrompt:
         # Check input folder
         
         if not os.path.exists(prompt_path.strip()):
-            cstr(f'Creating Folder `{prompt_path.strip()}`.').warning.print()
+            log.warning("RandomPromptSettings", f'Creating Folder `{prompt_path.strip()}`.')
             try:
                 os.makedirs(prompt_path, exist_ok=True)
                 if os.path.exists(prompt_path.strip()):
@@ -80,7 +80,7 @@ class RvText_RandomPrompt:
                     create_file_18(prompt_path)
                     create_file_19(prompt_path)
             except OSError as e:
-                cstr(f"The path `{prompt_path}` could not be created! Is there write access?\n{e}").error.print()
+                log.error("RandomPromptSettings", f"The path `{prompt_path}` could not be created! Is there write access?\n{e}")
 
 
         for filename in os.listdir(prompt_path):
@@ -118,7 +118,7 @@ class RvText_RandomPrompt:
         for value in values:
             if value != "disabled":
                     concatenated_values += value + ","
-        print(f"➡️Prompt: {concatenated_values [:-1]}")
+        log.msg("RandomPromptSettings", f"➡️Prompt: {concatenated_values [:-1]}")
         final_values += concatenated_values [:-1] + "\n" 
         concatenated_values = ""
 
@@ -180,7 +180,7 @@ def create_file_7(prompt_path):
 
     filepath = os.path.join(prompt_path, csv_file_name_7)
 
-    cstr(f'Creating File `{filepath.strip()}`.').warning.print()
+    log.warning("RandomPromptSettings", f'Creating File `{filepath.strip()}`.')
         
     with open(filepath, "w", encoding="utf-8", newline="") as csv_file:
         csv_writer = csv.writer(csv_file)
@@ -221,7 +221,7 @@ def create_file_8(prompt_path):
 
     filepath = os.path.join(prompt_path, csv_file_name_8)
 
-    cstr(f'Creating File `{filepath.strip()}`.').warning.print()
+    log.warning("RandomPromptSettings", f'Creating File `{filepath.strip()}`.')
         
     with open(filepath, "w", encoding="utf-8", newline="") as csv_file:
         csv_writer = csv.writer(csv_file)
@@ -1128,7 +1128,7 @@ def create_file_9(prompt_path):
 
     filepath = os.path.join(prompt_path, csv_file_name_9)
 
-    cstr(f'Creating File `{filepath.strip()}`.').warning.print()
+    log.warning("RandomPromptSettings", f'Creating File `{filepath.strip()}`.')
         
     with open(filepath, "w", encoding="utf-8", newline="") as csv_file:
         csv_writer = csv.writer(csv_file)
@@ -4737,7 +4737,7 @@ def create_file_10(prompt_path):
 
     filepath = os.path.join(prompt_path, csv_file_name_10)
 
-    cstr(f'Creating File `{filepath.strip()}`.').warning.print()
+    log.warning("RandomPromptSettings", f'Creating File `{filepath.strip()}`.')
 
     with open(filepath, "w", encoding="utf-8", newline="") as csv_file:
         csv_writer = csv.writer(csv_file)
@@ -4774,7 +4774,7 @@ def create_file_11(prompt_path):
 
     filepath = os.path.join(prompt_path, csv_file_name_11)
 
-    cstr(f'Creating File `{filepath.strip()}`.').warning.print()
+    log.warning("RandomPromptSettings", f'Creating File `{filepath.strip()}`.')
         
     with open(filepath, "w", encoding="utf-8", newline="") as csv_file:
         csv_writer = csv.writer(csv_file)
@@ -4834,7 +4834,7 @@ def create_file_12(prompt_path):
 
     filepath = os.path.join(prompt_path, csv_file_name_12)
 
-    cstr(f'Creating File `{filepath.strip()}`.').warning.print()
+    log.warning("RandomPromptSettings", f'Creating File `{filepath.strip()}`.')
         
     with open(filepath, "w", encoding="utf-8", newline="") as csv_file:
         csv_writer = csv.writer(csv_file)
@@ -4899,7 +4899,7 @@ def create_file_13(prompt_path):
 
     filepath = os.path.join(prompt_path, csv_file_name_13)
 
-    cstr(f'Creating File `{filepath.strip()}`.').warning.print()
+    log.warning("RandomPromptSettings", f'Creating File `{filepath.strip()}`.')
         
     with open(filepath, "w", encoding="utf-8", newline="") as csv_file:
         csv_writer = csv.writer(csv_file)
@@ -5005,7 +5005,7 @@ def create_file_14(prompt_path):
 
     filepath = os.path.join(prompt_path, csv_file_name_14)
 
-    cstr(f'Creating File `{filepath.strip()}`.').warning.print()
+    log.warning("RandomPromptSettings", f'Creating File `{filepath.strip()}`.')
         
     with open(filepath, "w", encoding="utf-8", newline="") as csv_file:
         csv_writer = csv.writer(csv_file)
@@ -5054,7 +5054,7 @@ def create_file_15(prompt_path):
 
     filepath = os.path.join(prompt_path, csv_file_name_15)
 
-    cstr(f'Creating File `{filepath.strip()}`.').warning.print()
+    log.warning("RandomPromptSettings", f'Creating File `{filepath.strip()}`.')
         
     with open(filepath, "w", encoding="utf-8", newline="") as csv_file:
         csv_writer = csv.writer(csv_file)
@@ -5106,7 +5106,7 @@ def create_file_16(prompt_path):
 
     filepath = os.path.join(prompt_path, csv_file_name_16)
 
-    cstr(f'Creating File `{filepath.strip()}`.').warning.print()
+    log.warning("RandomPromptSettings", f'Creating File `{filepath.strip()}`.')
         
     with open(filepath, "w", encoding="utf-8", newline="") as csv_file:
         csv_writer = csv.writer(csv_file)
@@ -5173,7 +5173,7 @@ def create_file_17(prompt_path):
 
     filepath = os.path.join(prompt_path, csv_file_name_17)
 
-    cstr(f'Creating File `{filepath.strip()}`.').warning.print()
+    log.warning("RandomPromptSettings", f'Creating File `{filepath.strip()}`.')
         
     with open(filepath, "w", encoding="utf-8", newline="") as csv_file:
         csv_writer = csv.writer(csv_file)
@@ -5221,7 +5221,7 @@ def create_file_18(prompt_path):
 
     filepath = os.path.join(prompt_path, csv_file_name_18)
 
-    cstr(f'Creating File `{filepath.strip()}`.').warning.print()
+    log.warning("RandomPromptSettings", f'Creating File `{filepath.strip()}`.')
         
     with open(filepath, "w", encoding="utf-8", newline="") as csv_file:
         csv_writer = csv.writer(csv_file)
@@ -5258,7 +5258,7 @@ def create_file_19(prompt_path):
 
     filepath = os.path.join(prompt_path, csv_file_name_19)
 
-    cstr(f'Creating File `{filepath.strip()}`.').warning.print()
+    log.warning("RandomPromptSettings", f'Creating File `{filepath.strip()}`.')
         
     with open(filepath, "w", encoding="utf-8", newline="") as csv_file:
         csv_writer = csv.writer(csv_file)

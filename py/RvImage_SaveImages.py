@@ -1,11 +1,11 @@
 import os
 import re
-import comfy
-import comfy.sd
-import torch
+import comfy  # type: ignore
+import comfy.sd  # type: ignore
+import torch  # type: ignore
 import json
-import numpy as np
-import folder_paths
+import numpy as np  # type: ignore
+import folder_paths  # type: ignore
 import hashlib
 
 from pathlib import Path
@@ -14,7 +14,7 @@ from concurrent.futures import ThreadPoolExecutor
 from PIL import Image
 from PIL.PngImagePlugin import PngInfo
 
-from ..core import CATEGORY, cstr
+from ..core import CATEGORY, log
 
 UPSCALE_MODELS = folder_paths.get_filename_list("upscale_models") + ["None"]
 MAX_RESOLUTION = 32768
@@ -36,11 +36,6 @@ global_values = {
 
 from typing import Dict, List, Optional, Union, Any
 from datetime import datetime
-import logging
-
-# Configure logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
 
 class FilenameProcessor:
     """Handles filename placeholder processing with improved error handling and type safety"""
@@ -80,7 +75,7 @@ class FilenameProcessor:
             List of found placeholders
         """
         if not isinstance(filename, str):
-            logger.warning(f"Invalid filename type: {type(filename)}")
+            log.warning("SaveImages", f"Invalid filename type: {type(filename)}")
             return []
         
         return [p for p in self.placeholders.keys() if p in filename]
@@ -95,14 +90,14 @@ class FilenameProcessor:
         """
         try:
             if placeholder not in self.placeholders:
-                logger.warning(f"Unknown placeholder: {placeholder}")
+                log.warning("SaveImages", f"Unknown placeholder: {placeholder}")
                 return ''
                 
             value = self.placeholders[placeholder]()
             return str(value)
             
         except Exception as e:
-            logger.error(f"Error getting value for {placeholder}: {e}")
+            log.error("SaveImages", f"Error getting value for {placeholder}: {e}")
             return ''
 
     def process_string(self, filename_prefix: str, isPath: bool) -> str:
@@ -115,7 +110,7 @@ class FilenameProcessor:
         """
         try:
             if not filename_prefix or not isinstance(filename_prefix, str):
-                logger.warning("Invalid filename_prefix")
+                log.warning("SaveImages", "Invalid filename_prefix")
                 return "default"
 
             # Get all placeholders used in this filename
@@ -138,7 +133,7 @@ class FilenameProcessor:
             
 
         except Exception as e:
-            logger.error(f"Error processing filename: {e}")
+            log.error("SaveImages", f"Error processing filename: {e}")
             return "error_" + datetime.now().strftime("%Y%m%d_%H%M%S")
 
     @staticmethod
@@ -225,7 +220,7 @@ class FilenameProcessor:
         
         # Ensure path isn't too long
         if len(sanitized_path) > 255:
-            logger.warning(f"Path too long, may cause issues on some systems: {sanitized_path}")
+            log.warning("SaveImages", f"Path too long, may cause issues on some systems: {sanitized_path}")
             
         return sanitized_path
 
@@ -284,7 +279,7 @@ def set_global_values(
                         elif expected_type == str:
                             value = str(value)
                     except (ValueError, TypeError) as e:
-                        logger.error(f"Error converting {key}: {e}")
+                        log.error("SaveImages", f"Error converting {key}: {e}")
                         value = ''
 
                 # Additional validation
@@ -292,13 +287,13 @@ def set_global_values(
                     # Ensure numeric values are reasonable
                     if key in ['steps', 'cfg', 'denoise']:
                         if value < 0:
-                            logger.warning(f"Negative value for {key} adjusted to 0")
+                            log.warning("SaveImages", f"Negative value for {key} adjusted to 0")
                             value = 0
                 
                 global_values[key] = str(value)
 
     except Exception as e:
-        logger.error(f"Error in set_global_values: {e}")
+        log.error("SaveImages", f"Error in set_global_values: {e}")
         # Reset to safe defaults
         for key in value_types.keys():
             global_values[key] = ''
@@ -333,7 +328,7 @@ def get_sha256(file_path: str) -> Optional[str]:
         First 10 characters of SHA256 hash or None if operation fails
     """
     if not file_path or file_path in ('undefined', 'none'):
-        logger.warning(f"Invalid file path: {file_path}")
+        log.warning("SaveImages", f"Invalid file path: {file_path}")
         return None
         
     try:
@@ -356,14 +351,14 @@ def get_sha256(file_path: str) -> Optional[str]:
                         HASH_CACHE[file_path] = hash_value
                         return hash_value
         except OSError as e:
-            logger.error(f"Error reading hash file {hash_file}: {e}")
+            log.error("SaveImages", f"Error reading hash file {hash_file}: {e}")
 
         # Calculate new hash if needed
         if not Path(file_path).exists():
-            logger.error(f"Source file not found: {file_path}")
+            log.error("SaveImages", f"Source file not found: {file_path}")
             return None
 
-        cstr(f"Calculating SHA256 for: {Path(file_path).name}").msg.print()
+        log.info("SaveImages", f"Calculating SHA256 for: {Path(file_path).name}")
         
         sha256_hash = hashlib.sha256()
         
@@ -380,12 +375,12 @@ def get_sha256(file_path: str) -> Optional[str]:
             with open(hash_file, "w") as f:
                 f.write(hash_value)
         except OSError as e:
-            logger.error(f"Failed to save hash file {hash_file}: {e}")
+            log.error("SaveImages", f"Failed to save hash file {hash_file}: {e}")
 
         return hash_value
 
     except Exception as e:
-        logger.error(f"Hash calculation failed for {file_path}: {e}")
+        log.error("SaveImages", f"Hash calculation failed for {file_path}: {e}")
         return None
 
 """
@@ -432,7 +427,7 @@ def full_lora_path_for(lora: str):
     # Find the matching lora path
     matching_lora = next((x for x in __list_loras() if x.endswith(lora)), None)
     if matching_lora is None:
-        cstr(f'RvTools: could not find full path to lora "{lora}"').error.print()
+        log.error("SaveImages", f'RvTools: could not find full path to lora "{lora}"')
         return None
     return folder_paths.get_full_path("loras", matching_lora)
 
@@ -527,12 +522,12 @@ def save_json(image_info, filename):
     try:
         workflow = (image_info or {}).get('workflow')
         if workflow is None:
-            cstr(f"No image info found, skipping saving of JSON").warning.print()
+            log.warning("SaveImages", f"No image info found, skipping saving of JSON")
         with open(f'{filename}.json', 'w') as workflow_file:
             json.dump(workflow, workflow_file)
-            cstr(f"Workflow saved to: '{filename}.json'").msg.print()
+            log.info("SaveImages", f"Workflow saved to: '{filename}.json'")
     except Exception as e:
-        cstr(f'Failed to save workflow as json due to: {e}, proceeding with the remainder of saving execution').error.print()
+        log.error("SaveImages", f'Failed to save workflow as json due to: {e}, proceeding with the remainder of saving execution')
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------#
 #based on Was-node-suite & image saver
@@ -671,7 +666,7 @@ class RvImage_SaveImages:
                 try:
                     set_global_values('','', seed_value, sampler_name, scheduler, steps, cfg, denoise, clip_skip)
                 except Exception as e:
-                    print(f"Failed to set global values: {e}")
+                    log.error("SaveImages", f"Failed to set global values: {e}")
             elif PipeVersion == "V1":
                 PipeVersion, steps, cfg, sampler_name, scheduler, positive, negative, modelname, width, height, seed_value, lora_names, vae_name = pipe_opt
                 try:
@@ -679,7 +674,7 @@ class RvImage_SaveImages:
                     denoise = 0.0  
                     set_global_values('','', seed_value, sampler_name, scheduler, steps, cfg, denoise, -2)
                 except Exception as e:
-                    print(f"Failed to set global values: {e}")
+                    log.error("SaveImages", f"Failed to set global values: {e}")
 
 
             ckpt_path = ''
@@ -791,7 +786,7 @@ class RvImage_SaveImages:
             if not os.path.isabs(output_path):
                 output_path = os.path.join(folder_paths.output_directory, output_path)
             if not os.path.exists(output_path.strip()):
-                cstr(f'The path `{output_path.strip()}` specified doesn\'t exist! Creating directory.').warning.print()
+                log.warning("SaveImages", f'The path `{output_path.strip()}` specified doesn\'t exist! Creating directory.')
                 os.makedirs(output_path, exist_ok=True)
 
         filename_prefix = string_placeholder(filename_prefix, False)
@@ -818,7 +813,7 @@ class RvImage_SaveImages:
         # Set Extension
         file_extension = '.' + extension
         if file_extension not in ALLOWED_EXT:
-            cstr(f"The extension `{extension}` is not valid. The valid formats are: {', '.join(sorted(ALLOWED_EXT))}").error.print()
+            log.error("SaveImages", f"The extension `{extension}` is not valid. The valid formats are: {', '.join(sorted(ALLOWED_EXT))}")
             file_extension = ".png"
 
         results = list()
@@ -887,7 +882,7 @@ class RvImage_SaveImages:
                     img.save(output_file,
                              pnginfo=exif_data, optimize=optimize_image)
 
-                cstr(f"Image file saved to: {output_file}").msg.print()
+                log.info("SaveImages", f"Image file saved to: {output_file}")
                 output_files.append(output_file)
                    
                 if show_previews:
@@ -899,11 +894,11 @@ class RvImage_SaveImages:
                     })
 
             except OSError as e:
-                cstr(f'Unable to save file to: {output_file}').error.print()
-                print(e)
+                log.error("SaveImages", f'Unable to save file to: {output_file}')
+                log.error("SaveImages", str(e))
             except Exception as e:
-                cstr('Unable to save file due to the to the following error:').error.print()
-                print(e)
+                log.error("SaveImages", 'Unable to save file due to the to the following error:')
+                log.error("SaveImages", str(e))
 
             if save_workflow_as_json:
                 output_json = os.path.abspath(os.path.join(output_path, jsonfile))

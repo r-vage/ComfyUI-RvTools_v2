@@ -1,5 +1,5 @@
 
-import comfy
+import comfy  # type: ignore
 from ..core import CATEGORY
 
 SCHEDULERS_COMFY = comfy.samplers.KSampler.SCHEDULERS

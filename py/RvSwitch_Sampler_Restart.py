@@ -1,6 +1,5 @@
 
-from ..core import CATEGORY
-from .anytype import AnyType
+from ..core import CATEGORY, AnyType
 
 any = AnyType("*")
 

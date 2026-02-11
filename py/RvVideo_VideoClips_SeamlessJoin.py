@@ -1,11 +1,11 @@
 import os
 import cv2
 import numpy as np
-import torch
+import torch  # type: ignore
 from PIL import Image
-import folder_paths
+import folder_paths  # type: ignore
 
-from ..core import CATEGORY, cstr
+from ..core import CATEGORY, log
 
 FPS = float(30.0)
 
@@ -87,7 +87,7 @@ class RvVideo_SeamlessJoinVideoClips:
         total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
         FPS = cap.get(cv2.CAP_PROP_FPS)
 
-        cstr(f"Video {video_path}: {total_frames} frames, {FPS} fps").msg.print()
+        log.msg("VideoClipsSeamlessJoin", f"Video {video_path}: {total_frames} frames, {FPS} fps")
                 
         frames = []
         frame_count = 0
@@ -110,7 +110,7 @@ class RvVideo_SeamlessJoinVideoClips:
         if not frames:
             raise ValueError(f"No frames could be loaded from video: {video_path}")
         
-        cstr(f"Successfully loaded {len(frames)} frames from {video_path}").msg.print()
+        log.msg("VideoClipsSeamlessJoin", f"Successfully loaded {len(frames)} frames from {video_path}")
         return frames
     
     def create_solid_color_image(self, reference_frame, color_hex):
@@ -144,10 +144,10 @@ class RvVideo_SeamlessJoinVideoClips:
     def process_videos(self, frame_load_cap, mask_first_frames, mask_last_frames, video_filelist=None):
         """Main processing function that joins the video clips"""
         
-        cstr(f"Starting process with parameters:").msg.print()
-        cstr(f"mask_last_frames: {mask_last_frames}").msg.print()
-        cstr(f"mask_first_frames: {mask_first_frames}").msg.print()
-        cstr(f"frame_load_cap: {frame_load_cap}").msg.print()        
+        log.msg("VideoClipsSeamlessJoin", f"Starting process with parameters:")
+        log.msg("VideoClipsSeamlessJoin", f"mask_last_frames: {mask_last_frames}")
+        log.msg("VideoClipsSeamlessJoin", f"mask_first_frames: {mask_first_frames}")
+        log.msg("VideoClipsSeamlessJoin", f"frame_load_cap: {frame_load_cap}")        
 
         if not video_filelist in (None, '', 'undefined', 'none') : 
             videos = video_filelist.split(', ')        
@@ -156,8 +156,8 @@ class RvVideo_SeamlessJoinVideoClips:
             video_first = str(videos[0]).strip()
             video_second =  str(videos[-1]).strip()
 
-            cstr(f"video_first: {video_first}").msg.print()
-            cstr(f"video_second: {video_second}").msg.print()
+            log.msg("VideoClipsSeamlessJoin", f"video_first: {video_first}")
+            log.msg("VideoClipsSeamlessJoin", f"video_second: {video_second}")
             
             # Check if required files exist
             if not os.path.exists(video_first):
@@ -165,18 +165,18 @@ class RvVideo_SeamlessJoinVideoClips:
             if not os.path.exists(video_second):
                 raise ValueError(f"Last video file not found: {video_second}")
         
-            cstr(f"Both video files found, loading frames...").msg.print()
+            log.msg("VideoClipsSeamlessJoin", f"Both video files found, loading frames...")
 
             try:
                 # Load video frames
                 first_images_list = self.load_video_frames(video_first, frame_load_cap * 2)
                 second_images_list = self.load_video_frames(video_second, frame_load_cap * 2)
                 
-                cstr(f"Loaded {len(first_images_list)} frames from first video").msg.print()
-                cstr(f"Loaded {len(second_images_list)} frames from second video").msg.print()
+                log.msg("VideoClipsSeamlessJoin", f"Loaded {len(first_images_list)} frames from first video")
+                log.msg("VideoClipsSeamlessJoin", f"Loaded {len(second_images_list)} frames from second video")
 
             except Exception as e:
-                cstr(f"Error loading video frames: {str(e)}").error.print()
+                log.error("VideoClipsSeamlessJoin", f"Error loading video frames: {str(e)}")
                 raise ValueError(f"Error loading video frames: {str(e)}")
 
         
@@ -259,8 +259,8 @@ class RvVideo_SeamlessJoinVideoClips:
             if not output_mask_list:
                 raise ValueError("No output masks generated")
             
-            print(f"[WanVideo] Generated {len(output_images_list)} output images")
-            print(f"[WanVideo] Generated {len(output_mask_list)} output masks")
+            log.msg("VideoClipsSeamlessJoin", f"[WanVideo] Generated {len(output_images_list)} output images")
+            log.msg("VideoClipsSeamlessJoin", f"[WanVideo] Generated {len(output_mask_list)} output masks")
             
             try:
                 image_tensor = self.frames_to_tensor(output_images_list)
@@ -269,14 +269,14 @@ class RvVideo_SeamlessJoinVideoClips:
                 # Keep mask as RGB IMAGE type instead of converting to grayscale
                 # This ensures compatibility with nodes expecting IMAGE input
                 
-                print(f"[WanVideo] Image tensor shape: {image_tensor.shape}")
-                print(f"[WanVideo] Mask tensor shape: {mask_tensor.shape}")
-                print(f"[WanVideo] Processing completed successfully")
+                log.msg("VideoClipsSeamlessJoin", f"[WanVideo] Image tensor shape: {image_tensor.shape}")
+                log.msg("VideoClipsSeamlessJoin", f"[WanVideo] Mask tensor shape: {mask_tensor.shape}")
+                log.msg("VideoClipsSeamlessJoin", f"[WanVideo] Processing completed successfully")
                 
                 return (image_tensor, mask_tensor)
                 
             except Exception as e:
-                print(f"[WanVideo] Error creating tensors: {str(e)}")
+                log.error("VideoClipsSeamlessJoin", f"[WanVideo] Error creating tensors: {str(e)}")
                 raise ValueError(f"Error creating output tensors: {str(e)}")
 
 NODE_NAME = 'Seamless Join Video Clips v2 [RvTools]'

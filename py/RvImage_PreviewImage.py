@@ -1,9 +1,9 @@
 ﻿import os
 import sys
 import random
-import torch
+import torch  # type: ignore
 import numpy as np
-import folder_paths
+import folder_paths  # type: ignore
 import safetensors.torch
 
 from PIL import Image, ImageOps, ImageSequence, ImageFile

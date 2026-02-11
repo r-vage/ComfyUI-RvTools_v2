@@ -1,4 +1,4 @@
-import torch
+import torch  # type: ignore
 import torchvision.transforms.v2 as T
 
 from ..core import CATEGORY

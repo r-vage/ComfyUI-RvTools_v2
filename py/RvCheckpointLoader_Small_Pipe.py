@@ -1,11 +1,11 @@
-import comfy
-import comfy.sd
-import torch
-import folder_paths
+import comfy  # type: ignore
+import comfy.sd  # type: ignore
+import torch  # type: ignore
+import folder_paths  # type: ignore
 from typing import List, Tuple, Optional, Union, Any
 from pathlib import Path
 
-from ..core import CATEGORY, cstr
+from ..core import CATEGORY, log
 
 MAX_RESOLUTION: int = 32768
 
@@ -89,7 +89,7 @@ class RvCheckpointLoader_Small_Pipe:
             ),)
 
         except Exception as e:
-            cstr(f"Checkpoint loading failed: {str(e)}").error.print()
+            log.error("CheckpointLoader", f"Checkpoint loading failed: {str(e)}")
             # Return safe defaults
             return (self._get_default_pipe(),)
 
@@ -104,7 +104,7 @@ class RvCheckpointLoader_Small_Pipe:
                     raise FileNotFoundError(f"VAE not found: {vae_name}")
                 return comfy.sd.VAE(sd=comfy.utils.load_torch_file(vae_path))
         except Exception as e:
-            cstr(f"VAE loading failed: {str(e)}").error.print()
+            log.error("CheckpointLoader", f"VAE loading failed: {str(e)}")
             return None
 
     def _load_clip(self, Baked_Clip: bool, Use_Clip_Layer: bool, 
@@ -118,7 +118,7 @@ class RvCheckpointLoader_Small_Pipe:
                 return loaded_clip
             return None
         except Exception as e:
-            cstr(f"CLIP loading failed: {str(e)}").error.print()
+            log.error("CheckpointLoader", f"CLIP loading failed: {str(e)}")
             return None
 
     def _build_pipe_result(self, loaded_ckpt: Any, loaded_clip: Optional[Any], 

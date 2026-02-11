@@ -1,5 +1,5 @@
 from ..core import CATEGORY, cstr
-from .anytype import AnyType
+from ..core import AnyType
 import re, os
 
 any = AnyType("*")

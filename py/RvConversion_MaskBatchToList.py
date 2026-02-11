@@ -1,15 +1,6 @@
-import torch
+import torch  # type: ignore
 
-from ..core import CATEGORY
-
-def make_3d_mask(mask):
-    if len(mask.shape) == 4:
-        return mask.squeeze(0)
-
-    elif len(mask.shape) == 2:
-        return mask.unsqueeze(0)
-
-    return mask
+from ..core import CATEGORY, make_3d_mask, log
 
 
 class RvConversion_MaskBatchToList:
@@ -36,7 +27,7 @@ class RvConversion_MaskBatchToList:
         for mask in masks:
             res.append(mask)
 
-        print(f"mask len: {len(res)}")
+        log.info("MaskBatchToList", f"mask len: {len(res)}")
 
         res = [make_3d_mask(x) for x in res]
 

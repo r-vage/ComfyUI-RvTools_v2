@@ -1,0 +1,7 @@
+{
+  "_comments": {
+    "description": "RvTools ComfyUI Node Configuration",
+    "log_level_options": "error | warning | info | debug"
+  },
+  "log_level": "warning"
+}

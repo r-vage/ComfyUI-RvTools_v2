@@ -2,7 +2,7 @@ import json
 import os
 import random
 
-from ..core import CATEGORY, cstr
+from ..core import CATEGORY, log
 
 class RvText_Prompt_Subject:
     JSON_FILE_PATH = 'subject.json'
@@ -22,7 +22,7 @@ class RvText_Prompt_Subject:
             with open(json_file_path, 'r', encoding='utf-8') as f:
                 self.options = json.load(f)
         except Exception as e:
-            print(f"Error reading JSON file: {e}")  
+            log.error("PromptSubject", f"Error reading JSON file: {e}")  
 
     @classmethod
     def INPUT_TYPES(cls):

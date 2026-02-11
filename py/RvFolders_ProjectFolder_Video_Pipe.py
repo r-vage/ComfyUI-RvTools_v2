@@ -1,9 +1,8 @@
 import os
-import folder_paths
+import folder_paths  # type: ignore
 
 from datetime import datetime
-from ..core import CATEGORY
-from .anytype import AnyType
+from ..core import CATEGORY, AnyType, VIDEO_RESOLUTION_PRESETS, VIDEO_RESOLUTION_MAP
 
 any = AnyType("*")
 
@@ -33,30 +32,6 @@ def format_variables(string, input_variables):
         return string
 
 class RvFolders_ProjectFolder_Video_Pipe:
-    resolution =     ["Custom",
-                      "480x832",
-                      "576x1024",
-                      "--- 9:16 ---",
-                      "240x426 (240p)",              
-                      "360x640 (360p)",
-                      "480x853 (SD)",
-                      "720x1280 (HD)",
-                      "1080x1920 (FullHD)",
-                      "1440x2560 (2K)",
-                      "2160x3840 (4K)",
-                      "4320x7680 (8K)",
-                      "--- 16:9 ---",
-                      "832x480",
-                      "1024x576",
-                      "426x240 (240p)",              
-                      "640x360 (360p)",
-                      "853x480 (SD)",
-                      "1280x720x (HD)",
-                      "1920x1080 (FullHD)",
-                      "2560x1440 (2K)",
-                      "3840x2160 (4K)",
-                      "7680x4320 (8K)",                      
-                      ]
 
     def __init__(self):
         self.output_dir = folder_paths.get_output_directory()
@@ -71,7 +46,7 @@ class RvFolders_ProjectFolder_Video_Pipe:
                 "batch_folder_name": ("STRING", {"multiline": False, "default": "batch_{}"}),                
                 "create_batch_folder": ("BOOLEAN", {"default": False}),
                 "relative_path": ("BOOLEAN", {"default": True}),
-                "resolution": (cls.resolution,),
+                "resolution": (VIDEO_RESOLUTION_PRESETS,),
                 "width": ("INT", {"default": 576, "min": 16, "max": MAX_RESOLUTION, "step": 1},),
                 "height": ("INT", {"default": 1024, "min": 16, "max": MAX_RESOLUTION, "step": 1},),
                 "batch_size": ("INT", {"default": 1, "min": 1, "max": 4096}),
@@ -106,48 +81,9 @@ class RvFolders_ProjectFolder_Video_Pipe:
            folder_name_parsed = format_variables(batch_folder_name, batch_no)
            new_path = os.path.join(new_path, folder_name_parsed)
 
-        if(resolution == "480x832"):
-            width, height = 480, 832
-        if(resolution == "576x1024"):
-            width, height = 576, 1024 
-        if(resolution == "240x426 (240p)"):
-            width, height = 240, 426
-        if(resolution == "360x640 (360p)"):
-            width, height = 360, 640
-        if(resolution == "480x853 (SD)"):
-            width, height = 480, 853
-        if(resolution == "720x1280 (HD)"):
-            width, height = 720, 1280
-        if(resolution == "1080x1920 (FullHD)"):
-            width, height = 1080, 1920
-        if(resolution == "1440x2560 (2K)"):
-            width, height = 1440, 2560
-        if(resolution == "2160x3840 (4K)"):
-            width, height = 2160, 3840
-        if(resolution == "4320x7680 (8K)"):
-            width, height = 4320, 7680
-
-        if(resolution == "832x480"):
-            width, height = 832, 480
-        if(resolution == "1024x576"):
-            width, height = 1024, 576
-        if(resolution == "426x240 (240p)"):
-            width, height = 426, 240
-        if(resolution == "640x360 (360p)"):
-            width, height = 640, 360
-        if(resolution == "853x480 (SD)"):
-            width, height = 853, 480
-        if(resolution == "1280x720x (HD)"):
-            width, height = 1280, 720
-        if(resolution == "1920x1080 (FullHD)"):
-            width, height = 1920, 1080
-        if(resolution == "2560x1440 (2K)"):
-            width, height = 2560, 1440
-        if(resolution == "3840x2160 (4K)"):
-            width, height = 3840, 2160
-        if(resolution == "7680x4320 (8K)"):
-            width, height = 7680, 4320
-
+        # Map resolution preset to width/height using centralized dictionary
+        if resolution in VIDEO_RESOLUTION_MAP:
+            width, height = VIDEO_RESOLUTION_MAP[resolution]
 
          #path, width, height, batch_size, frame_rate, frame_load_cap, skip_first_frames, select_every_nth
         Path = ""

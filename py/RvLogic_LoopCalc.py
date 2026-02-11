@@ -1,9 +1,9 @@
 import sys
 import math
 from typing import Tuple
-import torch
+import torch  # type: ignore
 
-from ..core import CATEGORY, cstr
+from ..core import CATEGORY, log
 
 class RvLogic_LoopCalc:
     """Calculates required number of loops for processing frames with overlap"""
@@ -58,7 +58,7 @@ class RvLogic_LoopCalc:
             return (result,)
 
         except Exception as e:
-            cstr(f"Loop calculation failed: {str(e)}").error.print()
+            log.error("LoopCalc", f"Loop calculation failed: {str(e)}")
             return (1,)  # Return safe default as integer
 
 NODE_NAME = 'Loop Calculator [RvTools]'

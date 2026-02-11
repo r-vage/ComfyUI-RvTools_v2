@@ -1,73 +1,141 @@
-class cstr(str):
-    class color:
-        END = '\33[0m'
-        BOLD = '\33[1m'
-        ITALIC = '\33[3m'
-        UNDERLINE = '\33[4m'
-        BLINK = '\33[5m'
-        BLINK2 = '\33[6m'
-        SELECTED = '\33[7m'
+# Import cstr from logger for backward compatibility
+from .logger import log
 
-        BLACK = '\33[30m'
-        RED = '\33[31m'
-        GREEN = '\33[32m'
-        YELLOW = '\33[33m'
-        BLUE = '\33[34m'
-        VIOLET = '\33[35m'
-        BEIGE = '\33[36m'
-        WHITE = '\33[37m'
 
-        BLACKBG = '\33[40m'
-        REDBG = '\33[41m'
-        GREENBG = '\33[42m'
-        YELLOWBG = '\33[43m'
-        BLUEBG = '\33[44m'
-        VIOLETBG = '\33[45m'
-        BEIGEBG = '\33[46m'
-        WHITEBG = '\33[47m'
+class AnyType(str):
+    """A special class that is always equal in not equal comparisons. Credit to pythongosssss"""
 
-        GREY = '\33[90m'
-        LIGHTRED = '\33[91m'
-        LIGHTGREEN = '\33[92m'
-        LIGHTYELLOW = '\33[93m'
-        LIGHTBLUE = '\33[94m'
-        LIGHTVIOLET = '\33[95m'
-        LIGHTBEIGE = '\33[96m'
-        LIGHTWHITE = '\33[97m'
+    def __eq__(self, _) -> bool:
+        return True
 
-        GREYBG = '\33[100m'
-        LIGHTREDBG = '\33[101m'
-        LIGHTGREENBG = '\33[102m'
-        LIGHTYELLOWBG = '\33[103m'
-        LIGHTBLUEBG = '\33[104m'
-        LIGHTVIOLETBG = '\33[105m'
-        LIGHTBEIGEBG = '\33[106m'
-        LIGHTWHITEBG = '\33[107m'
+    def __ne__(self, __value: object) -> bool:
+        return False
 
-        @staticmethod
-        def add_code(name, code):
-            if not hasattr(cstr.color, name.upper()):
-                setattr(cstr.color, name.upper(), code)
-            else:
-                raise ValueError(f"'cstr' object already contains a code with the name '{name}'.")
 
-    def __new__(cls, text):
-        return super().__new__(cls, text)
+# ============================================================================
+# Resolution presets and mappings for image generation
+# ============================================================================
 
-    def __getattr__(self, attr):
-        if attr.lower().startswith("_cstr"):
-            code = getattr(self.color, attr.upper().lstrip("_cstr"))
-            modified_text = self.replace(f"__{attr[1:]}__", f"{code}")
-            return cstr(modified_text)
-        elif attr.upper() in dir(self.color):
-            code = getattr(self.color, attr.upper())
-            modified_text = f"{code}{self}{self.color.END}"
-            return cstr(modified_text)
-        elif attr.lower() in dir(cstr):
-            return getattr(cstr, attr.lower())
-        else:
-            raise AttributeError(f"'cstr' object has no attribute '{attr}'")
+RESOLUTION_PRESETS = [
+    "Custom",
+    "512x512 (1:1)",
+    "512x682 (3:4)",
+    "512x768 (2:3)",
+    "512x910 (9:16)",
+    "512x952 (1:1.85)",
+    "512x1024 (1:2)",
+    "512x1224 (1:2.39)",
+    "640x1536 (9:21)",
+    "768x1280 (3:5 Flux)",
+    "768x1344 (9:16 HiDream)",
+    "832x1216 (2:3 Flux, SDXL)",
+    "832x1408 (1:1.692 HiDream)",
+    "896x1152 (3:4)",
+    "896x1536 (7:12 HiDream)",
+    "1024x1024 (1:1)",
+    "1024x1536 (2:3 Flux, Qwen)",
+    "1024x2048 (1:2 Qwen)",
+    "1152x896 (4:3)",
+    "682x512 (4:3)",
+    "768x512 (3:2)",
+    "910x512 (16:9)",
+    "952x512 (1.85:1)",
+    "1024x512 (2:1)",
+    "1224x512 (2.39:1)",
+    "1536x640 (21:9)",
+    "1280x768 (5:3 Flux)",
+    "1344x768 (16:9 HiDream)",
+    "1216x832 (3:2 Flux, SDXL)",
+    "1408x832 (1.692:1 HiDream)",
+    "1536x896 (12:7 HiDream)",
+    "1536x1024 (3:2 Flux, Qwen)",
+    "2048x1024 (2:1 Qwen)",
+]
 
-    def print(self, **kwargs):
-        print(self, **kwargs)
+RESOLUTION_MAP = {
+    "512x512 (1:1)": (512, 512),
+    "512x682 (3:4)": (512, 682),
+    "512x768 (2:3)": (512, 768),
+    "512x910 (9:16)": (512, 910),
+    "512x952 (1:1.85)": (512, 952),
+    "512x1024 (1:2)": (512, 1024),
+    "512x1224 (1:2.39)": (512, 1224),
+    "640x1536 (9:21)": (640, 1536),
+    "768x1280 (3:5 Flux)": (768, 1280),
+    "768x1344 (9:16 HiDream)": (768, 1344),
+    "832x1216 (2:3 Flux, SDXL)": (832, 1216),
+    "832x1408 (1:1.692 HiDream)": (832, 1408),
+    "896x1152 (3:4)": (896, 1152),
+    "896x1536 (7:12 HiDream)": (896, 1536),
+    "1024x1024 (1:1)": (1024, 1024),
+    "1024x1536 (2:3 Flux, Qwen)": (1024, 1536),
+    "1024x2048 (1:2 Qwen)": (1024, 2048),
+    "1152x896 (4:3)": (1152, 896),
+    "682x512 (4:3)": (682, 512),
+    "768x512 (3:2)": (768, 512),
+    "910x512 (16:9)": (910, 512),
+    "952x512 (1.85:1)": (952, 512),
+    "1024x512 (2:1)": (1024, 512),
+    "1224x512 (2.39:1)": (1224, 512),
+    "1536x640 (21:9)": (1536, 640),
+    "1280x768 (5:3 Flux)": (1280, 768),
+    "1344x768 (16:9 HiDream)": (1344, 768),
+    "1216x832 (3:2 Flux, SDXL)": (1216, 832),
+    "1408x832 (1.692:1 HiDream)": (1408, 832),
+    "1536x896 (12:7 HiDream)": (1536, 896),
+    "1536x1024 (3:2 Flux, Qwen)": (1536, 1024),
+    "2048x1024 (2:1 Qwen)": (2048, 1024),
+}
 
+# ============================================================================
+# Video resolution presets and mappings
+# ============================================================================
+
+VIDEO_RESOLUTION_PRESETS = [
+    "Custom",
+    "480x832",
+    "576x1024",
+    "--- 9:16 ---",
+    "240x426 (240p)",
+    "360x640 (360p)",
+    "480x853 (SD)",
+    "720x1280 (HD)",
+    "1080x1920 (FullHD)",
+    "1440x2560 (2K)",
+    "2160x3840 (4K)",
+    "4320x7680 (8K)",
+    "--- 16:9 ---",
+    "832x480",
+    "1024x576",
+    "426x240 (240p)",
+    "640x360 (360p)",
+    "853x480 (SD)",
+    "1280x720x (HD)",
+    "1920x1080 (FullHD)",
+    "2560x1440 (2K)",
+    "3840x2160 (4K)",
+    "7680x4320 (8K)",
+]
+
+VIDEO_RESOLUTION_MAP = {
+    "480x832": (480, 832),
+    "576x1024": (576, 1024),
+    "240x426 (240p)": (240, 426),
+    "360x640 (360p)": (360, 640),
+    "480x853 (SD)": (480, 853),
+    "720x1280 (HD)": (720, 1280),
+    "1080x1920 (FullHD)": (1080, 1920),
+    "1440x2560 (2K)": (1440, 2560),
+    "2160x3840 (4K)": (2160, 3840),
+    "4320x7680 (8K)": (4320, 7680),
+    "832x480": (832, 480),
+    "1024x576": (1024, 576),
+    "426x240 (240p)": (426, 240),
+    "640x360 (360p)": (640, 360),
+    "853x480 (SD)": (853, 480),
+    "1280x720x (HD)": (1280, 720),
+    "1920x1080 (FullHD)": (1920, 1080),
+    "2560x1440 (2K)": (2560, 1440),
+    "3840x2160 (4K)": (3840, 2160),
+    "7680x4320 (8K)": (7680, 4320),
+}

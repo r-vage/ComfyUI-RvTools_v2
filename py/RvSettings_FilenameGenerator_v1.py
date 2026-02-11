@@ -1,8 +1,8 @@
 import json
 import os
-import folder_paths
+import folder_paths  # type: ignore
 
-from ..core import CATEGORY, cstr
+from ..core import CATEGORY
 
 #created for seamless_join_video_clips & combine_video_clips
 #v1 is used for combine only it automaticly sets the 2nd filename (filename_suffix_start +1), it also provides the mask settings

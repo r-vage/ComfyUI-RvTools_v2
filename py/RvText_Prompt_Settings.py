@@ -2,7 +2,7 @@ import json
 import os
 import random
 
-from ..core import CATEGORY, cstr
+from ..core import CATEGORY, log
 
 class RvText_Prompt_Settings:
     JSON_FILE_PATH = 'settings.json'
@@ -22,7 +22,7 @@ class RvText_Prompt_Settings:
             with open(json_file_path, 'r', encoding='utf-8') as f:
                 self.options = json.load(f)
         except Exception as e:
-            print(f"Error reading JSON file: {e}")  
+            log.error("PromptSettings", f"Error reading JSON file: {e}")  
 
     @classmethod
     def INPUT_TYPES(cls):

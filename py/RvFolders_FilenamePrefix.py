@@ -1,33 +1,8 @@
 import os
 
-from datetime import datetime
-from ..core import CATEGORY
-from .anytype import AnyType
+from ..core import CATEGORY, AnyType, format_datetime, format_date_time, format_variables
 
 any = AnyType("*")
-
-def format_datetime(datetime_format):
-    today = datetime.now()
-    try:
-        timestamp = today.strftime(datetime_format)
-    except:
-        timestamp = today.strftime("%Y-%m-%d-%H%M%S")
-
-    return timestamp
-
-def format_date_time(string, position, datetime_format):
-    today = datetime.now()
-    if position == "prefix":
-        return f"{today.strftime(datetime_format)}_{string}"
-    if position == "postfix":
-        return f"{string}_{today.strftime(datetime_format)}"
-
-def format_variables(string, input_variables):
-    if input_variables:
-        variables = str(input_variables).split(",")
-        return string.format(*variables)
-    else:
-        return string
 
 class RvFolders_FilenamePrefix:
     def __init__(self):

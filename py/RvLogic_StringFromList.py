@@ -1,5 +1,5 @@
 import math
-from ..core import CATEGORY
+from ..core import CATEGORY, log
 
 #original by mr.pepe69: https://github.com/mr-pepe69/ComfyUI-SelectStringFromListWithIndex
 
@@ -8,7 +8,7 @@ def wrapIndex(index, length):
     Calculate wrapped index and number of wraps
     """
     if length <= 0:
-        print("Invalid list length, returning 0.")
+        log.warning("StringFromList", "Invalid list length, returning 0.")
         return 0, 0
         
     # Convert to integer and handle wrap-around
@@ -43,7 +43,7 @@ class RvLogic_StringFromList:
         try:
             # Ensure list_input is not empty
             if not list_input:
-                print("Empty input list, returning empty results")
+                log.warning("StringFromList", "Empty input list, returning empty results")
                 return ([], 0, [])
 
             length = len(list_input)
@@ -60,14 +60,14 @@ class RvLogic_StringFromList:
                     wraps_list.append(wraps)
                     item_list.append(list_input[index_mod])
                 else:
-                    print(f"Index {i} out of range for list of length {length}")
+                    log.warning("StringFromList", f"Index {i} out of range for list of length {length}")
                     wraps_list.append(0)
                     item_list.append("")
 
             return (item_list, length, wraps_list)
 
         except Exception as e:
-            print(f"Error in StringFromList: {str(e)}")
+            log.error("StringFromList", f"Error in StringFromList: {str(e)}")
             return ([], 0, [])
 
 NODE_NAME = 'String from List [RvTools]'

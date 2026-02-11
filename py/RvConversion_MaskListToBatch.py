@@ -1,5 +1,5 @@
-import torch
-import comfy
+import torch  # type: ignore
+import comfy  # type: ignore
 
 from ..core import CATEGORY
 

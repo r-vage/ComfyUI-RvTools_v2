@@ -1,5 +1,5 @@
-from ..core import CATEGORY
-from .anytype import AnyType
+from ..core import CATEGORY, log
+from ..core import AnyType
 
 any = AnyType("*")
 
@@ -48,7 +48,7 @@ class RvText_WidgetToString:
                         node_id = node["id"]
                         break
                 else:
-                    print("Node title not found.")
+                    log.warning("WidgetToString", "Node title not found.")
             elif id != 0:
                 if node["id"] == id:
                     node_id = id

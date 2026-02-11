@@ -1,15 +1,9 @@
-import torch
+import torch  # type: ignore
 import numpy as np
 
 from PIL import Image
 
-from ..core import CATEGORY
-
-def tensor2pil(image):
-    return Image.fromarray(np.clip(255. * image.cpu().numpy().squeeze(), 0, 255).astype(np.uint8))
-
-def pil2tensor(image):
-    return torch.from_numpy(np.array(image).astype(np.float32) / 255.0).unsqueeze(0)
+from ..core import CATEGORY, tensor2pil, pil2tensor
 
 
 class RvConversion_ImagesToRGB:

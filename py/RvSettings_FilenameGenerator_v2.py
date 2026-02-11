@@ -1,6 +1,6 @@
 import json
 import os
-import folder_paths
+import folder_paths  # type: ignore
 
 from ..core import CATEGORY, cstr
 

@@ -1,8 +1,7 @@
-import comfy
-import comfy.sd
+import comfy  # type: ignore
+import comfy.sd  # type: ignore
 
-from ..core import CATEGORY
-from .anytype import AnyType
+from ..core import CATEGORY, AnyType
 
 any = AnyType("*")
 

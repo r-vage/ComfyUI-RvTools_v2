@@ -1,5 +1,5 @@
 
-import comfy
+import comfy  # type: ignore
 from ..core import CATEGORY
 
 SCHEDULERS_EFFICIENT = comfy.samplers.KSampler.SCHEDULERS + ['AYS SD1', 'AYS SDXL', 'AYS SVD']

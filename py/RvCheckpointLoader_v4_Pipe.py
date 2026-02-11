@@ -1,7 +1,7 @@
-import comfy
-import comfy.sd
-import torch
-import folder_paths
+import comfy  # type: ignore
+import comfy.sd  # type: ignore
+import torch  # type: ignore
+import folder_paths  # type: ignore
 
 from ..core import CATEGORY
 
@@ -21,7 +21,7 @@ class RvCheckpointLoader_v4_Pipe:
                 "clip_name2": (folder_paths.get_filename_list("clip") + ["None"], {"default": "None"},),
                 "clip_name3": (folder_paths.get_filename_list("clip") + ["None"], {"default": "None"},),
                 "clip_name4": (folder_paths.get_filename_list("clip") + ["None"], {"default": "None"},),
-                "clip_type_": (["sdxl", "sd3", "flux"], {"default": "flux"},),
+                "clip_type_": (["flux", "flux2", "sd3", "sdxl", "stable_cascade", "stable_audio", "hunyuan_dit", "mochi", "ltxv", "hunyuan_video", "pixart", "cosmos", "lumina2", "wan", "hidream", "chroma", "ace", "omnigen2", "qwen_image", "hunyuan_image", "hunyuan_video_15", "ovis", "kandinsky5", "kandinsky5_image", "newbie"], {"default": "flux"},),
                 "vae_name": (["Baked VAE"] + folder_paths.get_filename_list("vae"),),
                 "baked_clip": ("BOOLEAN", {"default": True},),
                 "enable_clip_layer": ("BOOLEAN", {"default": True},),
@@ -89,12 +89,35 @@ class RvCheckpointLoader_v4_Pipe:
             vae_path = folder_paths.get_full_path("vae", vae_name)
             loaded_vae = comfy.sd.VAE(sd=comfy.utils.load_torch_file(vae_path))
 
-        if clip_type_ == "sdxl":
-            clip_type = comfy.sd.CLIPType.STABLE_DIFFUSION
-        elif clip_type_ == "sd3":
-            clip_type = comfy.sd.CLIPType.SD3
-        elif clip_type_ == "flux":
-            clip_type = comfy.sd.CLIPType.FLUX
+        # Map clip_type string to CLIPType enum
+        clip_type_map = {
+            "sdxl": comfy.sd.CLIPType.STABLE_DIFFUSION,
+            "stable_cascade": comfy.sd.CLIPType.STABLE_CASCADE,
+            "sd3": comfy.sd.CLIPType.SD3,
+            "stable_audio": comfy.sd.CLIPType.STABLE_AUDIO,
+            "hunyuan_dit": comfy.sd.CLIPType.HUNYUAN_DIT,
+            "flux": comfy.sd.CLIPType.FLUX,
+            "flux2": comfy.sd.CLIPType.FLUX2,
+            "mochi": comfy.sd.CLIPType.MOCHI,
+            "ltxv": comfy.sd.CLIPType.LTXV,
+            "hunyuan_video": comfy.sd.CLIPType.HUNYUAN_VIDEO,
+            "pixart": comfy.sd.CLIPType.PIXART,
+            "cosmos": comfy.sd.CLIPType.COSMOS,
+            "lumina2": comfy.sd.CLIPType.LUMINA2,
+            "wan": comfy.sd.CLIPType.WAN,
+            "hidream": comfy.sd.CLIPType.HIDREAM,
+            "chroma": comfy.sd.CLIPType.CHROMA,
+            "ace": comfy.sd.CLIPType.ACE,
+            "omnigen2": comfy.sd.CLIPType.OMNIGEN2,
+            "qwen_image": comfy.sd.CLIPType.QWEN_IMAGE,
+            "hunyuan_image": comfy.sd.CLIPType.HUNYUAN_IMAGE,
+            "hunyuan_video_15": comfy.sd.CLIPType.HUNYUAN_VIDEO_15,
+            "ovis": comfy.sd.CLIPType.OVIS,
+            "kandinsky5": comfy.sd.CLIPType.KANDINSKY5,
+            "kandinsky5_image": comfy.sd.CLIPType.KANDINSKY5_IMAGE,
+            "newbie": comfy.sd.CLIPType.NEWBIE,
+        }
+        clip_type = clip_type_map.get(clip_type_, comfy.sd.CLIPType.STABLE_DIFFUSION)
 
         #load the clip
              

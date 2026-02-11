@@ -1,8 +1,8 @@
-import comfy
-import comfy.sd
-import folder_paths
+import comfy  # type: ignore
+import comfy.sd  # type: ignore
+import folder_paths  # type: ignore
 
-from spandrel import ModelLoader, ImageModelDescriptor
+from spandrel import ModelLoader, ImageModelDescriptor # type: ignore
 
 from ..core import CATEGORY
 

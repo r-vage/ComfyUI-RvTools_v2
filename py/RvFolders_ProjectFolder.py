@@ -1,9 +1,8 @@
 import os
-import folder_paths
+import folder_paths  # type: ignore
 
 from datetime import datetime
-from ..core import CATEGORY
-from .anytype import AnyType
+from ..core import CATEGORY, AnyType
 
 any = AnyType("*")
 

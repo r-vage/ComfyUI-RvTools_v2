@@ -1,11 +1,11 @@
 import os
 import numpy as np
 from PIL import Image
-import torch
+import torch  # type: ignore
 from typing import Union, List
 import subprocess
 
-from ..core import CATEGORY, cstr
+from ..core import CATEGORY
 
 try:
     import pilgram

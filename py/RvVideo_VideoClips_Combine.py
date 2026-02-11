@@ -1,9 +1,9 @@
 import os
-import cv2
-import numpy as np
-import torch
+import cv2   # type: ignore
+import numpy as np   # type: ignore
+import torch  # type: ignore
 from PIL import Image
-from ..core import CATEGORY, cstr
+from ..core import CATEGORY, log
 
 FPS = float(30.0)
 
@@ -80,7 +80,7 @@ class RvVideo_CombineVideoClips:
         total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
         FPS = cap.get(cv2.CAP_PROP_FPS)
 
-        cstr(f"Video {video_path}: {total_frames} frames, {FPS} fps").msg.print()
+        log.msg("VideoClipsCombine", f"Video {video_path}: {total_frames} frames, {FPS} fps")
                 
         frames = []
         frame_count = 0
@@ -103,7 +103,7 @@ class RvVideo_CombineVideoClips:
         if not frames:
             raise ValueError(f"No frames could be loaded from video: {video_path}")
         
-        cstr(f"Successfully loaded {len(frames)} frames from {video_path}").msg.print()
+        log.msg("VideoClipsCombine", f"Successfully loaded {len(frames)} frames from {video_path}")
         return frames
     
     def frames_to_tensor(self, frames_list):
@@ -181,7 +181,7 @@ class RvVideo_CombineVideoClips:
                             video_1_end_idx = min(video_1_end_idx, len(video_1_list))
 
                             #Append images from video_1_list to output_images_list
-                            cstr(f"Adding Frames video_1 [{video_1_start_idx}:{video_1_end_idx}]").msg.print()
+                            log.msg("VideoClipsCombine", f"Adding Frames video_1 [{video_1_start_idx}:{video_1_end_idx}]")
                             
                             for i in range(video_1_start_idx, video_1_end_idx):
                                 if i < len(video_1_list):
@@ -208,7 +208,7 @@ class RvVideo_CombineVideoClips:
                             video_1_end_idx = min(video_1_end_idx, len(video_1_list))
 
                             #Append images from video_1_list to output_images_list
-                            cstr(f"Adding Frames video_1 [{video_1_start_idx}:{video_1_end_idx}]").msg.print()
+                            log.msg("VideoClipsCombine", f"Adding Frames video_1 [{video_1_start_idx}:{video_1_end_idx}]")
                             
                             for i in range(video_1_start_idx, video_1_end_idx):
                                 if i < len(video_1_list):
@@ -216,7 +216,7 @@ class RvVideo_CombineVideoClips:
 
                         if video_join_list:
                             #If video_join_list is not empty, append all its images
-                            cstr(f"Adding Frames video_join: {len(video_join_list)}").msg.print()
+                            log.msg("VideoClipsCombine", f"Adding Frames video_join: {len(video_join_list)}")
                             output_images_list.extend(video_join_list)
                             last_was_join = True
 
@@ -229,7 +229,7 @@ class RvVideo_CombineVideoClips:
                             video_1_end_idx = min(video_1_end_idx, len(video_1_list))
 
                             # i: Append images from video_1_list to output_images_list
-                            cstr(f"Adding Frames video_1 [{video_1_start_idx}:{video_1_end_idx}]").msg.print()
+                            log.msg("VideoClipsCombine", f"Adding Frames video_1 [{video_1_start_idx}:{video_1_end_idx}]")
                             
                             for i in range(video_1_start_idx, video_1_end_idx):
                                 if i < len(video_1_list):
@@ -245,25 +245,25 @@ class RvVideo_CombineVideoClips:
                         output_images_list.extend(self.load_video_frames(video))          
 
                     except Exception as e:
-                        cstr(f"Error loading video frames: {str(e)}").error.print()
+                        log.error("VideoClipsCombine", f"Error loading video frames: {str(e)}")
                         raise ValueError(f"Error loading video frames: {str(e)}")                    
     
         # Convert to tensor format
         if not output_images_list:
             raise ValueError("No output images generated")
         
-        cstr(f"Generated {len(output_images_list)} total output images").msg.print()
+        log.msg("VideoClipsCombine", f"Generated {len(output_images_list)} total output images")
         
         try:
             image_tensor = self.frames_to_tensor(output_images_list)
             
-            cstr(f"Image tensor shape: {image_tensor.shape}").msg.print()
-            cstr(f"Video combination completed successfully").msg.print()
+            log.msg("VideoClipsCombine", f"Image tensor shape: {image_tensor.shape}")
+            log.msg("VideoClipsCombine", f"Video combination completed successfully")
             
             return (image_tensor, FPS,)
             
         except Exception as e:
-            cstr(f"Error creating tensor: {str(e)}").msg.print()
+            log.msg("VideoClipsCombine", f"Error creating tensor: {str(e)}")
             raise ValueError(f"Error creating output tensor: {str(e)}")
 
 NODE_NAME = 'Combine Video Clips v2 [RvTools]'

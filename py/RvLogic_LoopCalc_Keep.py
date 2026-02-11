@@ -1,9 +1,9 @@
 import sys
 import math
 from typing import Tuple
-import torch
+import torch  # type: ignore
 
-from ..core import CATEGORY, cstr
+from ..core import CATEGORY, log
 
 class RvLogic_LoopCalc_Keep:
     """Calculates frames to keep based on context length and total frames"""
@@ -46,7 +46,7 @@ class RvLogic_LoopCalc_Keep:
             return (max(0, frames_to_keep),)
 
         except Exception as e:
-            cstr(f"Frame calculation failed: {str(e)}").error.print()
+            log.error("LoopCalcKeep", f"Frame calculation failed: {str(e)}")
             return (0,)
 
 NODE_NAME = 'Keep Calculator [RvTools]'

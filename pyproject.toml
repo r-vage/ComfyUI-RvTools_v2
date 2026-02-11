@@ -1,13 +1,15 @@
 [project]
 name = "comfyui-rvtools_v2"
 description = "this node contains a lot of small little helpers like switches, passers and selectors that i use a lot to build my workflows."
-version = "2.4.46"
+version = "2.5.0"
 license = { file = "LICENSE" }
+dependencies = ["torch", "numpy", "Pillow", "opencv-python", "pilgram"]
 
 [project.urls]
 Repository = "https://github.com/r-vage/ComfyUI-RvTools_v2"
+#  Used by Comfy Registry https://comfyregistry.org
 
 [tool.comfy]
 PublisherId = "rvage"
 DisplayName = "ComfyUI-RvTools_v2"
-Icon = ""
+Icon = "https://raw.githubusercontent.com/r-vage/ComfyUI_Eclipse/refs/heads/main/Readme/icon_eclipse.png"
