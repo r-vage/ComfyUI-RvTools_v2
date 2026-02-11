@@ -29,9 +29,9 @@ class RvPipe_Out_FilenameGenerator_v1:
         
         if not file_dict in (None, '', 'undefined', 'none') :
             files = str(file_dict.get("FILE"))
-            files = re.sub("^\[", "", files)
-            files = re.sub("\]", "", files)
-            files = re.sub("\'", "", files)
+            files = re.sub(r"^\[", "", files)
+            files = re.sub(r"\]", "", files)
+            files = re.sub(r"\'", "", files)
 
             #print(f"File: {files} ")
 

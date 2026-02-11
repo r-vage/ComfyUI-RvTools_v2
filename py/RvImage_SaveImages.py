@@ -599,7 +599,7 @@ class RvImage_SaveImages:
         return {
             "required": {
                 "images": ("IMAGE", ),
-                "output_path": ("STRING", {"default": '%today\%basemodel', "multiline": False}),
+                "output_path": ("STRING", {"default": '%today/%basemodel', "multiline": False}),
                 "filename_prefix": ("STRING", {"default": "%today, %time, %basemodel, %seed, %sampler_name, %scheduler, %steps, %cfg, %denoise"}),
                 "filename_delimiter": ("STRING", {"default":"_"}),
                 "filename_number_padding": ("INT", {"default":4, "min":1, "max":9, "step":1}),

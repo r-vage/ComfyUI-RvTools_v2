@@ -30,17 +30,17 @@ class RvPipe_Out_FilenameGenerator_v2:
 
         if not file_dict in (None, '', 'undefined', 'none') :
             files = str(file_dict.get("FILE"))
-            files = re.sub("^\[", "", files)
-            files = re.sub("\]", "", files)
-            files = re.sub("\'", "", files)
+            files = re.sub(r"^\[", "", files)
+            files = re.sub(r"\]", "", files)
+            files = re.sub(r"\'", "", files)
 
             #print(f"File: {files} ")
 
         if not join_dict in (None, '', 'undefined', 'none') :
             files_join = str(join_dict.get("JOIN"))
-            files_join = re.sub("^\[", "", files_join)
-            files_join = re.sub("\]", "", files_join)
-            files_join = re.sub("\'", "", files_join)
+            files_join = re.sub(r"^\[", "", files_join)
+            files_join = re.sub(r"\]", "", files_join)
+            files_join = re.sub(r"\'", "", files_join)
 
             #print(f"File: {files_join} ")
 
