@@ -1,3 +1,5 @@
+> **⚠️ This project is no longer maintained.** It has been superseded by [ComfyUI_Eclipse](https://github.com/r-vage/ComfyUI_Eclipse), which includes most of the RvTools nodes plus many new features. Please migrate to ComfyUI_Eclipse.
+
 <b><h2>Readme RvTools v2:</h2></b>
 To fix the issues in the Node Library of ComfyUI i had to change all node names which leads to this version but that also allows me to updated some of the names for a cleaner look and do some other clean ups.<br><br>
 ![Screenshot 2025-05-30 192340](https://github.com/user-attachments/assets/1bb07174-9bdd-48e6-b150-c430bbb04745)
